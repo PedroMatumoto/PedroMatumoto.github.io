@@ -22,9 +22,10 @@ img {
 
   /* colors */
   --hue: 159;
+  --rosa: 341;
   /* HSL color mode */
-  --base-color: hsl(341, 100%, 71%);
-  --base-color-second: hsl(341, 100%, 71%);
+  --base-color: hsl(var(--rosa) 100% 71%);
+  --base-color-second: hsl(var(--rosa) 100% 71%);
   --base-color-alt: hsl(var(--hue) 57% 53%);
   --title-color: hsl(var(--hue) 41% 10%);
   --text-color: hsl(0 0% 46%);
