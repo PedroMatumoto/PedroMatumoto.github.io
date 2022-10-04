@@ -178,8 +178,8 @@ main {
   
     #home .image::before {
     content: '';
-    height: 50%;
-    width: 50%;
+    height: 60%;
+    width: 60%;
     background: var(--base-color-second);
     position: absolute;
     margin-left: 6rem;
@@ -190,9 +190,9 @@ main {
 
     #home .image img {
       position: relative;
-      top: -18%;
+      top: -15%;
       right: 0rem;
-      scale: 50%;
+      scale: 60%;
       overflow: hidden;
     }
   
