@@ -182,7 +182,7 @@ main {
     width: 50%;
     background: var(--base-color-second);
     position: absolute;
-    margin-left: 15rem;
+    margin-left: 6rem;
     top: 0%;
     right: 0%;
     z-index: 0;
@@ -191,7 +191,7 @@ main {
     #home .image img {
       position: relative;
       top: -18%;
-      right: 1rem;
+      right: 0rem;
       scale: 50%;
       overflow: hidden;
     }
