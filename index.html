@@ -1,112 +1,428 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<html lang="pt_BR">
-  scroll-behavior: smooth
-  <head>
-    <!-- PAGE INFO -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pedro Matumoto Portfolio</title>
+    <html lang="pt_BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale">
 
-    <!-- STYLES -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header id="header">
-      <nav class="container">
-        <a class="logo" href="#">Matumoto<span> 優吾</span></a>
-        <div class="menu">...</div>
-      </nav>
-    </header>
-
-    <main>
-      <section class="section" id="home">
-        <div class="container grid">
-          <div class="image">
-            <img
-              src="https://live.staticflickr.com/65535/52391671411_9530b79ef9_k.jpg"
-              alt="Pedro segurando um robô"
-            />
-          </div>
-          <div class="text">
-            <h1>Hello, I'm Pedro Matumoto,</h1>
-            <p>A computer engineering student from Brazil.</p>
-            <a class="button" href="#">See projects </a>
-          </div>
-        </div>
-      </section>
-
-      <div class="divider-1"></div>
-
-        <div class="github">
-          <a
-            class="button_git"
-            href="https://github.com/PedroMatumoto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://img.icons8.com/ios-glyphs/480/000000/github.png"
-            />
-          </a>
-        </div>
-
-        <div class="linkedin">
-          <a
-            class="button_git"
-            href="https://www.linkedin.com/in/pedromatumoto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <img src="https://img.icons8.com/ios-filled/500/000000/linkedin-2--v1.png"/>
-        </div>
-
-        <div class="gmail">
-          <a
-            class="button_git"
-            href="https://www.linkedin.com/in/pedromatumoto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <div class="gmail">
-            <a
-              class="button_git"
-              href="mailto:pedromatumoto@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-            <img src="https://img.icons8.com/ios-filled/500/000000/gmail.png"/>
-
-          </div>
-        </div>
-
-        <div class="divider-2"></div>
-
-        <div class="text-projects">
-          <h1>Projects</h1>
-
-        </div>
+            <!-- icons -->
+            <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
 
-    </main>
-  </body>
-</html>
+            <!-- swiper css -->
+            <link rel="stylesheet" href="assets/css/styles.css">
+
+            <!-- css -->
+
+            <title> Pedro Matumoto</title>
+        </head>
+        <body>
+            <!-- header -->
+            <header class="header" id="header">
+                <nav class="nav container">
+                    <a href="" class="nav__logo">Matumoto</a>
+                    <div class="nav__menu" id="nav-menu">
+                       <ul class="nav__list grid">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link">
+                                <i class="uil uil-estate nav__icon"></i> Home
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">
+                                <i class="uil uil-user nav__icon"></i> About
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#skills" class="nav__link">
+                                <i class="uil uil-notes nav__icon"></i> Skills
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#services" class="nav__link">
+                                <i class="uil uil-briefcase-alt nav__icon"></i> Services
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#portfolio" class="nav__link">
+                                <i class="uil uil-scenery nav__icon"></i> Portfolio
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link">
+                                <i class="uil uil-message nav__icon"></i> Contactme
+                            </a>
+                        </li>
+                       </ul>
+                    <i class="uil uil-times nav__close" id="nav-close"></i>
+                    </div>
+                    <div class="nav__btns">
+                        <div class="nav__toggle" id="nav-toggle">
+                            <i class="uil uil-apps"></i>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- main -->
+            <main class="main">
+                <!-- home -->
+                <section class="home section" id="home">
+                    <div class="home__container container grid"> 
+                       <div class="home__content grid">
+                            <div class="home__social">
+                                <a href="https://www.linkedin.com/in/pedromatumoto/" target="_blank" class="home__social-icon">
+                                    <i class="uil uil-linkedin-alt"></i>
+                                </a>
+
+                                <a href="https://github.com/PedroMatumoto" target="_blank" class="home__social-icon">
+                                    <i class="uil uil-github-alt"></i>
+                                </a>
+
+                                <a href="https://www.instagram.com/rawmatumoto/" target="_blank" class="home__social-icon">
+                                    <i class="uil uil-instagram"></i>
+                                </a>
+                            </div>
+
+                            <div class="home__img">
+                                <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <mask id="mask0" mask-type="alpha">
+                                        <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                                        130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                                        97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                                        0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                                    </mask>
+                                    <g mask="url(#mask0)">
+                                        <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                                        165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                                        129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                                        -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                                        
+                                        <image class="home__blob-img" x='-40' y='1' xlink:href="assets/img/perfil.png" />
+                                    </g>s
+                                </svg>
+                            </div>
+
+                            <div class="home__data">
+                                <h1 class="home__title">Hello! I'm Pedro</h1>
+                                <h3 class="home__subtitle"> Computer Engineering student</h3>
+                                <p class="home__description"> Sample text here</p>
+                                <a href="#contact" class="button button--flex">
+                                    Get in touch <i class="uil uil-message button__icon"></i>
+                                </a>
+                            </div>
+                       </div>
+
+                       <div class="home__scroll">
+                        <a href="#about" class="home__scroll-button button--flex">
+                            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                            <span class="home__scroll-name">Scroll down</span>
+                            <i class="uil uil-angle-down home__scroll-arrow"></i>
+                        </a>
+                       </div>
+                    </div>
+                </section>
+                <!-- about -->
+                <section class="about section" id="about">
+                    <h2 class="section_title">About me</h2>
+                    <span class="section_subtitle">My introductions</span>
+                    <div class="about__container container grid">
+                        <img src="assets/img/about.jpg" alt="" class="about_img">
+                        <div class="about__data">
+                            <p class="about__description">Studying WebDev, Data Science and Software Engineering</p>
+                            <div class="about__info">
+                                <div>
+                                    <span class="about__info-title">3</span>
+                                    <span class="about__info-name">years<br> in contact</span>
+                                </div>
+
+                                <div>
+                                    <span class="about__info-title">3</span>
+                                    <span class="about__info-name">Completed<br> projects</span>
+                                </div>
+                            </div>
+
+                            <div class="about__buttons">
+                                <a download="" href="assets/pdf/matumotocv.pdf" class="button button--flex">
+                                    Download CV<i class="uil uil-cloud-download button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- skills -->
+                <section class="skills section" id="skills">
+                    <h2 class="section_title">Skills</h2>
+                    <span class="section_subtitle">My technical level</span>
+
+                    <div class="skills__container container grid">
+                        <div>
+                            <!-- skills 1-->
+                            <div class="skills__content skills__open">
+                                <div class="skills__header">
+                                    <i class="uil uil-arrow skills__icon"></i>
+                                    <div>
+                                        <h1 class="skills__title">Computer Engineering Student</h1>
+                                        <span class="skils__subtitle">3° year of graduation </span>
+                                    </div>
+
+                                    <i class="uil uil-arrow-down skills__arrow"></i>
+                                </div>
+
+
+
+                                <div class="skills__list grid">
+                                    <div class="skills__data">
+                                        <div class="skills__titles">
+                                            <h3 class="skills__name">C</h3>
+                                            <span class="skills__number">60%</span>
+                                        </div>
+                                        <div class="skills__bar">
+                                            <span class="skills__percentage skills__C"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skills__data">
+                                        <div class="skills__titles">
+                                            <h3 class="skills__name">Python</h3>
+                                            <span class="skills__number">45%</span>
+                                        </div>
+                                        <div class="skills__bar">
+                                            <span class="skills__percentage skills__python"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skills__data">
+                                        <div class="skills__titles">
+                                            <h3 class="skills__name">HTML/CSS/JS</h3>
+                                            <span class="skills__number">60%</span>
+                                        </div>
+                                        <div class="skills__bar">
+                                            <span class="skills__percentage skills__HTML"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skills__data">
+                                        <div class="skills__titles">
+                                            <h3 class="skills__name">R</h3>
+                                            <span class="skills__number">25%</span>
+                                        </div>
+                                        <div class="skills__bar">
+                                            <span class="skills__percentage skills__R"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skills__data">
+                                        <div class="skills__titles">
+                                            <h3 class="skills__name">Wordpress</h3>
+                                            <span class="skills__number">50%</span>
+                                        </div>
+                                        <div class="skills__bar">
+                                            <span class="skills__percentage skills__wordpress"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- skills 2-->
+                            <div class="skills__content skills__close">
+                                <div class="skills__header">
+                                    <i class="uil uil-shutter-alt skills__icon"></i>
+                                    <div>
+                                        <h1 class="skills__title">Design</h1>
+                                        <span class="skils__subtitle">Hobbies</span>
+                                    </div>
+                                    <i class="uil uil-arrow-down skills__arrow"></i>
+                                </div>
+                            
+                                <div class="skills__list grid">
+                                    <div class="skills__data">
+                                        <div class="skills__titles">
+                                            <h3 class="skills__name">Photoshop</h3>
+                                            <span class="skills__number">25%</span>
+                                        </div>
+                                        <div class="skills__bar">
+                                            <span class="skills__percentage skills__ps"></span>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="skills__data">
+                                        <div class="skills__titles">
+                                            <h3 class="skills__name">Adobe Premiere</h3>
+                                            <span class="skills__number">25%</span>
+                                        </div>
+                                        <div class="skills__bar">
+                                            <span class="skills__percentage skills__pr"></span>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="skills__data">
+                                        <div class="skills__titles">
+                                            <h3 class="skills__name">Canva</h3>
+                                            <span class="skills__number">50%</span>
+                                        </div>
+                                        <div class="skills__bar">
+                                            <span class="skills__percentage skills__canva"></span>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- qualification -->
+                <section class="qualification section">
+                    <h2 class="section_title">Qualification</h2>
+                    <span class="section_subtitle">My personal Journey</span>
+
+                    <div class="qualification__container container">
+                        <div class="qualification__tabs">
+                            <div class="qualification__button button--flex qualification__active" data-target="#education">
+                                <i class="uil uil-graduation-cap qualification__icon"></i>
+                                Education
+                            </div>
+
+                            <div class="qualification__button button--flex" data-target="#work">
+                                <i class="uil uil-briefcase-alt qualification__icon"></i>
+                                Work
+                            </div>
+                        </div>
+
+                        <div class="qualification__sections">
+                            <div class="qualification__content qualification__active" data-content id="education">
+                                <!-- quali 1--> 
+                                <div class="qualification__data">
+                                    <div>
+                                        <h3 class="qualification__title">Computer Engineer</h3>
+                                        <span class="qualification__subtitle">Instituto Mauá de Tecnologia</span>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calender"></i>
+                                            2021-2025
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                        <span class="qualification__line"></span>
+                                    </div>
+                                </div>
+
+                                <!-- quali 2-->
+                                <div class="qualification__data">
+                                    <div></div>
+
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                        <span class="qualification__line"></span>
+                                    </div>
+
+                                    <div>
+                                        <h3 class="qualification__title">English Course</h3>
+                                        <span class="qualification__subtitle"> Wise UP</span>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calender"></i>
+                                            2017-2020
+                                        </div>
+                                    </div>
+                                
+
+                                </div>
+
+                                <!-- quali 3-->
+                                <div class="qualification__data">
+                                    <div>
+                                        <h3 class="qualification__title">Professional Excel</h3>
+                                        <span class="qualification__subtitle"> Instituto Mauá de Tecnologia</span>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calender"></i>
+                                            06/2022-12/2022
+                                        </div>
+                                    </div>
+                                
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="qualification__content" data-content id="work">
+                                <!-- quali 1-->
+                                <div class="qualification__data">
+                                    <div>
+                                        <h3 class="qualification__title">Project Monitoring</h3>
+                                        <span class="qualification__subtitle">Instituto Mauá de Tecnologia</span>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calender"></i>
+                                            2022-Present
+                                        </div>
+                                    </div>
+                            
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                        <span class="qualification__line"></span>
+                                    </div>
+                                </div>
+                            
+                                <!-- quali 2-->
+                                <div class="qualification__data">
+                                    <div></div>
+                            
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                        <span class="qualification__line"></span>
+                                    </div>
+                            
+                                    <div>
+                                        <h3 class="qualification__title">WebDesigner and WebDev</h3>
+                                        <span class="qualification__subtitle">Mauá Jr.</span>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calender"></i>
+                                            03/2021-11/2021
+                                        </div>
+                                    </div>
+                            
+                            
+                                </div>
+                            
+                                <!-- quali 3-->
+                                <div class="qualification__data">
+                                    <div>
+                                        <h3 class="qualification__title">Freelancer Photographer</h3>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calender"></i>
+                                            2018-Present
+                                        </div>
+                                    </div>
+                            
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- services -->
+                <!-- portfolio -->
+            </main>
+
+            <!-- footer -->
+
+            <!-- scroll top -->
+
+            <!-- swiper js -->
+            <script src=""></script>
+
+            <!-- main js -->
+            <script src="assets/js/main.js"></script>
+
+
+        </body>
+    </html>
