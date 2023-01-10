@@ -507,6 +507,16 @@ img{
     width: 25%;
 }
 
+.skills__office{
+    width: 80%;
+}
+
+.skills__excel {
+    width: 95%;
+}
+
+
+
 .skills__wordpress {
     width: 50%;
 }
@@ -520,7 +530,7 @@ img{
 }
 
 .skills__canva {
-    width: 25%;
+    width: 50%;
 }
 
 .skills__close .skills__list{
@@ -859,6 +869,10 @@ img{
 
     .section_subtitle{
         margin-bottom: 4rem;
+    }
+
+    .about__buttons{
+        padding-left: 5rem;
     }
 
     .header{
