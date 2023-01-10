@@ -9,9 +9,10 @@
 
 
             <!-- swiper css -->
-            <link rel="stylesheet" href="assets/css/styles.css">
+            <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
             <!-- css --> 
+            <link rel="stylesheet" href="assets/css/styles.css">
 
             <title> Pedro Matumoto</title>
         </head>
@@ -23,7 +24,7 @@
                     <div class="nav__menu" id="nav-menu">
                        <ul class="nav__list grid">
                         <li class="nav__item">
-                            <a href="#home" class="nav__link">
+                            <a href="#home" class="nav__link active-link">
                                 <i class="uil uil-estate nav__icon"></i> Home
                             </a>
                         </li>
@@ -37,12 +38,6 @@
                         <li class="nav__item">
                             <a href="#skills" class="nav__link">
                                 <i class="uil uil-notes nav__icon"></i> Skills
-                            </a>
-                        </li>
-
-                        <li class="nav__item">
-                            <a href="#services" class="nav__link">
-                                <i class="uil uil-briefcase-alt nav__icon"></i> Services
                             </a>
                         </li>
 
@@ -61,6 +56,9 @@
                     <i class="uil uil-times nav__close" id="nav-close"></i>
                     </div>
                     <div class="nav__btns">
+                        
+                        <i class="uil uil-moon-eclipse change-theme" id="theme-button"></i>
+
                         <div class="nav__toggle" id="nav-toggle">
                             <i class="uil uil-apps"></i>
                         </div>
@@ -409,19 +407,138 @@
                         </div>
                     </div>
                 </section>
-                <!-- services -->
                 <!-- portfolio -->
+                <section class="portfolio section" id="portfolio">
+                    <h2 class="section_title">Portfolio</h2>
+                    <span class="section_subtitle">Recent Work</span>
+                    <div class="portfolio__container container swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="portfolio__content grid swiper-slide">
+                            <!-- portfolio 1 -->
+                            <a href="https://maquiplast.com.br" target="_blank"><img src="assets/img/port1.jpg" alt="" class="portfolio__img"></a>
+                            
+
+                            <div class="portfolio__data">
+                                <h3 class="portfolio__title">Classic Website</h3>
+                                <p class="portfolio__description">Responsive website built in Wordpress, with pop-up objects</p>
+                                <a href="#" class="transparent">
+                                    " "<br>
+                                    " "
+                                </a>
+                            </div>
+                            </div>
+                            <div class="portfolio__content grid swiper-slide">
+                                <!-- portfolio 1 -->
+                                <a href="https://maquiplast.com.br" target="_blank"><img src="assets/img/port1.jpg" alt=""
+                                        class="portfolio__img"></a>
+                            
+                            
+                                <div class="portfolio__data">
+                                    <h3 class="portfolio__title">Classic Website</h3>
+                                    <p class="portfolio__description">Responsive website built in Wordpress, with pop-up objects</p>
+                                    <a href="#" class="transparent">
+                                        " "<br>
+                                        " "
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portfolio__content grid swiper-slide">
+                                <!-- portfolio 1 -->
+                                <a href="https://maquiplast.com.br" target="_blank"><img src="assets/img/port1.jpg" alt=""
+                                        class="portfolio__img"></a>
+                            
+                            
+                                <div class="portfolio__data">
+                                    <h3 class="portfolio__title">Classic Website</h3>
+                                    <p class="portfolio__description">Responsive website built in Wordpress, with pop-up objects</p>
+                                    <a href="#" class="transparent">
+                                        " "<br>
+                                        " "
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="swiper-button-next">
+                            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                        </div>
+                        <div class="swiper-button-prev">
+                            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </section>
+
+                <!-- contact -->
+                <section class="contact section" id="contact">
+                    <h2 class="section_title">Contact Me :D</h2>
+                    <span class="section_subtitle">Get in touch!</span>
+                    <div class="contact__container container grid">
+                        <div>
+                            <div class="contact__information">
+                                <i class="uil uil-mailbox contact__icon"></i>
+                                <div>
+                                    <h3 class="contact__title con">Email</h3>
+                                    <span class="contact__subtitle">pedromatumoto@gmail.com</span>
+                                </div>
+                            </div>
+
+                            <div class="contact__information">
+                                <i class="uil uil-linkedin-alt contact__icon"></i>
+                                <div>
+                                    <h3 class="contact__title">Linkedin</h3>
+                                    <span class="contact__subtitle">Pedro Matumoto</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </main>
 
             <!-- footer -->
             <footer class="footer">
+                <div class="footer__bg">
+                    <div class="footer__container container grid">
+                        <div>
+                            <h1 class="footer__title">Matumoto</h1>
+                            <span class="footer__subtitle">Computer Engineering Student</span>
+                        </div>
+
+                        <ul class="footer__links">
+                            <li>
+                                <a href="#portfolio" class="footer__link">Portfolio</a>
+                            </li>
+
+                            <li>
+                                <a href="#contact" class="footer__link">Contact</a>
+                            </li>
+                        </ul>
+                        <div class="footer__socials">
+                            <a href="https://twitter.com/shinyumatsu" target="_blank" class="footer__social">
+                                <i class="uil uil-twitter-alt"></i>
+                            </a>
+
+                            <a href="https://www.instagram.com/pedromatumoto/" target="_blank" class="footer__social">
+                                <i class="uil uil-instagram"></i>
+                            </a>
+
+                            <a href="mailto:pedromatumoto@gmail.com" target="_blank" class="footer__social">
+                                <i class="uil uil-google"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p class="footer__copy">&#169; Pedro Matumoto. All rights reserved</p>
+                </div>
 
             </footer>
 
             <!-- scroll top -->
 
             <!-- swiper js -->
-            <script src=""></script>
+            <script src="assets/js/swiper-bundle.min.js"></script>
 
             <!-- main js -->
             <script src="assets/js/main.js"></script>
