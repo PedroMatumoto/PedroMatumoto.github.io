@@ -818,57 +818,13 @@ img{
 
 
 
-@media screen and (max-width:350px){
-    .container{
-        margin-left: var(--mb-1);
-        margin-right: var(--mb-1);
-    }
 
-    .nav__menu{
-        padding: 2rem .25rem 4rem;
-    }
-
-    .img___logo{
-        width: 30px;
-    }
-
-    .nav__list{
-        column-gap: 0;
-    }
-
-    .home__content{
-        grid-template-columns: .25fr 3fr;
-    }
-
-    .home__blob{
-        width: 180px;
-    }
-
-    .skills__title{
-        font-size: var(--normal-font-size);
-
-    }
-
-    .qualification__data{
-        gap: .5rem;
-    }
-
-    .services__container{
-        grid-template-columns: max-content;
-        justify-content: center;
-    }
-
-    .services__content{
-        padding-right: 3.5rem;
-    }
-
-    .services__modal{
-        padding: 0 .5rem;
-    }
-}
 
 
 @media screen and (min-width:568px) {
+
+    
+
     .home__content{
         grid-template-columns: max-content 1fr 1fr;
     }
@@ -898,6 +854,7 @@ img{
         justify-content: center;
 
     }
+
 
 }
 
@@ -1103,6 +1060,11 @@ img{
     box-sizing: border-box;
 }
 
+.portfolio_section{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
 .carrosel {
     width: 100vw;
     height: 100vh;
@@ -1256,3 +1218,87 @@ img{
     margin-bottom: 2.5rem;
     transform: translate3d(0%, -30%, 100px);
 }
+
+@media screen and (max-width:350px) {
+    
+    .portfolio section{
+        margin-top: -15rem;
+        margin-bottom: -10rem;
+    }
+    
+    .card{
+        margin: 0 auto;
+        margin-top: 2rem;
+    }
+
+    .carrosel {
+        /*make transparent*/
+        display: table;
+        margin-top: -10rem;
+        margin: 0 auto;
+        align-items: self-end;
+        
+    }
+
+    .container {
+        margin-left: var(--mb-1);
+        margin-right: var(--mb-1);
+    }
+
+    
+
+    .nav__menu {
+        padding: 2rem .25rem 4rem;
+    }
+
+    .img___logo {
+        width: 100px;
+    }
+
+    .nav__list {
+        column-gap: 0;
+    }
+
+    .home__content {
+        grid-template-columns: .25fr 3fr;
+    }
+
+    .home__blob {
+        width: 180px;
+    }
+
+
+    .skills__container {
+        grid-template-columns: repeat(1, 3fr);
+    }
+
+    .skills .skills__title {
+        font-size: var(--normal-font-size);
+
+    }
+
+    .qualification__data {
+        gap: .5rem;
+    }
+
+    .services__container {
+        grid-template-columns: max-content;
+        justify-content: center;
+    }
+
+    .services__content {
+        padding-right: 3.5rem;
+    }
+
+    .services__modal {
+        padding: 0 .5rem;
+    }
+
+
+
+    .contact__container {
+        row-gap: 2rem;
+        margin-top: 15;
+    }
+
+}   
