@@ -1219,13 +1219,13 @@ img{
     transform: translate3d(0%, -30%, 100px);
 }
 
-@media screen and (max-width:350px) {
+@media screen and (max-width:420px) {
     
     .portfolio section{
         margin-top: -15rem;
         margin-bottom: -10rem;
     }
-    
+
     .card{
         margin: 0 auto;
         margin-top: 2rem;
@@ -1238,6 +1238,19 @@ img{
         margin: 0 auto;
         align-items: self-end;
         
+    }
+
+    .nav__container {
+        align-items: center;
+        margin: auto;
+    }
+
+    .home__container{
+        padding-left: 2rem;
+    }
+
+    .home__img{
+        padding-left: 2rem;
     }
 
     .container {
