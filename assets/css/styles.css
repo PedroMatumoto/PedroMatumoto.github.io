@@ -1,12 +1,13 @@
 /*--- google fonts---*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 /*---variables---*/
 :root{
     --header-height: 3rem;
     /*--- colors---*/
-    --hue-color: 400;
+    --hue-color: /*400*/300;
     --first-color: hsl(var(--hue-color), 69%, 61%);
-    --first-color-second: hsl(var(--hue-color), 69%, 61%);
+    --first-color-second: hsl(var(--hue-color), 50%, 40%);
     --first-color-alt: hsl(var(--hue-color), 57%, 53%);
     --first-color-lighter:hsl(var(--hue-color), 92%, 85%);
     --title-color: hsl(var(--hue-color), 8%, 20%);
@@ -17,7 +18,7 @@
     --container-color: #FFF;
 
     /*--- typo---*/
-    --body-font: 'Poppins',sans-serif;
+    --body-font: 'Ubuntu',sans-serif;
 
 
     /*--- typo---*/
@@ -71,7 +72,19 @@ body.dark-theme{
     --input-color: hsl(var(--hue-color), 65%, 16%);
     --body-color: hsl(var(--hue-color), 35%, 12%);
     --container-color: hsl(var(--hue-color),29%,16%);
+    
 
+}
+
+/* invert logo image*/
+body.dark-theme .nav__logo img{
+    filter: invert(1);
+}
+
+/* invert footer logo image*/
+
+body.dark-theme .footer__logo img{
+    filter: invert(1);
 }
 
 
@@ -194,6 +207,10 @@ img{
 
 .nav__logo:hover{
     color: var(--first-color);
+}
+
+.img___logo{
+    width: 50%;
 }
 
 .nav__toggle{
@@ -399,7 +416,8 @@ img{
 
 .about__info{
     display: flex;
-    justify-content:space-evenly;
+    justify-content:center;
+    align-items: center;
     margin-bottom: var(--mb-2-5);
 }
 
@@ -426,7 +444,11 @@ img{
 
 /*--- skills ---*/
 .skills__container{
-    row-gap: 0;
+    /*making a 1 row 3 column table*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
 }
 
 .skills__header{
@@ -492,11 +514,11 @@ img{
 }
 
 .skills__HTML{
-    width: 25%;
+    width: 40%;
 }
 
 .skills__python{
-    width: 45%;
+    width: 70%;
 }
 
 .skills__C{
@@ -521,6 +543,14 @@ img{
     width: 50%;
 }
 
+.skills__java {
+    width: 40%;
+}
+
+.skills__aws {
+    width: 15%;
+}
+
 .skills__ps {
     width: 25%;
 }
@@ -532,6 +562,22 @@ img{
 .skills__canva {
     width: 50%;
 }
+
+.skills__dash {
+    width: 45%;
+}
+
+.skills__microcontroller{
+    width: 10%;
+}
+.skills__problems {
+    width: 25%;
+}
+.skills__circuits{
+    width: 30%;
+}
+
+
 
 .skills__close .skills__list{
     height: 0;
@@ -622,6 +668,7 @@ img{
 
 .portfolio__container{
     overflow: initial;
+    display: none;
 }
 
 .portfolio__content{
@@ -779,6 +826,10 @@ img{
 
     .nav__menu{
         padding: 2rem .25rem 4rem;
+    }
+
+    .img___logo{
+        width: 30px;
     }
 
     .nav__list{
@@ -1042,3 +1093,166 @@ img{
 
 
     }
+
+:root {
+    --card-height: 300px;
+    --card-width: calc(var(--card-height) / 1.5);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.carrosel {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:var(--body-color);
+    margin-top: -10rem;
+    margin-bottom: -10rem;
+}
+
+.carrosel-2 {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--body-color);
+    margin-top: -17rem;
+    margin-bottom: -10rem;
+}
+
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 36px;
+    perspective: 2500px;
+    margin: 0 50px;
+    border-radius: 25px;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.wrapper {
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    border-radius: 25px;
+}
+
+.card:hover .wrapper {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    border-radius: 25px;
+}
+
+.wrapper::before,
+.wrapper::after {
+    content: "";
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+    border-radius: 25px;
+}
+
+.wrapper::before {
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to top,
+            transparent 46%,
+            rgba(12, 13, 19, 0.5) 68%,
+            rgba(12, 13, 19) 97%);
+}
+
+.wrapper::after {
+    bottom: 0;
+    opacity: 1;
+    background-image: linear-gradient(to bottom,
+            transparent 46%,
+            rgba(12, 13, 19, 0.5) 68%,
+            rgba(12, 13, 19) 97%);
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+    opacity: 1;
+}
+
+.card:hover .wrapper::after {
+    height: 120px;
+}
+
+.title {
+    width: 100%;
+    margin-bottom: 150px;
+    transition: transform 0.5s;
+    
+}
+
+.card:hover .title {
+    transform: translate3d(0%, 75px, 100px);
+}
+
+.character {
+    width: 100%;
+    opacity: 0;
+    margin-bottom: 1.5rem;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: -1;
+}
+
+.character_python {
+    width: 100%;
+    opacity: 0;
+    margin-bottom: 1rem;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: -1;
+}
+
+.character_c {
+    width: 100%;
+    opacity: 0;
+    margin-bottom: 1rem;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: -1;
+}
+
+.card:hover .character {
+    opacity: 1;
+    transform: translate3d(0%, -30%, 100px);
+}
+
+.card:hover .character_c {
+    opacity: 1;
+    margin-bottom: 2.5rem;
+    transform: translate3d(0%, -30%, 100px);
+}
+
+.card:hover .character_python {
+    opacity: 1;
+    margin-bottom: 2.5rem;
+    transform: translate3d(0%, -30%, 100px);
+}
