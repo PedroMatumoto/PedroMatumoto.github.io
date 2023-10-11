@@ -548,7 +548,7 @@ img{
 }
 
 .skills__aws {
-    width: 15%;
+    width: 40%;
 }
 
 .skills__ps {
@@ -568,13 +568,13 @@ img{
 }
 
 .skills__microcontroller{
-    width: 10%;
+    width: 50%;
 }
 .skills__problems {
     width: 25%;
 }
 .skills__circuits{
-    width: 30%;
+    width: 50%;
 }
 
 
