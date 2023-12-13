@@ -544,6 +544,14 @@ img{
 }
 
 .skills__java {
+    width: 60%;
+}
+
+.skills__django {
+    width: 60%;
+}
+
+.skills__sql {
     width: 40%;
 }
 
@@ -568,7 +576,7 @@ img{
 }
 
 .skills__microcontroller{
-    width: 10%;
+    width: 30%;
 }
 .skills__problems {
     width: 25%;
