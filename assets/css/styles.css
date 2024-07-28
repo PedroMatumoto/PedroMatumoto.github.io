@@ -777,8 +777,16 @@ img {
 
 .contact__icon {
   font-size: 2rem;
-  color: black;
+  color: --contact-color;
   margin-right: var(--mb-0-75);
+}
+
+.contact__icon:link {
+  color: var(--contact-color);
+}
+
+.contact__icon:visited {
+  color: var(--contact-color);
 }
 
 .contact__title {
