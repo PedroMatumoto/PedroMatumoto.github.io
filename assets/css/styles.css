@@ -16,6 +16,7 @@
   --input-color: hsl(var(--hue-color), 70%, 95%);
   --body-color: hsl(var(--hue-color), 60%, 99%);
   --container-color: #fff;
+  --contact-color: black;
 
   /*--- typo---*/
   --body-font: "Ubuntu", sans-serif;
@@ -71,6 +72,10 @@ body.dark-theme {
   --input-color: hsl(var(--hue-color), 65%, 16%);
   --body-color: hsl(var(--hue-color), 35%, 12%);
   --container-color: hsl(var(--hue-color), 29%, 16%);
+  background-image: url("../img/Wallpaper-v2.png");
+  background-attachment: local;
+  background-size: cover;
+  --contact-color: white;
 }
 
 /* invert footer logo image*/
@@ -108,7 +113,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
-  background-image: url("../img/Wallpaper-v2.png");
+  background-image: url("../img/Wallpaper-v2-white.png");
   background-attachment: local;
   background-size: cover;
 }
@@ -325,7 +330,7 @@ img {
 }
 
 .home__blob-img {
-  width: 200px;
+  width: 170px;
 }
 
 .home__data {
@@ -783,7 +788,7 @@ img {
 
 .contact__subtitle {
   font-size: var(--small-font-size);
-  color: var(--text-color-light);
+  color: var(--contact-color);
 }
 
 .contact__content {
