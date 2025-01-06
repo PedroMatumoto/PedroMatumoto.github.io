@@ -133,21 +133,54 @@ export function Navbar() {
             />
             <PiFlowerLotus className="text-6xl" />
             <div className="flex flex-col justify-center gap-8 text-xl">
-              <a
-                href="#"
-                className={`cursor-pointer transition-all duration-1000 ${fade ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}
-              >
+              <a href="#" className="cursor-pointer">
                 Home
               </a>
               <a
-                href="#"
-                className={`cursor-pointer transition-all delay-100 duration-1000 ${fade ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}
+                href="#repos"
+                className="cursor-pointer"
+                onClick={(e) => (
+                  e.preventDefault(),
+                  document
+                    .getElementById('repos')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                )}
+              >
+                Repos
+              </a>
+              <a
+                href="#about"
+                className="cursor-pointer"
+                onClick={(e) => (
+                  e.preventDefault(),
+                  document
+                    .getElementById('about')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                )}
               >
                 About
               </a>
               <a
-                href="#"
-                className={`cursor-pointer transition-all delay-200 duration-1000 ${fade ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}
+                href="#info"
+                className="cursor-pointer"
+                onClick={(e) => (
+                  e.preventDefault(),
+                  document
+                    .getElementById('info')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                )}
+              >
+                Experience
+              </a>
+              <a
+                href="#contact"
+                className="cursor-pointer"
+                onClick={(e) => (
+                  e.preventDefault(),
+                  document
+                    .getElementById('contact')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                )}
               >
                 Contact
               </a>
