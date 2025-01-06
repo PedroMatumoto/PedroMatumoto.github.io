@@ -101,7 +101,7 @@ export function Home() {
           className={`text-center font-mont text-2xl font-bold transition-all duration-1000 sm:text-4xl ${fade ? 'translate-x-0 opacity-100' : 'translate-x-32 opacity-0'}`}
           style={{
             position: 'absolute',
-            zIndex: 10
+            zIndex: 5
           }}
         >
           Pedro Matumoto
@@ -345,11 +345,13 @@ export function Home() {
                   className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
                 >
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 space-x-2">
+                    <CardTitle className="flex flex-wrap items-center justify-center gap-2">
                       Tax Tech Intern
-                      <SiPython className="text-2xl" />
-                      <VscAzure className="text-2xl" />
-                      <IoBarChart className="text-2xl" />
+                      <div className="flex flex-wrap gap-2 p-2">
+                        <SiPython className="text-2xl" />
+                        <VscAzure className="text-2xl" />
+                        <IoBarChart className="text-2xl" />
+                      </div>
                     </CardTitle>
                     <CardDescription>Alvarez & Marsal</CardDescription>
                   </CardHeader>
@@ -366,15 +368,15 @@ export function Home() {
                   className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
                 >
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 space-x-2">
+                    <CardTitle className="flex flex-wrap items-center justify-center gap-2">
                       Project Monitor
-                      <SiPandas className="text-2xl" />
-                      <SiPython className="text-2xl" />
-                      <IoBarChart className="text-2xl" />
+                      <div className="flex flex-wrap gap-2 p-2">
+                        <SiPandas className="text-2xl" />
+                        <SiPython className="text-2xl" />
+                        <IoBarChart className="text-2xl" />
+                      </div>
                     </CardTitle>
-                    <CardDescription>
-                      Maua Institute of Techonology
-                    </CardDescription>
+                    <CardDescription>IMT</CardDescription>
                   </CardHeader>
                   <CardFooter className="flex items-center gap-2">
                     <IoCalendarClearOutline />
@@ -389,11 +391,13 @@ export function Home() {
                   className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
                 >
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 space-x-2">
-                      WebDesigner/Developer
-                      <SiFigma className="text-2xl" />
-                      <SiCanva className="text-2xl" />
-                      <SiWordpress className="text-2xl" />
+                    <CardTitle className="flex flex-wrap items-center justify-center gap-2">
+                      WebDesigner
+                      <div className="flex flex-wrap gap-2 p-2">
+                        <SiFigma className="text-2xl" />
+                        <SiCanva className="text-2xl" />
+                        <SiWordpress className="text-2xl" />
+                      </div>
                     </CardTitle>
                     <CardDescription>Maua Jr.</CardDescription>
                   </CardHeader>
