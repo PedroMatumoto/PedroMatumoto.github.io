@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from '../hooks/use-theme'
 import { InfoCard } from '../components/info-card'
-import Lanterns from '../components/lanterns'
+import Threads from '../components/Threads'
+
 import { SocialsCard } from '../components/socials-card'
 import {
   Carousel,
@@ -31,6 +32,7 @@ import {
 import { VscAzure } from 'react-icons/vsc'
 import { IoBarChart, IoCalendarClearOutline } from 'react-icons/io5'
 import { FaAws } from 'react-icons/fa'
+import BlurText from '../components/BlurText'
 
 export function Home() {
   const { theme } = useTheme()
@@ -60,6 +62,29 @@ export function Home() {
       description: 'Simple file transfer system',
       link: 'https://github.com/PedroMatumoto/two_drive',
       languages: ['java']
+    }
+  ]
+
+  const demoItems = [
+    {
+      link: 'https://github.com/20242-Maua-ECM-Fontys/front',
+      text: 'MauaGrid',
+      image: 'https://picsum.photos/600/400?random=1'
+    },
+    {
+      link: 'https://github.com/PedroMatumoto/kirby',
+      text: 'Kirby',
+      image: 'https://picsum.photos/600/400?random=2'
+    },
+    {
+      link: 'https://github.com/4-ANO-COMP-IMT/ac2',
+      text: 'BoraMarcar',
+      image: 'https://picsum.photos/600/400?random=3'
+    },
+    {
+      link: 'https://github.com/PedroMatumoto/two_drive',
+      text: 'TwoDrive',
+      image: 'https://picsum.photos/600/400?random=4'
     }
   ]
 
@@ -96,26 +121,31 @@ export function Home() {
       }}
     >
       <div className="relative flex min-h-screen w-full items-center justify-center">
-        <Lanterns />
-        <h1
-          className={`text-center font-mont text-2xl font-bold transition-all duration-1000 sm:text-4xl ${fade ? 'translate-x-0 opacity-100' : 'translate-x-32 opacity-0'}`}
-          style={{
-            position: 'absolute',
-            zIndex: 5
-          }}
-        >
-          Pedro Matumoto
-          <br />
-          <br />
-          松本 優吾
-        </h1>
+        <div className="relative w-full" style={{ height: '600px' }}>
+          <Threads amplitude={2} distance={0} enableMouseInteraction={true} />
+
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            style={{ zIndex: 10 }}
+          >
+            <BlurText
+              text="Pedro Matumoto 松本 優吾"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font font-mont text-6xl"
+            />
+          </div>
+        </div>
 
         <div
           className="absolute flex w-full items-center justify-center"
           style={{ bottom: '25%' }}
         >
           <button
-            className={`rounded-lg p-3 ${fade ? 'opacity-100' : 'opacity-0'} ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000 hover:bg-black hover:text-white`}
+            className={`rounded-lg p-3 ${fade ? 'opacity-100' : 'opacity-0'} ${
+              theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
+            } font-mont transition-all duration-1000 hover:bg-black hover:text-white`}
             onClick={() =>
               document
                 .getElementById('repos')
