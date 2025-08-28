@@ -65,29 +65,6 @@ export function Home() {
     }
   ]
 
-  const demoItems = [
-    {
-      link: 'https://github.com/20242-Maua-ECM-Fontys/front',
-      text: 'MauaGrid',
-      image: 'https://picsum.photos/600/400?random=1'
-    },
-    {
-      link: 'https://github.com/PedroMatumoto/kirby',
-      text: 'Kirby',
-      image: 'https://picsum.photos/600/400?random=2'
-    },
-    {
-      link: 'https://github.com/4-ANO-COMP-IMT/ac2',
-      text: 'BoraMarcar',
-      image: 'https://picsum.photos/600/400?random=3'
-    },
-    {
-      link: 'https://github.com/PedroMatumoto/two_drive',
-      text: 'TwoDrive',
-      image: 'https://picsum.photos/600/400?random=4'
-    }
-  ]
-
   const socials = [
     {
       title: '@pedromatumoto',
@@ -152,7 +129,7 @@ export function Home() {
                 ?.scrollIntoView({ behavior: 'smooth' })
             }
           >
-            Repos
+            Projects
           </button>
         </div>
       </div>
@@ -183,9 +160,9 @@ export function Home() {
           Paulo, Brazil. I currently work in Alvarez & Marsal as a Tax Tech
           intern, developing systems to make repetitive tasks easier to deal
           with. I also work as a freelancer, developing websites and systems for
-          small businesses. I'm very passionate about learning new things and
-          I'm always looking for new challenges even if is not in my safe area,
-          like robotics and electronics.
+          small businesses. I&apos;m very passionate about learning new things
+          and I&apos;m always looking for new challenges even if is not in my
+          safe area, like robotics and electronics.
         </p>
         <button
           className={`mt-6 rounded-lg p-3 ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000 hover:bg-black hover:text-white`}
@@ -195,7 +172,7 @@ export function Home() {
               ?.scrollIntoView({ behavior: 'smooth' })
           }
         >
-          What I'm learning
+          What I&apos;m learning
         </button>
       </div>
       <div
