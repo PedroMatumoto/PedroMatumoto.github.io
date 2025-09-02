@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from '../hooks/use-theme'
-import { InfoCard } from '../components/info-card'
-import Threads from '../components/Threads'
+import { ProjectsSection } from '../components/ProjectsSection'
+import { ExperienceTimeline } from '../components/ExperienceTimeline'
 
 import { SocialsCard } from '../components/socials-card'
 import {
@@ -20,50 +20,18 @@ import {
   CardTitle
 } from '@/components/ui/card'
 import {
-  SiCanva,
   SiCisco,
-  SiFigma,
   SiGooglecloud,
-  SiPandas,
-  SiPython,
   SiTryhackme,
-  SiWordpress
 } from 'react-icons/si'
 import { VscAzure } from 'react-icons/vsc'
-import { IoBarChart, IoCalendarClearOutline } from 'react-icons/io5'
+import { IoCalendarClearOutline } from 'react-icons/io5'
 import { FaAws } from 'react-icons/fa'
 import BlurText from '../components/BlurText'
 
 export function Home() {
   const { theme } = useTheme()
   const [fade, setFade] = useState(false)
-
-  const infosRepos = [
-    {
-      title: 'MauaGrid',
-      description: 'Scheduler generator for IMT',
-      link: 'https://github.com/20242-Maua-ECM-Fontys/front',
-      languages: ['typescript', 'react']
-    },
-    {
-      title: 'Kirby',
-      description: 'Robot waiter to deliver food',
-      link: 'https://github.com/PedroMatumoto/kirby',
-      languages: ['c']
-    },
-    {
-      title: 'BoraMarcar',
-      description: 'Simplified appointment scheduling system',
-      link: 'https://github.com/4-ANO-COMP-IMT/ac2',
-      languages: ['typescript', 'react']
-    },
-    {
-      title: 'TwoDrive',
-      description: 'Simple file transfer system',
-      link: 'https://github.com/PedroMatumoto/two_drive',
-      languages: ['java']
-    }
-  ]
 
   const socials = [
     {
@@ -99,8 +67,6 @@ export function Home() {
     >
       <div className="relative flex min-h-screen w-full items-center justify-center">
         <div className="relative w-full" style={{ height: '600px' }}>
-          <Threads amplitude={2} distance={0} enableMouseInteraction={true} />
-
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             style={{ zIndex: 10 }}
@@ -134,19 +100,7 @@ export function Home() {
         </div>
       </div>
 
-      <div
-        className="flex min-h-screen w-full flex-col items-center justify-center"
-        id="repos"
-      >
-        <h1 className="mb-6 text-center font-mont text-2xl font-bold transition-all duration-1000 sm:text-4xl">
-          Repos
-        </h1>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2">
-          {infosRepos.map((info, index) => (
-            <InfoCard key={info.title} info={info} delay={index} />
-          ))}
-        </div>
-      </div>
+      <ProjectsSection />
 
       <div
         className="flex min-h-screen w-full flex-col items-center justify-center"
@@ -336,94 +290,10 @@ export function Home() {
           />
         </Carousel>
 
-        <h3 className="text-md mt-6 text-center font-mont font-bold transition-all duration-1000 sm:text-2xl">
-          Experience
-        </h3>
-        <Carousel
-          opts={{
-            align: 'start'
-          }}
-          className="w-1/2 pt-10"
-        >
-          <CarouselContent>
-            <CarouselItem className="sm:basis-1/2">
-              <div>
-                <Card
-                  className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
-                >
-                  <CardHeader>
-                    <CardTitle className="flex flex-wrap items-center justify-center gap-2">
-                      Tax Tech Intern
-                      <div className="flex flex-wrap gap-2 p-2">
-                        <SiPython className="text-2xl" />
-                        <VscAzure className="text-2xl" />
-                        <IoBarChart className="text-2xl" />
-                      </div>
-                    </CardTitle>
-                    <CardDescription>Alvarez & Marsal</CardDescription>
-                  </CardHeader>
-                  <CardFooter className="flex items-center gap-2">
-                    <IoCalendarClearOutline />
-                    <p>11/2023 - Current</p>
-                  </CardFooter>
-                </Card>
-              </div>
-            </CarouselItem>
-            <CarouselItem className="sm:basis-1/2">
-              <div>
-                <Card
-                  className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
-                >
-                  <CardHeader>
-                    <CardTitle className="flex flex-wrap items-center justify-center gap-2">
-                      Project Monitor
-                      <div className="flex flex-wrap gap-2 p-2">
-                        <SiPandas className="text-2xl" />
-                        <SiPython className="text-2xl" />
-                        <IoBarChart className="text-2xl" />
-                      </div>
-                    </CardTitle>
-                    <CardDescription>IMT</CardDescription>
-                  </CardHeader>
-                  <CardFooter className="flex items-center gap-2">
-                    <IoCalendarClearOutline />
-                    <p>08/2022 - 10/2023</p>
-                  </CardFooter>
-                </Card>
-              </div>
-            </CarouselItem>
-            <CarouselItem className="sm:basis-1/2">
-              <div>
-                <Card
-                  className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
-                >
-                  <CardHeader>
-                    <CardTitle className="flex flex-wrap items-center justify-center gap-2">
-                      WebDesigner
-                      <div className="flex flex-wrap gap-2 p-2">
-                        <SiFigma className="text-2xl" />
-                        <SiCanva className="text-2xl" />
-                        <SiWordpress className="text-2xl" />
-                      </div>
-                    </CardTitle>
-                    <CardDescription>Maua Jr.</CardDescription>
-                  </CardHeader>
-                  <CardFooter className="flex items-center gap-2">
-                    <IoCalendarClearOutline />
-                    <p>08/2022 - 10/2023</p>
-                  </CardFooter>
-                </Card>
-              </div>
-            </CarouselItem>
-          </CarouselContent>
-          <CarouselPrevious
-            className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
-          />
-          <CarouselNext
-            className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
-          />
-        </Carousel>
+
       </div>
+
+      <ExperienceTimeline />
 
       <div
         className="flex min-h-screen w-full flex-col items-center justify-center"

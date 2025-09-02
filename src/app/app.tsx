@@ -27,14 +27,9 @@ export function App() {
       textColor: '#fff',
       links: [
         {
-          label: 'Featured',
+          label: 'All Projects',
           href: '#repos',
-          ariaLabel: 'Featured Projects'
-        },
-        {
-          label: 'Case Studies',
-          href: '#case-studies',
-          ariaLabel: 'Project Case Studies'
+          ariaLabel: 'All Projects'
         }
       ]
     },
