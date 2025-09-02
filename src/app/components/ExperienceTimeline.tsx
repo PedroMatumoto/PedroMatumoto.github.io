@@ -4,7 +4,6 @@ import { Calendar, MapPin } from 'lucide-react'
 import { experiences } from '../data/experiences'
 import { useTheme } from '../hooks/use-theme'
 import { Experience } from '../types/project'
-import { TechIcon } from '../utils/tech-icons'
 
 export function ExperienceTimeline() {
   const { theme } = useTheme()
@@ -106,14 +105,23 @@ export function ExperienceTimeline() {
                       ? 'hover:bg-gray-50'
                       : 'hover:bg-gray-900'
                   }`}>
-                    <h3 className="font-bold font-mont text-lg mb-1">
-                      {experience.title}
-                    </h3>
-                    <p className={`text-sm mb-2 ${
-                      theme === 'light' ? 'text-gray-600' : 'text-gray-400'
-                    }`}>
-                      {experience.company}
-                    </p>
+                    <div className="flex items-center gap-3 mb-2">
+                      <img 
+                        src={experience.companyLogo} 
+                        alt={`${experience.company} logo`}
+                        className="w-8 h-8 object-contain rounded"
+                      />
+                      <div>
+                        <h3 className="font-bold font-mont text-lg mb-1">
+                          {experience.title}
+                        </h3>
+                        <p className={`text-sm ${
+                          theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                        }`}>
+                          {experience.company}
+                        </p>
+                      </div>
+                    </div>
                     <div className={`flex items-center gap-4 text-xs ${
                       theme === 'light' ? 'text-gray-500' : 'text-gray-500'
                     }`}>
@@ -160,34 +168,41 @@ export function ExperienceTimeline() {
               >
                 <div className="mb-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h2 className="text-3xl font-bold font-mont mb-2">
-                        {selectedExperience.title}
-                      </h2>
-                      <h3 className="text-xl text-blue-600 dark:text-blue-400 mb-2">
-                        {selectedExperience.company}
-                      </h3>
-                      <div className={`flex items-center gap-4 text-sm ${
-                        theme === 'light' ? 'text-gray-600' : 'text-gray-400'
-                      }`}>
-                        <div className="flex items-center gap-1">
-                          <Calendar size={16} />
-                          <span>
-                            {formatDate(selectedExperience.startDate)} - {' '}
-                            {selectedExperience.current ? 'Atual' : formatDate(selectedExperience.endDate!)}
-                          </span>
+                    <div className="flex items-start gap-4">
+                      <img 
+                        src={selectedExperience.companyLogo} 
+                        alt={`${selectedExperience.company} logo`}
+                        className="w-16 h-16 object-contain rounded-lg"
+                      />
+                      <div>
+                        <h2 className="text-3xl font-bold font-mont mb-2">
+                          {selectedExperience.title}
+                        </h2>
+                        <h3 className="text-xl text-blue-600 dark:text-blue-400 mb-2">
+                          {selectedExperience.company}
+                        </h3>
+                        <div className={`flex items-center gap-4 text-sm ${
+                          theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                        }`}>
+                          <div className="flex items-center gap-1">
+                            <Calendar size={16} />
+                            <span>
+                              {formatDate(selectedExperience.startDate)} - {' '}
+                              {selectedExperience.current ? 'Atual' : formatDate(selectedExperience.endDate!)}
+                            </span>
+                          </div>
+                          <span>•</span>
+                          <span>{getExperienceDuration(selectedExperience.startDate, selectedExperience.endDate)}</span>
+                          {selectedExperience.location && (
+                            <>
+                              <span>•</span>
+                              <div className="flex items-center gap-1">
+                                <MapPin size={16} />
+                                <span>{selectedExperience.location}</span>
+                              </div>
+                            </>
+                          )}
                         </div>
-                        <span>•</span>
-                        <span>{getExperienceDuration(selectedExperience.startDate, selectedExperience.endDate)}</span>
-                        {selectedExperience.location && (
-                          <>
-                            <span>•</span>
-                            <div className="flex items-center gap-1">
-                              <MapPin size={16} />
-                              <span>{selectedExperience.location}</span>
-                            </div>
-                          </>
-                        )}
                       </div>
                     </div>
                     <span className={`px-3 py-1 text-xs rounded-full ${
@@ -231,28 +246,18 @@ export function ExperienceTimeline() {
                   <h4 className="text-lg font-semibold mb-3 font-mont">
                     Tecnologias Utilizadas
                   </h4>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2">
                     {selectedExperience.technologies.map((tech) => (
-                      <div
+                      <span
                         key={tech}
-                        className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
+                        className={`px-3 py-1 text-sm rounded-md ${
                           theme === 'light'
-                            ? 'bg-gray-100 hover:bg-gray-200'
-                            : 'bg-gray-800 hover:bg-gray-700'
+                            ? 'bg-gray-100 text-gray-700'
+                            : 'bg-gray-800 text-gray-300'
                         }`}
-                        title={tech}
                       >
-                        <TechIcon 
-                          name={tech} 
-                          size={18} 
-                          className={theme === 'light' ? 'text-gray-700' : 'text-gray-300'} 
-                        />
-                        <span className={`text-sm font-medium ${
-                          theme === 'light' ? 'text-gray-700' : 'text-gray-300'
-                        }`}>
-                          {tech}
-                        </span>
-                      </div>
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
