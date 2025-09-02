@@ -4,6 +4,7 @@ import { Calendar, MapPin } from 'lucide-react'
 import { experiences } from '../data/experiences'
 import { useTheme } from '../hooks/use-theme'
 import { Experience } from '../types/project'
+import { TechIcon } from '../utils/tech-icons'
 
 export function ExperienceTimeline() {
   const { theme } = useTheme()
@@ -250,12 +251,13 @@ export function ExperienceTimeline() {
                     {selectedExperience.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className={`px-3 py-1 text-sm rounded-md ${
+                        className={`flex items-center gap-2 px-3 py-1 text-sm rounded-md ${
                           theme === 'light'
                             ? 'bg-gray-100 text-gray-700'
                             : 'bg-gray-800 text-gray-300'
                         }`}
                       >
+                        <TechIcon name={tech} size={18} className="mr-1" />
                         {tech}
                       </span>
                     ))}
