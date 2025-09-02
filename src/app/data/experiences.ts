@@ -2,14 +2,51 @@ import { Experience } from '../types/project'
 
 export const experiences: Experience[] = [
   {
+    id: 'alvarez-marsal-ai',
+    title: 'AI Engineer',
+    company: 'Alvarez & Marsal',
+    location: 'São Paulo, SP',
+    type: 'full-time',
+    startDate: '2025-09',
+    current: true,
+    description:
+      'Atuação no desenvolvimento de um sistema de processamento de documentos com foco em IA, incluindo integração com Azure OpenAI, backend em Django e automação de pipelines de produção.',
+    responsibilities: [
+      'Desenho e implementação de integrações com Azure OpenAI para extração e enriquecimento de dados',
+      'Desenvolvimento e manutenção do backend em Django para orquestração de fluxos de documentos',
+      'Implementação de componentes e integrações em JavaScript para interfaces e automações',
+      'Configuração de infraestrutura em contêineres e orquestração (Docker, Kubernetes)',
+      'Criação e manutenção de pipelines de CI/CD (GitHub Actions / Azure DevOps) para deploys e testes automatizados',
+      'Garantia de segurança e compliance no processamento de dados sensíveis'
+    ],
+    technologies: [
+      'Azure OpenAI',
+      'Azure',
+      'Django',
+      'Python',
+      'JavaScript',
+      'Docker',
+      'Kubernetes',
+      'GitHub Actions',
+      'CI/CD',
+      'PostgreSQL'
+    ],
+    achievements: [
+      'Efetivado na posição full-time',
+      'Início das integrações com Azure OpenAI para pipelines de documentos'
+    ],
+    companyLogo: '/logos/alvarez-marsal.png'
+  },
+  {
     id: 'alvarez-marsal',
     title: 'Tax Tech Intern',
     company: 'Alvarez & Marsal',
     location: 'São Paulo, SP',
     type: 'internship',
     startDate: '2023-11',
-    current: true,
-    description: 'Desenvolvimento de sistemas para automatização de processos fiscais e tributários, trabalhando com análise de dados e criação de dashboards.',
+    endDate: '2025-05',
+    description:
+      'Desenvolvimento de sistemas para automatização de processos fiscais e tributários, trabalhando com análise de dados e criação de dashboards.',
     responsibilities: [
       'Desenvolvimento de scripts Python para automação de processos fiscais',
       'Criação de dashboards interativos para análise de dados tributários',
@@ -32,7 +69,8 @@ export const experiences: Experience[] = [
     type: 'part-time',
     startDate: '2022-08',
     endDate: '2023-10',
-    description: 'Monitor de projetos acadêmicos, auxiliando estudantes no desenvolvimento de soluções tecnológicas e pesquisa científica.',
+    description:
+      'Monitor de projetos acadêmicos, auxiliando estudantes no desenvolvimento de soluções tecnológicas e pesquisa científica.',
     responsibilities: [
       'Orientação de estudantes em projetos de iniciação científica',
       'Desenvolvimento de ferramentas para análise de dados acadêmicos',
@@ -55,7 +93,8 @@ export const experiences: Experience[] = [
     type: 'part-time',
     startDate: '2022-08',
     endDate: '2023-10',
-    description: 'Designer e desenvolvedor web na empresa júnior, criando soluções digitais para pequenas e médias empresas.',
+    description:
+      'Designer e desenvolvedor web na empresa júnior, criando soluções digitais para pequenas e médias empresas.',
     responsibilities: [
       'Design de interfaces web responsivas',
       'Desenvolvimento de sites em WordPress',

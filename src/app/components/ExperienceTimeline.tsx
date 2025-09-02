@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Calendar, MapPin } from 'lucide-react'
 import { experiences } from '../data/experiences'
 import { useTheme } from '../hooks/use-theme'
-import { Experience } from '../types/project'
 import { TechIcon } from '../utils/tech-icons'
+import { Experience } from '../types/project'
 
 export function ExperienceTimeline() {
   const { theme } = useTheme()
@@ -257,8 +257,12 @@ export function ExperienceTimeline() {
                             : 'bg-gray-800 text-gray-300'
                         }`}
                       >
-                        <TechIcon name={tech} size={18} className="mr-1" />
-                        {tech}
+                        <TechIcon
+                          name={tech}
+                          size={16}
+                          className={`${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}
+                        />
+                        <span>{tech}</span>
                       </span>
                     ))}
                   </div>
