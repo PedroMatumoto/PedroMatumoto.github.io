@@ -19,15 +19,12 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import {
-  SiCisco,
-  SiGooglecloud,
-  SiTryhackme,
-} from 'react-icons/si'
+import { SiCisco, SiGooglecloud, SiTryhackme } from 'react-icons/si'
 import { VscAzure } from 'react-icons/vsc'
 import { IoCalendarClearOutline } from 'react-icons/io5'
 import { FaAws } from 'react-icons/fa'
 import BlurText from '../components/BlurText'
+import Prism from '../components/Prism'
 
 export function Home() {
   const { theme } = useTheme()
@@ -59,14 +56,26 @@ export function Home() {
 
   return (
     <main
+      className="overflow-x-hidden"
       style={{
         backgroundColor:
           theme === 'light' ? 'rgba(255, 255, 255, 1)' : 'rgba(10, 10, 10, 1)',
         color: theme === 'light' ? 'black' : 'white'
       }}
     >
-      <div className="relative flex min-h-screen w-full items-center justify-center">
-        <div className="relative w-full" style={{ height: '600px' }}>
+      <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 h-full w-full">
+          <Prism
+            animationType="rotate"
+            timeScale={0.5}
+            height={3.5}
+            baseWidth={5.5}
+            scale={1.5}
+            hueShift={0}
+            colorFrequency={1}
+            noise={0}
+            glow={1}
+          />
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             style={{ zIndex: 10 }}
@@ -289,8 +298,6 @@ export function Home() {
             className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
           />
         </Carousel>
-
-
       </div>
 
       <ExperienceTimeline />
