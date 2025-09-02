@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import { Project } from '../types/project'
 import { useTheme } from '../hooks/use-theme'
+import { TechIcon } from '../utils/tech-icons'
 
 interface ProjectCardProps {
   project: Project
@@ -91,18 +92,28 @@ export function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
 
         <div className="mb-4">
           <h4 className="mb-2 text-sm font-semibold">Tecnologias:</h4>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3">
             {project.technologies.map((tech) => (
-              <span
+              <div
                 key={tech}
-                className={`px-2 py-1 text-xs rounded-md ${
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
                   theme === 'light'
-                    ? 'bg-gray-100 text-gray-700'
-                    : 'bg-gray-800 text-gray-300'
+                    ? 'bg-gray-100 hover:bg-gray-200'
+                    : 'bg-gray-800 hover:bg-gray-700'
                 }`}
+                title={tech}
               >
-                {tech}
-              </span>
+                <TechIcon 
+                  name={tech} 
+                  size={18} 
+                  className={theme === 'light' ? 'text-gray-700' : 'text-gray-300'} 
+                />
+                <span className={`text-xs font-medium ${
+                  theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+                }`}>
+                  {tech}
+                </span>
+              </div>
             ))}
           </div>
         </div>

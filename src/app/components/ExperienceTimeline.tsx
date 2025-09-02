@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, MapPin, ExternalLink } from 'lucide-react'
+import { Calendar, MapPin } from 'lucide-react'
 import { experiences } from '../data/experiences'
 import { useTheme } from '../hooks/use-theme'
 import { Experience } from '../types/project'
+import { TechIcon } from '../utils/tech-icons'
 
 export function ExperienceTimeline() {
   const { theme } = useTheme()
@@ -230,18 +231,28 @@ export function ExperienceTimeline() {
                   <h4 className="text-lg font-semibold mb-3 font-mont">
                     Tecnologias Utilizadas
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {selectedExperience.technologies.map((tech) => (
-                      <span
+                      <div
                         key={tech}
-                        className={`px-3 py-1 text-sm rounded-md ${
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
                           theme === 'light'
-                            ? 'bg-gray-100 text-gray-700'
-                            : 'bg-gray-800 text-gray-300'
+                            ? 'bg-gray-100 hover:bg-gray-200'
+                            : 'bg-gray-800 hover:bg-gray-700'
                         }`}
+                        title={tech}
                       >
-                        {tech}
-                      </span>
+                        <TechIcon 
+                          name={tech} 
+                          size={18} 
+                          className={theme === 'light' ? 'text-gray-700' : 'text-gray-300'} 
+                        />
+                        <span className={`text-sm font-medium ${
+                          theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+                        }`}>
+                          {tech}
+                        </span>
+                      </div>
                     ))}
                   </div>
                 </div>

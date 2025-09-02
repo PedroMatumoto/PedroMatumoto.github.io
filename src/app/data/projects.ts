@@ -70,7 +70,7 @@ export const projects: Project[] = [
     link: 'https://github.com/4-ANO-COMP-IMT/ac2',
     demoLink: 'https://boramarcar.vercel.app',
     icon: '📋',
-    technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
     languages: ['typescript', 'react'],
     category: 'project',
     featured: false,

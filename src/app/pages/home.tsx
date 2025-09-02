@@ -24,7 +24,7 @@ import { VscAzure } from 'react-icons/vsc'
 import { IoCalendarClearOutline } from 'react-icons/io5'
 import { FaAws } from 'react-icons/fa'
 import BlurText from '../components/BlurText'
-import Prism from '../components/Prism'
+import Orb from '../components/Orb'
 
 export function Home() {
   const { theme } = useTheme()
@@ -65,23 +65,18 @@ export function Home() {
     >
       <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
         <div className="absolute inset-0 h-full w-full">
-          <Prism
-            animationType="rotate"
-            timeScale={0.5}
-            height={3.5}
-            baseWidth={5.5}
-            scale={1.5}
-            hueShift={0}
-            colorFrequency={1}
-            noise={0}
-            glow={1}
+          <Orb
+            hoverIntensity={0.3}
+            rotateOnHover={false}
+            hue={289}
+            forceHoverState={false}
           />
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             style={{ zIndex: 10 }}
           >
             <BlurText
-              text="Pedro Matumoto 松本 優吾"
+              text="松本 優吾"
               delay={150}
               animateBy="words"
               direction="top"
