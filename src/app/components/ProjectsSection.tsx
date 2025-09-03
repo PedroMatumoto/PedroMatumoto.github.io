@@ -6,15 +6,20 @@ import { useTheme } from '../hooks/use-theme'
 
 export function ProjectsSection() {
   const { theme } = useTheme()
-  const [activeFilter, setActiveFilter] = useState<'all' | 'case-study' | 'project'>('all')
+  const [activeFilter, setActiveFilter] = useState<
+    'all' | 'case-study' | 'project'
+  >('all')
 
-  const filteredProjects = projects.filter(project => 
-    activeFilter === 'all' || project.category === activeFilter
+  const filteredProjects = projects.filter(
+    (project) => activeFilter === 'all' || project.category === activeFilter
   )
 
-  const featuredProjects = projects.filter(project => project.featured)
+  const featuredProjects = projects.filter((project) => project.featured)
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center py-20" id="repos">
+    <div
+      className="flex min-h-screen w-full flex-col items-center justify-center py-20"
+      id="repos"
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,11 +30,13 @@ export function ProjectsSection() {
         <h1 className="mb-4 text-center font-mont text-4xl font-bold sm:text-5xl">
           Projetos
         </h1>
-        <p className={`text-lg max-w-2xl mx-auto ${
-          theme === 'light' ? 'text-gray-600' : 'text-gray-400'
-        }`}>
-          Uma coleção dos meus trabalhos mais significativos, desde estudos de caso detalhados 
-          até projetos experimentais e soluções práticas.
+        <p
+          className={`mx-auto max-w-2xl text-lg ${
+            theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+          }`}
+        >
+          Uma coleção dos meus trabalhos mais significativos, desde estudos de
+          caso detalhados até projetos experimentais e soluções práticas.
         </p>
       </motion.div>
 
@@ -49,14 +56,14 @@ export function ProjectsSection() {
           <button
             key={key}
             onClick={() => setActiveFilter(key as any)}
-            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+            className={`rounded-full px-6 py-2 font-medium transition-all duration-300 ${
               activeFilter === key
                 ? theme === 'light'
                   ? 'bg-black text-white'
                   : 'bg-white text-black'
                 : theme === 'light'
-                ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
             }`}
           >
             {label}
@@ -73,7 +80,7 @@ export function ProjectsSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-16 w-full max-w-6xl"
         >
-          <h2 className="mb-8 text-center text-2xl font-bold font-mont">
+          <h2 className="mb-8 text-center font-mont text-2xl font-bold">
             Projetos em Destaque
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -93,19 +100,17 @@ export function ProjectsSection() {
         className="w-full max-w-6xl"
       >
         {activeFilter !== 'all' && (
-          <h2 className="mb-8 text-center text-2xl font-bold font-mont">
+          <h2 className="mb-8 text-center font-mont text-2xl font-bold">
             {activeFilter === 'case-study' ? 'Estudos de Caso' : 'Projetos'}
           </h2>
         )}
-        
+
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} delay={index} />
           ))}
         </div>
       </motion.div>
-
-
     </div>
   )
 }

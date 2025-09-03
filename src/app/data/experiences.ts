@@ -53,7 +53,14 @@ export const experiences: Experience[] = [
       'Integração com APIs de sistemas fiscais governamentais',
       'Manutenção e otimização de pipelines de dados'
     ],
-    technologies: ['Python', 'Azure', 'Power BI', 'SQL Server', 'Pandas', 'NumPy'],
+    technologies: [
+      'Python',
+      'Azure',
+      'Power BI',
+      'SQL Server',
+      'Pandas',
+      'NumPy'
+    ],
     achievements: [
       'Automatização de 15+ processos manuais',
       'Redução de 70% no tempo de processamento de dados',

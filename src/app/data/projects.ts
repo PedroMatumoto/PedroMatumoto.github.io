@@ -5,7 +5,8 @@ export const projects: Project[] = [
     id: 'mauagrid',
     title: 'MauaGrid',
     description: 'Scheduler generator for IMT',
-    longDescription: 'Sistema inteligente de geração de horários para o Instituto Mauá de Tecnologia, desenvolvido para otimizar a distribuição de disciplinas e recursos.',
+    longDescription:
+      'Sistema inteligente de geração de horários para o Instituto Mauá de Tecnologia, desenvolvido para otimizar a distribuição de disciplinas e recursos.',
     link: 'https://github.com/20242-Maua-ECM-Fontys/front',
     demoLink: '#',
     icon: '📅',
@@ -36,10 +37,16 @@ export const projects: Project[] = [
     id: 'kirby',
     title: 'Kirby',
     description: 'Robot waiter to deliver food',
-    longDescription: 'Robô garçom autônomo desenvolvido para entrega de alimentos em restaurantes, utilizando navegação por sensores e controle embarcado.',
+    longDescription:
+      'Robô garçom autônomo desenvolvido para entrega de alimentos em restaurantes, utilizando navegação por sensores e controle embarcado.',
     link: 'https://github.com/PedroMatumoto/kirby',
     icon: '🤖',
-    technologies: ['Arduino', 'C/C++', 'Sensores Ultrassônicos', 'Motores Servo'],
+    technologies: [
+      'Arduino',
+      'C/C++',
+      'Sensores Ultrassônicos',
+      'Motores Servo'
+    ],
     languages: ['c'],
     category: 'case-study',
     featured: true,
@@ -66,7 +73,8 @@ export const projects: Project[] = [
     id: 'boramarcar',
     title: 'BoraMarcar',
     description: 'Simplified appointment scheduling system',
-    longDescription: 'Sistema simplificado de agendamento de qualquer evento, focado em reuniões rápidas e práticas.',
+    longDescription:
+      'Sistema simplificado de agendamento de qualquer evento, focado em reuniões rápidas e práticas.',
     link: 'https://github.com/4-ANO-COMP-IMT/ac2',
     demoLink: 'https://boramarcar.vercel.app',
     icon: '📋',
@@ -82,7 +90,8 @@ export const projects: Project[] = [
     id: 'twodrive',
     title: 'TwoDrive',
     description: 'Simple file transfer system',
-    longDescription: 'Sistema simples de transferência de arquivos peer-to-peer, desenvolvido em Java com interface gráfica.',
+    longDescription:
+      'Sistema simples de transferência de arquivos peer-to-peer, desenvolvido em Java com interface gráfica.',
     link: 'https://github.com/PedroMatumoto/two_drive',
     icon: '📁',
     technologies: ['Java', 'Swing', 'Socket Programming'],

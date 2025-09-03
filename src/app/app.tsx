@@ -6,7 +6,7 @@ export function App() {
   return (
     <>
       <Router>
-        <CardNav/>
+        <CardNav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<h1>Not Found</h1>} />

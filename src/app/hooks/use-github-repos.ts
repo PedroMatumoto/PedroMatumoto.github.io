@@ -32,7 +32,7 @@ export function useGitHubRepos(username: string): UseGitHubReposReturn {
       try {
         setLoading(true)
         setError(null)
-        
+
         const response = await axios.get(
           `https://api.github.com/users/${username}/repos`,
           {
@@ -43,7 +43,7 @@ export function useGitHubRepos(username: string): UseGitHubReposReturn {
             }
           }
         )
-        
+
         // Filter out forks and sort by stars/activity
         const filteredRepos = response.data
           .filter((repo: GitHubRepo) => !repo.name.includes('fork'))
@@ -52,9 +52,11 @@ export function useGitHubRepos(username: string): UseGitHubReposReturn {
             if (b.stargazers_count !== a.stargazers_count) {
               return b.stargazers_count - a.stargazers_count
             }
-            return new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
+            return (
+              new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
+            )
           })
-        
+
         setRepos(filteredRepos)
       } catch (err) {
         setError('Failed to fetch repositories')
