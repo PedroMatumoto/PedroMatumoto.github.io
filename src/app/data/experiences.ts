@@ -17,7 +17,8 @@ export const experiences: Experience[] = [
       'Implementação de componentes e integrações em JavaScript para interfaces e automações',
       'Configuração de infraestrutura em contêineres e orquestração (Docker, Kubernetes)',
       'Criação e manutenção de pipelines de CI/CD (GitHub Actions / Azure DevOps) para deploys e testes automatizados',
-      'Garantia de segurança e compliance no processamento de dados sensíveis'
+      'Garantia de segurança e compliance no processamento de dados sensíveis',
+      'Levantamento de requisitos e arquitetura do sistema de processamento de documentos'
     ],
     technologies: [
       'Azure OpenAI',
@@ -29,11 +30,13 @@ export const experiences: Experience[] = [
       'Kubernetes',
       'GitHub Actions',
       'CI/CD',
-      'PostgreSQL'
+      'PostgreSQL',
+      'Transformers',
+      'LangChain'
     ],
     achievements: [
       'Efetivado na posição full-time',
-      'Início das integrações com Azure OpenAI para pipelines de documentos'
+      'Início das integrações com Azure OpenAI para pipelines de documentos',
     ],
     companyLogo: '/logos/alvarez-marsal.png'
   },
@@ -48,10 +51,12 @@ export const experiences: Experience[] = [
     description:
       'Desenvolvimento de sistemas para automatização de processos fiscais e tributários, trabalhando com análise de dados e criação de dashboards.',
     responsibilities: [
+      'Tratamento de grandes volumes de dados fiscais',
       'Desenvolvimento de scripts Python para automação de processos fiscais',
       'Criação de dashboards interativos para análise de dados tributários',
       'Integração com APIs de sistemas fiscais governamentais',
-      'Manutenção e otimização de pipelines de dados'
+      'Automatização da coleta de dados e geração de papéis de trabalho',
+      'Colaboração com equipes multidisciplinares para otimização de processos'
     ],
     technologies: [
       'Python',
@@ -59,7 +64,10 @@ export const experiences: Experience[] = [
       'Power BI',
       'SQL Server',
       'Pandas',
-      'NumPy'
+      'NumPy',
+      'APIs REST',
+      'Git',
+      'Figma'
     ],
     achievements: [
       'Automatização de 15+ processos manuais',
@@ -77,18 +85,18 @@ export const experiences: Experience[] = [
     startDate: '2022-08',
     endDate: '2023-10',
     description:
-      'Monitor de projetos acadêmicos, auxiliando estudantes no desenvolvimento de soluções tecnológicas e pesquisa científica.',
+      'Monitor de projetos acadêmicos, auxiliando professores em avaliações de desempenho e desenvolvimento de ferramentas para gestão de eventos.',
     responsibilities: [
-      'Orientação de estudantes em projetos de iniciação científica',
+      'Relatórios de desempenho de professores em eventos',
       'Desenvolvimento de ferramentas para análise de dados acadêmicos',
       'Criação de relatórios e visualizações de performance estudantil',
       'Suporte técnico em Python e análise de dados'
     ],
-    technologies: ['Python', 'Pandas', 'Matplotlib', 'Jupyter', 'Git'],
+    technologies: ['Python', 'Pandas', 'Matplotlib', 'Git'],
     achievements: [
-      'Orientação de 12+ projetos de iniciação científica',
-      'Desenvolvimento de 5 ferramentas de análise acadêmica',
-      'Melhoria de 40% na taxa de conclusão de projetos'
+      'Entrega de relatórios mensais de desempenho',
+      'Desenvolvimento de 3 ferramentas de análise acadêmica',
+      'Otimização da geração de relatórios em 40%'
     ],
     companyLogo: '/logos/imt.png'
   },
@@ -110,9 +118,8 @@ export const experiences: Experience[] = [
     ],
     technologies: ['Figma', 'WordPress', 'Canva', 'HTML/CSS', 'JavaScript'],
     achievements: [
-      'Entrega de 25+ projetos web',
+      'Entrega de 2 projetos web, com e-commerce e blogs',
       'Satisfação média de 4.8/5 dos clientes',
-      'Aumento de 60% na carteira de clientes da área digital'
     ],
     companyLogo: '/logos/maua-jr.png'
   }
