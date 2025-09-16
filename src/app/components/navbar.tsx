@@ -12,6 +12,20 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [fade, setFade] = useState(false)
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const offset = 100 // Offset para compensar a navbar fixa
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   const handleOpenMenu = () => {
     setIsMenuOpen(true)
     setTimeout(() => {
@@ -50,48 +64,40 @@ export function Navbar() {
           <a
             href="#repos"
             className="cursor-pointer"
-            onClick={(e) => (
-              e.preventDefault(),
-              document
-                .getElementById('repos')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            )}
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToSection('repos')
+            }}
           >
             Repos
           </a>
           <a
             href="#about"
             className="cursor-pointer"
-            onClick={(e) => (
-              e.preventDefault(),
-              document
-                .getElementById('about')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            )}
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToSection('about')
+            }}
           >
             About
           </a>
           <a
             href="#info"
             className="cursor-pointer"
-            onClick={(e) => (
-              e.preventDefault(),
-              document
-                .getElementById('info')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            )}
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToSection('info')
+            }}
           >
             Experience
           </a>
           <a
             href="#contact"
             className="cursor-pointer"
-            onClick={(e) => (
-              e.preventDefault(),
-              document
-                .getElementById('contact')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            )}
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToSection('contact')
+            }}
           >
             Contact
           </a>
@@ -139,48 +145,44 @@ export function Navbar() {
               <a
                 href="#repos"
                 className="cursor-pointer"
-                onClick={(e) => (
-                  e.preventDefault(),
-                  document
-                    .getElementById('repos')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                )}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('repos')
+                  handleCloseMenu()
+                }}
               >
                 Repos
               </a>
               <a
                 href="#about"
                 className="cursor-pointer"
-                onClick={(e) => (
-                  e.preventDefault(),
-                  document
-                    .getElementById('about')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                )}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('about')
+                  handleCloseMenu()
+                }}
               >
                 About
               </a>
               <a
                 href="#info"
                 className="cursor-pointer"
-                onClick={(e) => (
-                  e.preventDefault(),
-                  document
-                    .getElementById('info')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                )}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('info')
+                  handleCloseMenu()
+                }}
               >
                 Experience
               </a>
               <a
                 href="#contact"
                 className="cursor-pointer"
-                onClick={(e) => (
-                  e.preventDefault(),
-                  document
-                    .getElementById('contact')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                )}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('contact')
+                  handleCloseMenu()
+                }}
               >
                 Contact
               </a>
