@@ -17,7 +17,7 @@ export function ProjectsSection() {
   const featuredProjects = projects.filter((project) => project.featured)
   return (
     <div
-      className="flex min-h-screen w-full flex-col items-center justify-center py-20"
+      className="flex min-h-screen w-full flex-col items-center justify-center py-20 pt-32"
       id="repos"
     >
       <motion.div

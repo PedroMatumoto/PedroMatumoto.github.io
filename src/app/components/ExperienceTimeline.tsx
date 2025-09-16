@@ -44,7 +44,7 @@ export function ExperienceTimeline() {
 
   return (
     <div
-      className="flex min-h-screen w-full items-center justify-center py-20"
+      className="flex min-h-screen w-full items-center justify-center py-20 pt-32"
       id="experience"
     >
       <div className="w-full max-w-7xl px-4">

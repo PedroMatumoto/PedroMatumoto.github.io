@@ -21,12 +21,12 @@ const CardNav: React.FC<CardNavProps> = ({ className = '' }) => {
 
   const navLinks: NavLink[] = [
     { label: 'About', href: '#about', ariaLabel: 'About section' },
+    { label: 'Projects', href: '#repos', ariaLabel: 'Projects section' },
     {
       label: 'Experience',
       href: '#experience',
       ariaLabel: 'Experience section'
     },
-    { label: 'Projects', href: '#repos', ariaLabel: 'Projects section' },
     { label: 'Contact', href: '#contact', ariaLabel: 'Contact section' }
   ]
 
