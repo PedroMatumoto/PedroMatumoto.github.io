@@ -148,27 +148,27 @@ export function Home() {
         >
           <CarouselContent>
             <CarouselItem className="sm:basis-1/3">
-              <div>
+              <div className="h-full">
                 <Card
                   onClick={() =>
                     window.open(
                       'https://learn.microsoft.com/api/credentials/share/pt-br/PedroMatumoto-9901/8DB5E10E5D4597FA?sharingId=18D2DEB419144A0A'
                     )
                   }
-                  className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
+                  className={`cursor-pointer h-64 flex flex-col ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
                 >
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-center">
+                  <CardHeader className="flex-shrink-0">
+                    <CardTitle className="flex items-center justify-center text-center">
                       AZ-900 Azure Fundamentals
                     </CardTitle>
                     <CardDescription className="text-center">
                       Microsoft
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex items-center justify-center">
+                  <CardContent className="flex flex-1 items-center justify-center">
                     <VscAzure className="text-4xl" />
                   </CardContent>
-                  <CardFooter className="flex items-center justify-center">
+                  <CardFooter className="flex flex-shrink-0 items-center justify-center">
                     <IoCalendarClearOutline />
                     <p>10/2024</p>
                   </CardFooter>
@@ -176,27 +176,27 @@ export function Home() {
               </div>
             </CarouselItem>
             <CarouselItem className="sm:basis-1/3">
-              <div>
+              <div className="h-full">
                 <Card
                   onClick={() =>
                     window.open(
                       'https://www.credly.com/badges/cfcf2aa4-982b-426b-8f7d-63a2388ebc6d/public_url'
                     )
                   }
-                  className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
+                  className={`flex h-64 cursor-pointer flex-col ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
                 >
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-center">
+                  <CardHeader className="flex-shrink-0">
+                    <CardTitle className="flex items-center justify-center text-center">
                       Associate Cloud Engineer
                     </CardTitle>
                     <CardDescription className="text-center">
                       GCP
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex items-center justify-center">
+                  <CardContent className="flex flex-1 items-center justify-center">
                     <SiGooglecloud className="text-4xl" />
                   </CardContent>
-                  <CardFooter className="flex items-center justify-center">
+                  <CardFooter className="flex flex-shrink-0 items-center justify-center">
                     <IoCalendarClearOutline />
                     <p>03/2024</p>
                   </CardFooter>
@@ -204,25 +204,25 @@ export function Home() {
               </div>
             </CarouselItem>
             <CarouselItem className="sm:basis-1/3">
-              <div>
+              <div className="h-full">
                 <Card
                   onClick={() =>
                     window.open('https://tryhackme.com/r/p/Matumoto')
                   }
-                  className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
+                  className={`flex h-64 cursor-pointer flex-col ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
                 >
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-center">
+                  <CardHeader className="flex-shrink-0">
+                    <CardTitle className="flex items-center justify-center text-center">
                       Introduction to Cyber Security
                     </CardTitle>
                     <CardDescription className="text-center">
                       TryHackMe
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex items-center justify-center">
+                  <CardContent className="flex flex-1 items-center justify-center">
                     <SiTryhackme className="text-4xl" />
                   </CardContent>
-                  <CardFooter className="flex items-center justify-center">
+                  <CardFooter className="flex flex-shrink-0 items-center justify-center">
                     <IoCalendarClearOutline />
                     <p>10/2023</p>
                   </CardFooter>
@@ -230,27 +230,27 @@ export function Home() {
               </div>
             </CarouselItem>
             <CarouselItem className="sm:basis-1/3">
-              <div>
+              <div className="h-full">
                 <Card
                   onClick={() =>
                     window.open(
                       'https://www.credly.com/badges/9ca0b5f9-6f4d-46c1-889f-7b7d94d5a87e/public_url'
                     )
                   }
-                  className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
+                  className={`flex h-64 cursor-pointer flex-col ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
                 >
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-center">
+                  <CardHeader className="flex-shrink-0">
+                    <CardTitle className="flex items-center justify-center text-center">
                       AWS Certified Cloud Practitioner
                     </CardTitle>
                     <CardDescription className="text-center">
                       Amazon Web Services
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex items-center justify-center">
+                  <CardContent className="flex flex-1 items-center justify-center">
                     <FaAws className="text-4xl" />
                   </CardContent>
-                  <CardFooter className="flex items-center justify-center">
+                  <CardFooter className="flex flex-shrink-0 items-center justify-center">
                     <IoCalendarClearOutline />
                     <p>08/2023</p>
                   </CardFooter>
@@ -258,27 +258,27 @@ export function Home() {
               </div>
             </CarouselItem>
             <CarouselItem className="sm:basis-1/3">
-              <div>
+              <div className="h-full">
                 <Card
                   onClick={() =>
                     window.open(
                       'https://www.credly.com/badges/1b3b3b3d-0b3b-4b3b-8b3b-3b3b3b3b3b3b'
                     )
                   }
-                  className={`cursor-pointer ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
+                  className={`flex h-64 cursor-pointer flex-col ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'} transition-all duration-1000`}
                 >
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-center">
+                  <CardHeader className="flex-shrink-0">
+                    <CardTitle className="flex items-center justify-center text-center">
                       Foundational - Linux Essentials
                     </CardTitle>
                     <CardDescription className="text-center">
                       Cisco
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex items-center justify-center">
+                  <CardContent className="flex flex-1 items-center justify-center">
                     <SiCisco className="text-4xl" />
                   </CardContent>
-                  <CardFooter className="flex items-center justify-center">
+                  <CardFooter className="flex flex-shrink-0 items-center justify-center">
                     <IoCalendarClearOutline />
                     <p>12/2022</p>
                   </CardFooter>

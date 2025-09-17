@@ -5,8 +5,8 @@ export interface Project {
   longDescription?: string
   link: string
   demoLink?: string
-  icon?: string
   image?: string
+  screenshot?: string
   technologies: string[]
   languages: string[]
   category: 'case-study' | 'project'

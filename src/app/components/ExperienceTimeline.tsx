@@ -44,7 +44,7 @@ export function ExperienceTimeline() {
 
   return (
     <div
-      className="flex w-full items-center justify-center py-12"
+      className="flex w-full items-center justify-center py-12 pt-32"
       id="experience"
     >
       <div className="w-full max-w-6xl px-4">
@@ -281,10 +281,11 @@ export function ExperienceTimeline() {
                   >
                     {selectedExperience.responsibilities.map(
                       (responsibility, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm">
-                          <span className="mt-1 text-xs text-blue-500">
-                            ●
-                          </span>
+                        <li
+                          key={index}
+                          className="flex items-start gap-2 text-sm"
+                        >
+                          <span className="mt-1 text-xs text-blue-500">●</span>
                           <span>{responsibility}</span>
                         </li>
                       )
@@ -330,7 +331,10 @@ export function ExperienceTimeline() {
                       >
                         {selectedExperience.achievements.map(
                           (achievement, index) => (
-                            <li key={index} className="flex items-start gap-2 text-sm">
+                            <li
+                              key={index}
+                              className="flex items-start gap-2 text-sm"
+                            >
                               <span className="mt-1 text-xs text-green-500">
                                 ★
                               </span>

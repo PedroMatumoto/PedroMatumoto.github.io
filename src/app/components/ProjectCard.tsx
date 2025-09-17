@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink, Github, Star } from 'lucide-react'
 import { Project } from '../types/project'
 import { useTheme } from '../hooks/use-theme'
 import { TechIcon } from '../utils/tech-icons'
@@ -31,16 +31,15 @@ export function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-100px' }}
-      className={`group relative overflow-hidden rounded-xl border transition-all duration-300 hover:scale-105 ${
+      className={`group relative h-96 overflow-hidden rounded-xl border transition-all duration-300 hover:scale-105 ${
         theme === 'light'
           ? 'border-gray-200 bg-white shadow-lg hover:shadow-xl'
           : 'border-gray-800 bg-gray-900 shadow-lg hover:shadow-2xl'
       }`}
     >
-      <div className="p-6">
+      <div className="flex h-full flex-col p-6">
         <div className="mb-4 flex items-start justify-between">
           <div className="flex items-center gap-3">
-            {project.icon && <span className="text-2xl">{project.icon}</span>}
             <div>
               <h3 className="font-mont text-xl font-bold">{project.title}</h3>
               <span
@@ -83,14 +82,25 @@ export function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
         </div>
 
         <p
-          className={`mb-4 text-sm ${
+          className={`mb-4 flex-1 text-sm ${
             theme === 'light' ? 'text-gray-600' : 'text-gray-400'
           }`}
         >
           {project.longDescription || project.description}
         </p>
 
-        <div className="mb-4">
+        {/* Screenshot */}
+        {project.screenshot && (
+          <div className="mb-4 overflow-hidden rounded-lg">
+            <img
+              src={project.screenshot}
+              alt={`Screenshot do projeto ${project.title}`}
+              className="h-32 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        )}
+
+        <div className="mb-4 mt-auto">
           <h4 className="mb-2 text-sm font-semibold">Tecnologias:</h4>
           <div className="flex flex-wrap gap-3">
             {project.technologies.map((tech) => (
@@ -139,6 +149,13 @@ export function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {/* Featured indicator */}
+        {project.featured && (
+          <div className="absolute right-3 top-3">
+            <Star size={18} className="fill-yellow-400 text-yellow-400" />
           </div>
         )}
       </div>
