@@ -2,5 +2,5 @@
 2:I[51694,["/_next/static/chunks/383c3a3e8e8b644d.js","/_next/static/chunks/0c7d89d9485cf6ae.js","/_next/static/chunks/cea24c420cb3c4df.js"],"default"]
 3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"buildId":"SB_bvYzgN32bhgi5VZP-N","rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"synmed"}],[["$","script","script-0",{"src":"/_next/static/chunks/0c7d89d9485cf6ae.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/cea24c420cb3c4df.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"MhC6uQIXwjtUKBFpnbYil","rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"synmed"}],[["$","script","script-0",{"src":"/_next/static/chunks/0c7d89d9485cf6ae.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/cea24c420cb3c4df.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null
