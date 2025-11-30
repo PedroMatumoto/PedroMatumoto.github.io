@@ -5,6 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { getTechIcon } from "@/utils/icons";
 import { SiAmazonwebservices, SiCisco, SiGooglecloud } from "react-icons/si";
 import { FaAward, FaMicrosoft } from "react-icons/fa";
+import AnimatedText from "./AnimatedText";
 
 const container = {
   hidden: { opacity: 0 },
@@ -48,7 +49,7 @@ export default function Skills() {
           className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-12 flex items-center gap-4"
         >
           <span className="text-stone-400 text-lg">03.</span>
-          {portfolioData.ui.skills} & {portfolioData.ui.certifications}
+          <AnimatedText text={portfolioData.ui.skills} /> & <AnimatedText text={portfolioData.ui.certifications} />
           <span className="text-sm font-normal text-stone-400 ml-auto writing-vertical-rl text-orientation-upright h-8">
             スキルと資格
           </span>
@@ -61,7 +62,7 @@ export default function Skills() {
             viewport={{ once: true }}
           >
             <h3 className="text-xl font-bold text-stone-900 mb-8 border-b border-stone-200 pb-2">
-              {portfolioData.ui.hardSkills}
+              <AnimatedText text={portfolioData.ui.hardSkills} />
             </h3>
             <motion.div
               variants={container}
@@ -90,7 +91,7 @@ export default function Skills() {
             viewport={{ once: true }}
           >
             <h3 className="text-xl font-bold text-stone-900 mb-8 border-b border-stone-200 pb-2">
-              {portfolioData.ui.certifications}
+              <AnimatedText text={portfolioData.ui.certifications} />
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {portfolioData.certifications.map((cert, index) => {
@@ -101,12 +102,12 @@ export default function Skills() {
                     </div>
                     <div>
                       <h4 className="font-bold text-stone-900 text-sm md:text-base group-hover:text-stone-600 transition-colors">
-                        {cert.name}
+                        <AnimatedText text={cert.name} />
                       </h4>
                       <div className="flex items-center gap-2 text-xs text-stone-500 mt-1">
-                        <span className="font-medium">{cert.issuer}</span>
+                        <span className="font-medium"><AnimatedText text={cert.issuer} /></span>
                         <span>•</span>
-                        <span>{cert.date}</span>
+                        <span><AnimatedText text={cert.date} /></span>
                       </div>
                     </div>
                   </>

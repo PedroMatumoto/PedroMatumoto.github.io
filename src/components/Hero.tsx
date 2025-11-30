@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
-import ColorBends from "./ColorBends";
+import dynamic from "next/dynamic";
+import AnimatedText from "./AnimatedText";
+
+const ColorBends = dynamic(() => import("./ColorBends"), { ssr: false });
 
 export default function Hero() {
   const { t: portfolioData } = useLanguage();
@@ -39,7 +42,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.1 }}
             className="inline-block"
           >
-            {portfolioData.name}
+            <AnimatedText text={portfolioData.name} />
           </motion.span>
         </h1>
 
@@ -49,7 +52,7 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="text-lg md:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed"
         >
-          {portfolioData.about}
+          <AnimatedText text={portfolioData.about} speed={10} />
         </motion.p>
       </motion.div>
 

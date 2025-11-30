@@ -4,6 +4,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { getTechIcon } from "@/utils/icons";
 import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import AnimatedText from "@/components/AnimatedText";
 
 interface ProjectDetailsProps {
   slug: string;
@@ -29,15 +30,15 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
           className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-12 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-          {portfolioData.ui.backToHome}
+          <AnimatedText text={portfolioData.ui.backToHome} />
         </Link>
 
         <div className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 font-serif">
-            {project.title}
+            <AnimatedText text={project.title} />
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed max-w-2xl">
-            {project.description}
+            <AnimatedText text={project.description} speed={10} />
           </p>
         </div>
 
@@ -46,10 +47,10 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
             <div>
               <h2 className="text-2xl font-bold text-stone-900 mb-6 font-serif flex items-center gap-3">
                 <span className="w-8 h-[1px] bg-stone-900"></span>
-                {portfolioData.ui.overview}
+                <AnimatedText text={portfolioData.ui.overview} />
               </h2>
               <div className="prose prose-stone max-w-none text-stone-600 leading-relaxed">
-                <p>{project.longDescription || project.description}</p>
+                <p><AnimatedText text={project.longDescription || project.description} speed={10} /></p>
               </div>
             </div>
 
@@ -57,13 +58,13 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
               <div>
                 <h2 className="text-2xl font-bold text-stone-900 mb-6 font-serif flex items-center gap-3">
                   <span className="w-8 h-[1px] bg-stone-900"></span>
-                  {portfolioData.ui.keyFeatures}
+                  <AnimatedText text={portfolioData.ui.keyFeatures} />
                 </h2>
                 <ul className="space-y-3">
                   {project.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3 text-stone-600">
                       <span className="mt-2 w-1.5 h-1.5 bg-stone-400 rounded-full flex-shrink-0" />
-                      {feature}
+                      <AnimatedText text={feature} speed={10} />
                     </li>
                   ))}
                 </ul>
@@ -74,7 +75,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
               <div>
                 <h2 className="text-2xl font-bold text-stone-900 mb-6 font-serif flex items-center gap-3">
                   <span className="w-8 h-[1px] bg-stone-900"></span>
-                  {portfolioData.ui.videos}
+                  <AnimatedText text={portfolioData.ui.videos} />
                 </h2>
                 <div className="space-y-6">
                   {project.videos.map((video, index) => (
@@ -102,7 +103,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
               <div>
                 <h2 className="text-2xl font-bold text-stone-900 mb-6 font-serif flex items-center gap-3">
                   <span className="w-8 h-[1px] bg-stone-900"></span>
-                  {portfolioData.ui.gallery}
+                  <AnimatedText text={portfolioData.ui.gallery} />
                 </h2>
                 <div className="space-y-8">
                   {project.gallery.map((image, index) => (
@@ -122,7 +123,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
 
           <div className="space-y-8">
             <div className="bg-white p-6 border border-stone-200 shadow-sm">
-              <h3 className="text-lg font-bold text-stone-900 mb-4 font-serif">{portfolioData.ui.technologies}</h3>
+              <h3 className="text-lg font-bold text-stone-900 mb-4 font-serif"><AnimatedText text={portfolioData.ui.technologies} /></h3>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, index) => (
                   <div
@@ -137,7 +138,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
             </div>
 
             <div className="bg-white p-6 border border-stone-200 shadow-sm">
-              <h3 className="text-lg font-bold text-stone-900 mb-4 font-serif">{portfolioData.ui.links}</h3>
+              <h3 className="text-lg font-bold text-stone-900 mb-4 font-serif"><AnimatedText text={portfolioData.ui.links} /></h3>
               <div className="space-y-3">
                 {project.github && (
                   <a
@@ -147,7 +148,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
                     className="flex items-center gap-3 text-stone-600 hover:text-stone-900 transition-colors"
                   >
                     <Github size={20} />
-                    <span>{portfolioData.ui.viewSourceCode}</span>
+                    <span><AnimatedText text={portfolioData.ui.viewSourceCode} /></span>
                   </a>
                 )}
                 {project.link && (
@@ -158,11 +159,11 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
                     className="flex items-center gap-3 text-stone-600 hover:text-stone-900 transition-colors"
                   >
                     <ExternalLink size={20} />
-                    <span>{portfolioData.ui.liveDemo}</span>
+                    <span><AnimatedText text={portfolioData.ui.liveDemo} /></span>
                   </a>
                 )}
                 {!project.github && !project.link && (
-                  <p className="text-stone-400 text-sm italic">{portfolioData.ui.noLinks}</p>
+                  <p className="text-stone-400 text-sm italic"><AnimatedText text={portfolioData.ui.noLinks} /></p>
                 )}
               </div>
             </div>

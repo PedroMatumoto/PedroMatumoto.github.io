@@ -5,6 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import { getTechIcon } from "@/utils/icons";
 import Link from "next/link";
+import AnimatedText from "./AnimatedText";
 
 export default function Projects() {
   const { t: portfolioData } = useLanguage();
@@ -18,7 +19,7 @@ export default function Projects() {
           className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-16 flex items-center gap-4"
         >
           <span className="text-stone-400 text-lg">02.</span>
-          {portfolioData.ui.projects}
+          <AnimatedText text={portfolioData.ui.projects} />
           <span className="text-sm font-normal text-stone-400 ml-auto writing-vertical-rl text-orientation-upright h-8">
             プロジェクト
           </span>
@@ -39,7 +40,7 @@ export default function Projects() {
               
               <div className="flex justify-between items-start mb-6 relative z-10">
                 <h3 className="text-2xl font-bold text-stone-900 group-hover:text-stone-600 transition-colors">
-                  {project.title}
+                  <AnimatedText text={project.title} />
                 </h3>
                 <div className="flex gap-4">
                   {project.github && (
@@ -68,7 +69,7 @@ export default function Projects() {
               </div>
               
               <p className="text-stone-600 mb-6 leading-relaxed flex-grow">
-                {project.description}
+                <AnimatedText text={project.description} speed={10} />
               </p>
 
               <div className="flex flex-wrap gap-3 mt-auto mb-6">
@@ -85,7 +86,7 @@ export default function Projects() {
 
               <div className="mt-4 pt-4 border-t border-stone-100 flex justify-end">
                 <span className="text-sm font-serif text-stone-400 group-hover:text-stone-900 flex items-center gap-2 transition-colors">
-                  {portfolioData.ui.viewDetails} <ArrowRight size={16} />
+                  <AnimatedText text={portfolioData.ui.viewDetails} /> <ArrowRight size={16} />
                 </span>
               </div>
             </motion.div>

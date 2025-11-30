@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Github, Linkedin } from "lucide-react";
+import AnimatedText from "./AnimatedText";
 
 export default function Contact() {
   const { t: portfolioData } = useLanguage();
@@ -15,10 +16,10 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">
-            {portfolioData.ui.getInTouch}
+            <AnimatedText text={portfolioData.ui.getInTouch} />
           </h2>
           <p className="text-stone-400 mb-12 max-w-xl mx-auto">
-            {portfolioData.ui.contactText}
+            <AnimatedText text={portfolioData.ui.contactText} speed={10} />
           </p>
 
           <div className="flex justify-center gap-8 mb-16">
@@ -47,7 +48,7 @@ export default function Contact() {
           </div>
 
           <footer className="text-sm text-stone-600 font-mono">
-            <p>© {new Date().getFullYear()} {portfolioData.name}. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} <AnimatedText text={portfolioData.name} />. All rights reserved.</p>
             <p className="mt-2 text-xs">Designed & Built with Next.js</p>
           </footer>
         </motion.div>

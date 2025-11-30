@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { getTechIcon } from "@/utils/icons";
+import AnimatedText from "./AnimatedText";
 
 export default function Experience() {
   const { t: portfolioData } = useLanguage();
@@ -16,7 +17,7 @@ export default function Experience() {
           className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-16 flex items-center gap-4"
         >
           <span className="text-stone-400 text-lg">01.</span>
-          {portfolioData.ui.experience}
+          <AnimatedText text={portfolioData.ui.experience} />
           <span className="text-sm font-normal text-stone-400 ml-auto writing-vertical-rl text-orientation-upright h-8">
             経験
           </span>
@@ -41,11 +42,11 @@ export default function Experience() {
               />
               
               <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
-                <h3 className="text-xl font-bold text-stone-900">{exp.role}</h3>
-                <span className="text-sm font-mono text-stone-500">{exp.period}</span>
+                <h3 className="text-xl font-bold text-stone-900"><AnimatedText text={exp.role} /></h3>
+                <span className="text-sm font-mono text-stone-500"><AnimatedText text={exp.period} /></span>
               </div>
-              <h4 className="text-lg text-stone-600 font-serif mb-4">{exp.company}</h4>
-              <p className="text-stone-600 leading-relaxed mb-4">{exp.description}</p>
+              <h4 className="text-lg text-stone-600 font-serif mb-4"><AnimatedText text={exp.company} /></h4>
+              <p className="text-stone-600 leading-relaxed mb-4"><AnimatedText text={exp.description} speed={10} /></p>
               
               <div className="flex flex-wrap gap-2">
                 {exp.technologies.map((tech, techIndex) => (
