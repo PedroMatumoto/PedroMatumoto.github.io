@@ -107,6 +107,22 @@ export const portfolioData = {
       gallery: ['/images/scrapihaus_landing_page.png'],
     },
     {
+      title: "MITRE ATT&CK Classifier",
+      slug: "mitre-mapper",
+      description: "Intelligent API for automatic classification of cybersecurity narratives based on the MITRE ATT&CK framework.",
+      longDescription: "Developed by Junta.ai, this system uses advanced NLP and RAG techniques to automatically identify tactics and techniques in textual descriptions of security incidents. The project features automatic classification, semantic search with FAISS, detailed analysis with LLM (Ollama), and a complete RESTful API built with FastAPI.",
+      features: [
+        "Automatic Narrative Classification",
+        "RAG (Retrieval-Augmented Generation)",
+        "LLM Analysis (Ollama/Llama 3.2)",
+        "RESTful API with FastAPI",
+        "Multilingual Support (PT/EN)"
+      ],
+      technologies: ["Python", "FastAPI", "RAG", "LLM", "FAISS", "Docker", "NLP"],
+      github: "https://github.com/junta-ai/mitre-mapper",
+      videos: ["https://youtu.be/SVv-GfqNUVQ"],
+    },
+    {
       title: "Schedule System (Fontys)",
       slug: "sistema-grade-horaria-fontys",
       description: "Schedule system development with Microsoft Entra ID authentication, using React, Vite, and Tailwind CSS.",

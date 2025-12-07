@@ -134,6 +134,22 @@ export const portfolioData = {
       gallery: ['/images/scrapihaus_landing_page.png'], // Adicione URLs de imagens aqui
     },
     {
+      title: "MITRE ATT&CK Classifier",
+      slug: "mitre-mapper",
+      description: "API inteligente para classificação automática de narrativas de segurança cibernética baseada no framework MITRE ATT&CK.",
+      longDescription: "Desenvolvido pela Junta.ai, este sistema utiliza técnicas avançadas de NLP e RAG para identificar automaticamente táticas e técnicas em descrições textuais de incidentes de segurança. O projeto conta com classificação automática, busca semântica com FAISS, análise detalhada com LLM (Ollama) e uma API RESTful completa desenvolvida em FastAPI.",
+      features: [
+        "Classificação Automática de narrativas",
+        "RAG (Retrieval-Augmented Generation)",
+        "Análise com LLM (Ollama/Llama 3.2)",
+        "API RESTful com FastAPI",
+        "Suporte Multilíngue (PT/EN)"
+      ],
+      technologies: ["Python", "FastAPI", "RAG", "LLM", "FAISS", "Docker", "NLP"],
+      github: "https://github.com/junta-ai/mitre-mapper",
+      videos: ["https://youtu.be/SVv-GfqNUVQ"],
+    },
+    {
       title: "Sistema de Grade Horária (Fontys)",
       slug: "sistema-grade-horaria-fontys",
       description: "Desenvolvimento de sistema de grade horária com autenticação via Microsoft Entra ID, utilizando React, Vite e Tailwind CSS.",

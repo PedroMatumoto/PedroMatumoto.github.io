@@ -107,6 +107,22 @@ export const portfolioData = {
       gallery: ['/images/scrapihaus_landing_page.png'],
     },
     {
+      title: "MITRE ATT&CK Classifier",
+      slug: "mitre-mapper",
+      description: "MITRE ATT&CKフレームワークに基づいたサイバーセキュリティのナラティブを自動分類するためのインテリジェントAPI。",
+      longDescription: "Junta.aiによって開発されたこのシステムは、高度なNLPとRAG技術を使用して、セキュリティインシデントのテキスト記述から戦術と技術を自動的に特定します。このプロジェクトは、自動分類、FAISSを使用したセマンティック検索、LLM（Ollama）による詳細な分析、およびFastAPIで構築された完全なRESTful APIを備えています。",
+      features: [
+        "ナラティブの自動分類",
+        "RAG (Retrieval-Augmented Generation)",
+        "LLM分析 (Ollama/Llama 3.2)",
+        "FastAPIによるRESTful API",
+        "多言語サポート (PT/EN)"
+      ],
+      technologies: ["Python", "FastAPI", "RAG", "LLM", "FAISS", "Docker", "NLP"],
+      github: "https://github.com/junta-ai/mitre-mapper",
+      videos: ["https://youtu.be/SVv-GfqNUVQ"],
+    },
+    {
       title: "時間割システム (Fontys)",
       slug: "sistema-grade-horaria-fontys",
       description: "React、Vite、Tailwind CSSを使用した、Microsoft Entra ID認証付きの時間割システム開発。",
