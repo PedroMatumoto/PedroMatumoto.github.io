@@ -46,8 +46,8 @@ export const portfolioData = {
       company: "Alvarez & Marsal",
       role: "ソフトウェアエンジニア",
       period: "05/2025 - 現在",
-      description: "AI文書処理システム（Azure OpenAI）、プロセス自動化（RPA）による30%の時間短縮、分散クラウドインフラの開発。FastAPIを用いたAPIの実装、複雑なダッシュボード、CI/CDパイプラインの構築。",
-      technologies: ["Azure OpenAI", "RPA", "FastAPI", "CI/CD", "Azure"],
+      description: "デスクトップアプリケーションの再構築、Azure Web Apps へのデプロイ管理、工数配分計算を行う管理システムの開発を担当。あわせて、AI文書処理（Azure OpenAI）、プロセス自動化（RPA）、FastAPI API、CI/CDパイプラインにも従事。",
+      technologies: ["Azure OpenAI", "RPA", "FastAPI", "CI/CD", "Azure", "Azure Web Apps", "Desktop Applications"],
     },
     {
       company: "Alvarez & Marsal",

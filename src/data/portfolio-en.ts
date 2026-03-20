@@ -46,8 +46,8 @@ export const portfolioData = {
       company: "Alvarez & Marsal",
       role: "Software Engineer",
       period: "05/2025 - Present",
-      description: "Development of AI document processing system (Azure OpenAI), process automation (RPA) reducing time by 30%, and distributed cloud infrastructure. Implementation of APIs with FastAPI, complex dashboards, and CI/CD pipelines.",
-      technologies: ["Azure OpenAI", "RPA", "FastAPI", "CI/CD", "Azure"],
+      description: "Responsible for restructuring the desktop application, managing deployments on Azure Web Apps, and building an administrative system with hour allocation calculations. I also work on AI document processing (Azure OpenAI), process automation (RPA), FastAPI APIs, and CI/CD pipelines.",
+      technologies: ["Azure OpenAI", "RPA", "FastAPI", "CI/CD", "Azure", "Azure Web Apps", "Desktop Applications"],
     },
     {
       company: "Alvarez & Marsal",
