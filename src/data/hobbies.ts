@@ -1138,7 +1138,7 @@ export const restaurantesData: Restaurant[] = [
         dishes: [
             {
             name: "TORI KARA SU JYOUYU JUUBAKO",
-            photo: "/images/FOOD/kidoairaku.jpg",
+            photo: "/images/food/kidoairaku.jpg",
             notes: "Frango frito com molho de soja, servido em uma caixa bento. Crocante por fora e suculento por dentro, com um sabor umami intenso do molho. Acompanha arroz branco e legumes em conserva, equilibrando a riqueza do prato."
             },
         ],
@@ -1236,12 +1236,12 @@ export const restaurantesData: Restaurant[] = [
         dishes: [
             {
             name: "Galinhada",
-            photo: "/images/FOOD/lena1.jpg",
+            photo: "/images/food/lena1.jpg",
             notes: "Apesar de ser galinhada, não é um prato pesado. O arroz é soltinho e bem temperado, com pedaços generosos de frango desfiado, junto com a cebola fica muito bom."
             },
             {
             name: "Broa",
-            photo: "/images/FOOD/lena2.jpg",
+            photo: "/images/food/lena2.jpg",
             notes: "De longe a melhor broa de milho que já comi. A textura é perfeita, com uma crosta crocante por fora e um interior macio e úmido. O kimchi dá um toque diferente"
             },
         ],
@@ -1492,7 +1492,7 @@ export const restaurantesData: Restaurant[] = [
         dishes: [
             {
             name: "Tteokbokki",
-            photo: "/images/FOOD/oseyo.jpg",
+            photo: "/images/food/oseyo.jpg",
             notes: "Apimentado, mas muito saboroso. O bolinho de arroz é macio e tem um leve sabor de gergelim, o molho é bem temperado, levemente adocicado e tem um toque de picância que não chega a incomodar. A porção é generosa, dá para compartilhar tranquilamente."
             },
         ],
@@ -1736,7 +1736,7 @@ export const restaurantesData: Restaurant[] = [
         dishes: [
             {
             name: "HABANERO KARA MISO RAMEN",
-            photo: "/images/FOOD/tamashii.jpg",
+            photo: "/images/food/tamashii.jpg",
             notes: "Picante na medida certa, o caldo é rico e saboroso, com um equilíbrio perfeito entre o sabor do miso e a picância do habanero. O macarrão é fresco e tem uma textura ótima, complementando bem o caldo."
             },
         ],
@@ -1888,12 +1888,12 @@ export const restaurantesData: Restaurant[] = [
         dishes: [
             {
             name: "Risoto com brisket",
-            photo: "/images/FOOD/elcarbon1.jpg",
+            photo: "/images/food/elcarbon1.jpg",
             notes: "Bom, mas bem gorduroso."
             },
             {
             name: "Cookie com sorvete",
-            photo: "/images/FOOD/elcarbon2.jpg",
+            photo: "/images/food/elcarbon2.jpg",
             notes: "Bem gostoso, mas um pouco doce demais."
             }
         ],
