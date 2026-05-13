@@ -441,6 +441,7 @@ export interface Restaurant {
   cuisine: string[];
   status: RestaurantStatus;
   /** [longitude, latitude] */
+  coords?: [number, number];
   /** 1 = $  2 = $$  3 = $$$  4 = $$$$ */
   priceRange?: 1 | 2 | 3 | 4;
   rating?: number; // 1–5

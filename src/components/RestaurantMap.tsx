@@ -27,7 +27,7 @@ export default function RestaurantMap({ restaurants, activeSlug, onRestaurantCli
   useEffect(() => {
     if (!activeSlug) return;
     const r = restaurants.find((x) => x.slug === activeSlug);
-    if (!r) return;
+    if (!r?.coords) return;
     mapRef.current?.flyTo({
       center: r.coords,
       zoom: 14,
@@ -39,10 +39,11 @@ export default function RestaurantMap({ restaurants, activeSlug, onRestaurantCli
   const popupRestaurant = restaurants.find((r) => r.slug === popupSlug);
 
   // Compute initial center as average of all coords
-  const avgLon = restaurants.reduce((s, r) => s + r.coords[0], 0) / (restaurants.length || 1);
-  const avgLat = restaurants.reduce((s, r) => s + r.coords[1], 0) / (restaurants.length || 1);
-  const initialLon = restaurants.length > 0 ? avgLon : -46.65;
-  const initialLat = restaurants.length > 0 ? avgLat : -23.55;
+  const mappable = restaurants.filter((r): r is typeof r & { coords: [number, number] } => !!r.coords);
+  const avgLon = mappable.reduce((s, r) => s + r.coords[0], 0) / (mappable.length || 1);
+  const avgLat = mappable.reduce((s, r) => s + r.coords[1], 0) / (mappable.length || 1);
+  const initialLon = mappable.length > 0 ? avgLon : -46.65;
+  const initialLat = mappable.length > 0 ? avgLat : -23.55;
 
   return (
     <div className="w-full h-[400px] rounded-2xl overflow-hidden border border-stone-200 relative">
@@ -60,7 +61,7 @@ export default function RestaurantMap({ restaurants, activeSlug, onRestaurantCli
         initialViewState={{
           longitude: initialLon,
           latitude: initialLat,
-          zoom: restaurants.length > 0 ? 11 : 10,
+          zoom: mappable.length > 0 ? 11 : 10,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v12"
         mapboxAccessToken={TOKEN}
@@ -70,7 +71,7 @@ export default function RestaurantMap({ restaurants, activeSlug, onRestaurantCli
       >
         <NavigationControl position="top-right" />
 
-        {restaurants.map((r) => {
+        {mappable.map((r) => {
           const isActive = r.slug === activeSlug;
           const color = statusColor[r.status];
           return (
@@ -104,7 +105,7 @@ export default function RestaurantMap({ restaurants, activeSlug, onRestaurantCli
           );
         })}
 
-        {popupRestaurant && (
+        {popupRestaurant?.coords && (
           <Popup
             longitude={popupRestaurant.coords[0]}
             latitude={popupRestaurant.coords[1]}
