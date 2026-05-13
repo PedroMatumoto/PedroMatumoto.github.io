@@ -50,7 +50,7 @@ export default function Skills() {
         >
           <span className="text-[#d54230] text-lg font-serif">03.</span>
           <AnimatedText text={portfolioData.ui.skills} /> & <AnimatedText text={portfolioData.ui.certifications} />
-          <span className="text-sm font-normal text-[#b5a48a] ml-auto writing-vertical-rl text-orientation-upright h-8">
+          <span className="hidden sm:inline text-sm font-normal text-[#b5a48a] ml-auto writing-vertical-rl text-orientation-upright h-8">
             スキルと資格
           </span>
         </motion.h2>

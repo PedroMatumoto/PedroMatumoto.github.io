@@ -20,7 +20,7 @@ export default function Projects() {
         >
           <span className="text-[#d54230] text-lg font-serif">02.</span>
           <AnimatedText text={portfolioData.ui.projects} />
-          <span className="text-sm font-normal text-[#b5a48a] ml-auto writing-vertical-rl text-orientation-upright h-8">
+          <span className="hidden sm:inline text-sm font-normal text-[#b5a48a] ml-auto writing-vertical-rl text-orientation-upright h-8">
             プロジェクト
           </span>
         </motion.h2>
