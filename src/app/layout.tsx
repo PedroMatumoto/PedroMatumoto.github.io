@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import Nav from "@/components/Nav";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${notoSerifJP.variable} font-sans antialiased bg-stone-50 text-stone-900 selection:bg-stone-900 selection:text-stone-50`}
+        className={`${inter.variable} ${notoSerifJP.variable} font-sans antialiased paper-texture selection:bg-[#1c1208] selection:text-[#f4eed8]`}
       >
         <LanguageProvider>
-          <LanguageSwitcher />
+          <Nav />
           {children}
         </LanguageProvider>
       </body>

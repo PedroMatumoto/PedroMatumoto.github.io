@@ -30,8 +30,10 @@ import {
   SiStreamlit,
   SiSpacy,
   SiHuggingface,
+  SiGithub,
+  SiGithubcopilot,
 } from "react-icons/si";
-import { FaRobot, FaCode } from "react-icons/fa";
+import { FaRobot, FaCode, FaChalkboardTeacher, FaDatabase, FaSearch } from "react-icons/fa";
 import { VscAzure } from "react-icons/vsc";
 import { DiMsqlServer } from "react-icons/di";
 import { TbBrandCSharp } from "react-icons/tb";
@@ -128,6 +130,24 @@ export const getTechIcon = (tech: string) => {
     case "openaiwhisper":
     case "openai":
       return <SiOpenai className="text-[#412991]" />;
+    case "github":
+      return <SiGithub className="text-[#181717]" />;
+    case "githubcopilot":
+    case "github copilot":
+      return <SiGithubcopilot className="text-[#181717]" />;
+    case "aitools":
+    case "ai tools":
+    case "teaching":
+      return <FaChalkboardTeacher className="text-[#d54230]" />;
+    case "chromadb":
+    case "chroma":
+    case "faiss":
+    case "vectordatabase":
+    case "vectordb":
+      return <FaDatabase className="text-[#FF6B35]" />;
+    case "rag":
+    case "retrieval-augmentedgeneration":
+      return <FaSearch className="text-[#7c3aed]" />;
     case "cleanarchitecture":
     case "backend":
     case "restapi":

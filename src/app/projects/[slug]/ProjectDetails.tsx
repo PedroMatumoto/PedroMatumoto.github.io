@@ -23,21 +23,21 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
   }
 
   return (
-    <main className="min-h-screen bg-stone-50 py-24 px-6">
+    <main className="min-h-screen paper-texture py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-12 group"
+          className="inline-flex items-center gap-2 text-[#7a6a52] hover:text-[#1c1208] transition-colors mb-12 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
           <AnimatedText text={portfolioData.ui.backToHome} />
         </Link>
 
         <div className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 font-serif">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1c1208] mb-6 font-serif">
             <AnimatedText text={project.title} />
           </h1>
-          <p className="text-xl text-stone-600 leading-relaxed max-w-2xl">
+          <p className="text-xl text-[#7a6a52] leading-relaxed max-w-2xl">
             <AnimatedText text={project.description} speed={10} />
           </p>
         </div>
@@ -45,25 +45,25 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="md:col-span-2 space-y-12">
             <div>
-              <h2 className="text-2xl font-bold text-stone-900 mb-6 font-serif flex items-center gap-3">
-                <span className="w-8 h-[1px] bg-stone-900"></span>
+                <h2 className="text-2xl font-bold text-[#1c1208] mb-6 font-serif flex items-center gap-3">
+                  <span className="w-8 h-[1px] bg-[#d54230]"></span>
                 <AnimatedText text={portfolioData.ui.overview} />
               </h2>
-              <div className="prose prose-stone max-w-none text-stone-600 leading-relaxed">
+              <div className="prose max-w-none text-[#7a6a52] leading-relaxed">
                 <p><AnimatedText text={project.longDescription || project.description} speed={10} /></p>
               </div>
             </div>
 
             {project.features && (
               <div>
-                <h2 className="text-2xl font-bold text-stone-900 mb-6 font-serif flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-stone-900"></span>
+                <h2 className="text-2xl font-bold text-[#1c1208] mb-6 font-serif flex items-center gap-3">
+                  <span className="w-8 h-[1px] bg-[#d54230]"></span>
                   <AnimatedText text={portfolioData.ui.keyFeatures} />
                 </h2>
                 <ul className="space-y-3">
                   {project.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3 text-stone-600">
-                      <span className="mt-2 w-1.5 h-1.5 bg-stone-400 rounded-full flex-shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-[#7a6a52]">
+                      <span className="mt-2 w-1.5 h-1.5 bg-[#d54230]/60 rounded-full flex-shrink-0" />
                       <AnimatedText text={feature} speed={10} />
                     </li>
                   ))}
@@ -73,13 +73,13 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
 
             {project.videos && project.videos.length > 0 && (
               <div>
-                <h2 className="text-2xl font-bold text-stone-900 mb-6 font-serif flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-stone-900"></span>
+                <h2 className="text-2xl font-bold text-[#1c1208] mb-6 font-serif flex items-center gap-3">
+                  <span className="w-8 h-[1px] bg-[#d54230]"></span>
                   <AnimatedText text={portfolioData.ui.videos} />
                 </h2>
                 <div className="space-y-6">
                   {project.videos.map((video, index) => (
-                    <div key={index} className="aspect-video bg-stone-100 rounded-lg overflow-hidden border border-stone-200 shadow-sm">
+                      <div key={index} className="aspect-video bg-[#e4dbc4] rounded-lg overflow-hidden border border-[#c4b89a]/50 shadow-sm">
                       {video.includes("youtube.com") || video.includes("youtu.be") ? (
                         <iframe
                           src={video.replace("watch?v=", "embed/").replace("youtu.be/", "www.youtube.com/embed/")}
@@ -101,13 +101,13 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
 
             {project.gallery && project.gallery.length > 0 && (
               <div>
-                <h2 className="text-2xl font-bold text-stone-900 mb-6 font-serif flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-stone-900"></span>
+                <h2 className="text-2xl font-bold text-[#1c1208] mb-6 font-serif flex items-center gap-3">
+                  <span className="w-8 h-[1px] bg-[#d54230]"></span>
                   <AnimatedText text={portfolioData.ui.gallery} />
                 </h2>
                 <div className="space-y-8">
                   {project.gallery.map((image, index) => (
-                    <div key={index} className="relative w-full bg-stone-100 rounded-lg overflow-hidden group border border-stone-200 shadow-sm">
+                    <div key={index} className="relative w-full bg-[#e4dbc4] rounded-lg overflow-hidden group border border-[#c4b89a]/50 shadow-sm">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={image}
@@ -122,13 +122,13 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
           </div>
 
           <div className="space-y-8">
-            <div className="bg-white p-6 border border-stone-200 shadow-sm">
-              <h3 className="text-lg font-bold text-stone-900 mb-4 font-serif"><AnimatedText text={portfolioData.ui.technologies} /></h3>
+            <div className="bg-[#f4eed8] p-6 border border-[#c4b89a]/50 shadow-sm rounded-lg">
+              <h3 className="text-lg font-bold text-[#1c1208] mb-4 font-serif"><AnimatedText text={portfolioData.ui.technologies} /></h3>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 text-sm font-mono text-stone-600 bg-stone-50 px-3 py-1.5 rounded border border-stone-100"
+                    className="flex items-center gap-2 text-sm font-mono text-[#7a6a52] bg-[#e4dbc4]/60 px-3 py-1.5 rounded border border-[#c4b89a]/50"
                   >
                     <span className="text-base">{getTechIcon(tech)}</span>
                     <span>{tech}</span>
@@ -137,15 +137,15 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
               </div>
             </div>
 
-            <div className="bg-white p-6 border border-stone-200 shadow-sm">
-              <h3 className="text-lg font-bold text-stone-900 mb-4 font-serif"><AnimatedText text={portfolioData.ui.links} /></h3>
+            <div className="bg-[#f4eed8] p-6 border border-[#c4b89a]/50 shadow-sm rounded-lg">
+              <h3 className="text-lg font-bold text-[#1c1208] mb-4 font-serif"><AnimatedText text={portfolioData.ui.links} /></h3>
               <div className="space-y-3">
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-stone-600 hover:text-stone-900 transition-colors"
+                    className="flex items-center gap-3 text-[#7a6a52] hover:text-[#1c1208] transition-colors"
                   >
                     <Github size={20} />
                     <span><AnimatedText text={portfolioData.ui.viewSourceCode} /></span>
@@ -156,14 +156,14 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-stone-600 hover:text-stone-900 transition-colors"
+                    className="flex items-center gap-3 text-[#7a6a52] hover:text-[#1c1208] transition-colors"
                   >
                     <ExternalLink size={20} />
                     <span><AnimatedText text={portfolioData.ui.liveDemo} /></span>
                   </a>
                 )}
                 {!project.github && !project.link && (
-                  <p className="text-stone-400 text-sm italic"><AnimatedText text={portfolioData.ui.noLinks} /></p>
+                  <p className="text-[#b5a48a] text-sm italic"><AnimatedText text={portfolioData.ui.noLinks} /></p>
                 )}
               </div>
             </div>

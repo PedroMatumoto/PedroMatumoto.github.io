@@ -70,6 +70,13 @@ export const portfolioData = {
   ] as Certification[],
   experiences: [
     {
+      company: "Instituto Mauá de Tecnologia",
+      role: "Professor Convidado",
+      period: "02/2026 - Presente",
+      description: "Professor convidado da disciplina 'IA na Prática', ministrada no Instituto Mauá de Tecnologia. A aula aborda o uso prático de ferramentas de Inteligência Artificial no desenvolvimento de software, com foco nas ferramentas do ecossistema GitHub. Material disponível em github.com/PedroMatumoto/ia-na-pratica.",
+      technologies: ["Python", "GitHub Copilot", "AI Tools", "GitHub"],
+    },
+    {
       company: "Alvarez & Marsal",
       role: "Engenheiro de Software",
       period: "05/2025 - Presente",

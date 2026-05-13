@@ -43,6 +43,13 @@ export const portfolioData = {
   ] as Certification[],
   experiences: [
     {
+      company: "マウア工科大学",
+      role: "特別講師",
+      period: "02/2026 - 現在",
+      description: "マウア工科大学にて「実践AI（IA na Prática）」の特別講師を担当。授業ではソフトウェア開発における人工知能ツールの実践的な活用、特にGitHubエコシステムのツールに焦点を当てて指導。資料はgithub.com/PedroMatumoto/ia-na-praticaで公開中。",
+      technologies: ["Python", "GitHub Copilot", "AI Tools", "GitHub"],
+    },
+    {
       company: "Alvarez & Marsal",
       role: "ソフトウェアエンジニア",
       period: "05/2025 - 現在",

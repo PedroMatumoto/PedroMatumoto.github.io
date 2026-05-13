@@ -43,6 +43,13 @@ export const portfolioData = {
   ] as Certification[],
   experiences: [
     {
+      company: "Mauá Institute of Technology",
+      role: "Guest Professor",
+      period: "02/2026 - Present",
+      description: "Guest professor for the 'AI in Practice' class at Mauá Institute of Technology. The class covers the practical use of Artificial Intelligence tools in software development, focusing on the GitHub ecosystem. Materials available at github.com/PedroMatumoto/ia-na-pratica.",
+      technologies: ["Python", "GitHub","Pandas","OpenAI","Teaching", "ChromaDB", "RAG"],
+    },
+    {
       company: "Alvarez & Marsal",
       role: "Software Engineer",
       period: "05/2025 - Present",

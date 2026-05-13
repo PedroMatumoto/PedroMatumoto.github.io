@@ -6,7 +6,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <main className="bg-stone-50 min-h-screen">
+    <main className="paper-texture min-h-screen">
       <Hero />
       <Experience />
       <Projects />

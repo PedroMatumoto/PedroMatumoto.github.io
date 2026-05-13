@@ -12,15 +12,15 @@ export default function LanguageSwitcher() {
   ];
 
   return (
-    <div className="fixed top-4 right-4 z-50 flex gap-2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-sm border border-stone-200">
+    <div className="fixed top-4 right-4 z-50 flex gap-2 bg-[#f4eed8]/90 backdrop-blur-sm p-2 rounded-full shadow-sm border border-[#c4b89a]/60">
       {languages.map((lang) => (
         <button
           key={lang.code}
           onClick={() => setLanguage(lang.code)}
           className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
             language === lang.code
-              ? "bg-stone-900 text-white shadow-md"
-              : "text-stone-600 hover:bg-stone-100"
+              ? "bg-[#1c1208] text-[#f4eed8] shadow-md"
+              : "text-[#7a6a52] hover:bg-[#e4dbc4]"
           }`}
           aria-label={`Switch to ${lang.label}`}
         >

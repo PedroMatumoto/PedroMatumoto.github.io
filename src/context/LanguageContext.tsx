@@ -1,56 +1,26 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { portfolioData as ptData } from "@/data/portfolio";
+import React, { createContext, useContext } from "react";
+import { portfolioData as enData } from "@/data/portfolio-en";
 
-// Define the shape of the data based on the existing portfolioData
-// We will need to create an English version of the data later
 export type Language = "pt" | "en" | "jp";
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: typeof ptData; // The data object
+  t: typeof enData;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Placeholder for English data - we will populate this properly
-// For now, we can clone the PT data or use a separate file
-import { portfolioData as enData } from "@/data/portfolio-en";
-import { portfolioData as jpData } from "@/data/portfolio-jp";
-
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("pt");
-
-  // Optional: Persist language preference
-  useEffect(() => {
-    const savedLang = localStorage.getItem("language") as Language;
-    if (savedLang) {
-      setLanguage(savedLang);
-    }
-  }, []);
-
-  const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang);
-    localStorage.setItem("language", lang);
-  };
-
-  const getData = () => {
-    switch (language) {
-      case "en":
-        return enData;
-      case "jp":
-        return jpData;
-      case "pt":
-      default:
-        return ptData;
-    }
-  };
+  const language: Language = "en";
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const handleSetLanguage = (_lang: Language) => {};
 
   return (
     <LanguageContext.Provider
-      value={{ language, setLanguage: handleSetLanguage, t: getData() }}
+      value={{ language, setLanguage: handleSetLanguage, t: enData }}
     >
       {children}
     </LanguageContext.Provider>

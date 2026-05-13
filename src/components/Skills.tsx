@@ -40,17 +40,17 @@ const getIssuerIcon = (issuer: string) => {
 export default function Skills() {
   const { t: portfolioData } = useLanguage();
   return (
-    <section className="py-24 px-6 bg-stone-50">
+    <section className="py-24 px-6 paper-texture-alt">
       <div className="max-w-4xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-12 flex items-center gap-4"
+          className="text-3xl md:text-4xl font-serif font-bold text-[#1c1208] mb-12 flex items-center gap-4"
         >
-          <span className="text-stone-400 text-lg">03.</span>
+          <span className="text-[#d54230] text-lg font-serif">03.</span>
           <AnimatedText text={portfolioData.ui.skills} /> & <AnimatedText text={portfolioData.ui.certifications} />
-          <span className="text-sm font-normal text-stone-400 ml-auto writing-vertical-rl text-orientation-upright h-8">
+          <span className="text-sm font-normal text-[#b5a48a] ml-auto writing-vertical-rl text-orientation-upright h-8">
             スキルと資格
           </span>
         </motion.h2>
@@ -61,7 +61,7 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-bold text-stone-900 mb-8 border-b border-stone-200 pb-2">
+            <h3 className="text-xl font-bold text-[#1c1208] mb-8 border-b border-[#c4b89a]/50 pb-2">
               <AnimatedText text={portfolioData.ui.hardSkills} />
             </h3>
             <motion.div
@@ -75,8 +75,8 @@ export default function Skills() {
                 <motion.div
                   key={index}
                   variants={item}
-                  whileHover={{ scale: 1.05, backgroundColor: "#e7e5e4" }}
-                  className="flex items-center gap-2 text-sm font-mono text-stone-600 bg-stone-100 px-3 py-2 rounded border border-stone-200 cursor-default transition-colors"
+                  whileHover={{ scale: 1.05, backgroundColor: "#ddd2b4" }}
+                  className="flex items-center gap-2 text-sm font-mono text-[#7a6a52] bg-[#e4dbc4]/60 px-3 py-2 rounded border border-[#c4b89a]/50 cursor-default transition-colors"
                 >
                   <span className="text-lg">{getTechIcon(skill)}</span>
                   <span>{skill}</span>
@@ -90,10 +90,10 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-bold text-stone-900 mb-8 border-b border-stone-200 pb-2">
+            <h3 className="text-xl font-bold text-[#1c1208] mb-8 border-b border-[#c4b89a]/50 pb-2">
               <AnimatedText text={portfolioData.ui.certifications} />
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-4">
               {portfolioData.certifications.map((cert, index) => {
                 const Content = () => (
                   <>
@@ -101,10 +101,10 @@ export default function Skills() {
                       {getIssuerIcon(cert.issuer)}
                     </div>
                     <div>
-                      <h4 className="font-bold text-stone-900 text-sm md:text-base group-hover:text-stone-600 transition-colors">
+                        <h4 className="font-bold text-[#1c1208] text-sm md:text-base group-hover:text-[#7a6a52] transition-colors">
                         <AnimatedText text={cert.name} />
                       </h4>
-                      <div className="flex items-center gap-2 text-xs text-stone-500 mt-1">
+                        <div className="flex items-center gap-2 text-xs text-[#7a6a52] mt-1">
                         <span className="font-medium"><AnimatedText text={cert.issuer} /></span>
                         <span>•</span>
                         <span><AnimatedText text={cert.date} /></span>
@@ -126,12 +126,12 @@ export default function Skills() {
                         href={cert.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-4 p-4 bg-white border border-stone-200 rounded-lg hover:shadow-md transition-all group hover:border-stone-300"
+                        className="flex items-center gap-4 p-4 bg-[#f4eed8] border border-[#c4b89a]/50 rounded-lg hover:shadow-md transition-all group hover:border-[#d54230]/40"
                       >
                         <Content />
                       </a>
                     ) : (
-                      <div className="flex items-center gap-4 p-4 bg-white border border-stone-200 rounded-lg hover:shadow-md transition-shadow group">
+                      <div className="flex items-center gap-4 p-4 bg-[#f4eed8] border border-[#c4b89a]/50 rounded-lg hover:shadow-md transition-shadow group">
                         <Content />
                       </div>
                     )}
