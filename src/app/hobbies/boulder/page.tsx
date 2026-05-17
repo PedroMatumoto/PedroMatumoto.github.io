@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { boulderData } from "@/data/hobbies";
+import { boulderData, type BoulderGrade } from "@/data/hobbies";
 
 export const metadata: Metadata = {
   title: "Boulder | Pedro Matumoto",
@@ -20,8 +20,23 @@ const gradeColors: Record<string, string> = {
   "V8+": "bg-purple-200 text-purple-800",
 };
 
+const gradeOrder: BoulderGrade[] = ["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8+"];
+
+function computeMaxGrade(data: typeof boulderData): BoulderGrade {
+  const allGrades: BoulderGrade[] = [
+    ...data.recentSessions.flatMap((s) => s.topSends),
+    ...data.projects.filter((p) => p.status === "sent").map((p) => p.grade),
+  ];
+  if (allGrades.length === 0) return "V0";
+  return allGrades.reduce((best, g) =>
+    gradeOrder.indexOf(g) > gradeOrder.indexOf(best) ? g : best
+  );
+}
+
 export default function BoulderPage() {
-  const { maxGrade, totalSessions, projects, recentSessions, gyms } = boulderData;
+  const { projects, recentSessions, gyms } = boulderData;
+  const totalSessions = recentSessions.length;
+  const maxGrade = computeMaxGrade(boulderData);
 
   return (
     <main className="min-h-screen bg-stone-50 pt-20 pb-24 px-6">
@@ -67,9 +82,10 @@ export default function BoulderPage() {
             {projects.map((p) => (
               <div
                 key={p.name}
-                className="bg-white rounded-xl border border-stone-200 p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+                className="bg-white rounded-xl border border-stone-200 p-5 flex flex-row gap-4"
               >
-                <div className="flex-1">
+                {/* Left: info */}
+                <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1 flex-wrap">
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${gradeColors[p.grade] ?? "bg-stone-100 text-stone-600"}`}>
                       {p.grade}
@@ -89,33 +105,34 @@ export default function BoulderPage() {
                   <p className="font-medium text-stone-900">{p.name}</p>
                   <p className="text-xs text-stone-400 mt-0.5">{p.gym}</p>
                   {p.notes && <p className="text-sm text-stone-500 mt-2 italic">{p.notes}</p>}
-                  {p.photos && p.photos.length > 0 && (
-                    <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-                      {p.photos.map((src, i) => (
-                        <a key={i} href={src} target="_blank" rel="noopener noreferrer" className="shrink-0">
-                          <div className="relative w-36 h-24 rounded-lg overflow-hidden bg-stone-100 border border-stone-200">
-                            <Image
-                              src={src}
-                              alt={`${p.name} - foto ${i + 1}`}
-                              fill
-                              className="object-cover"
-                              sizes="144px"
-                            />
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                  <div className="mt-4">
+                    <p className="text-2xl font-bold text-stone-900">{p.attempts}</p>
+                    <p className="text-xs text-stone-400 uppercase tracking-wider">tentativas</p>
+                    {p.sentDate && (
+                      <p className="text-xs text-green-600 mt-1">
+                        {new Date(p.sentDate).toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" })}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <div className="text-right shrink-0">
-                  <p className="text-2xl font-bold text-stone-900">{p.attempts}</p>
-                  <p className="text-xs text-stone-400 uppercase tracking-wider">tentativas</p>
-                  {p.sentDate && (
-                    <p className="text-xs text-green-600 mt-1">
-                      {new Date(p.sentDate).toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" })}
-                    </p>
-                  )}
-                </div>
+                {/* Right: photos (portrait) */}
+                {p.photos && p.photos.length > 0 && (
+                  <div className="flex gap-2 shrink-0">
+                    {p.photos.map((src, i) => (
+                      <a key={i} href={src} target="_blank" rel="noopener noreferrer">
+                        <div className="relative w-40 h-60 rounded-lg overflow-hidden bg-stone-100 border border-stone-200">
+                          <Image
+                            src={src}
+                            alt={`${p.name} - foto ${i + 1}`}
+                            fill
+                            className="object-cover"
+                            sizes="160px"
+                          />
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
