@@ -195,6 +195,7 @@ export const trilhasData: Trail[] = [
   { slug: "pedra-tartaruga-quiriri",             name: "Pedra Tartaruga — Quiriri",                 distanceKm: 25.13,  elevationM: 633,  difficulty: "MODERADO",done: false,  region: "Quiriri, SC",        coords: [-46.1060, -23.6350], gpx: "/gpx/pedra-da-tartaruga.gpx", photos: [] },
   { slug: "mirante-janela",             name: "Mirante Janela - Chapada dos Veadeiros",                 distanceKm: 8.08,  elevationM: 329,  difficulty: "MODERADO",done: false,  region: "Chapada dos Veadeiros, GO",        coords: [-46.1060, -23.6350], gpx: "/gpx/trilha-mirante-da-janela.gpx", photos: [] },
   { slug: "pico-rinoceronte",             name: "Pico do Rinoceronte",                 distanceKm: 6.68,  elevationM: 324,  difficulty: "FÁCIL",done: false,  region: "Pico do Rinoceronte, SC",        coords: [-46.1060, -23.6350], gpx: "/gpx/pico-do-rinoceronte.gpx", photos: [] },
+  { slug: "vale-do-pati",             name: "Vale do Pati",                 distanceKm: 75.21,  elevationM: 2858,  difficulty: "DIFÍCIL",done: false,  region: "Vale do Pati, BA",        coords: [-46.1060, -23.6350], gpx: "/gpx/vale-do-pati-5-dias.gpx", photos: [] },
 ];
 
 // ─── Receitas ────────────────────────────────────────────────────────────────
@@ -357,19 +358,19 @@ export const viagensData: Trip[] = [
     name: "Patagônia",
     country: "Argentina / Chile",
     flag: "🇦🇷",
-    status: "planned",
+    status: "dream",
     tags: ["trekking", "natureza", "aventura"],
     highlight: "El Chaltén, El Calafate e Perito Moreno.",
     notes: "Primeira vez no gelo, Laguna de los tres, Laguna Torre, Laguna Capri, Glaciar Perito Moreno.",
     places: ["El Chaltén", "El Calafate", "Perito Moreno"]
   },
-  // Planned / on the radar
+  // dream / on the radar
   {
     slug: "islandia",
     name: "Islândia",
     country: "Islândia",
     flag: "🇮🇸",
-    status: "planned",
+    status: "dream",
     tags: ["natureza", "road trip", "auroras boreais"],
     highlight: "Golden Circle, Vik, Skaftafell — ring road completo.",
     notes: "Rota já planejada. Verão (sem noite) ou inverno (auroras).",
@@ -379,7 +380,7 @@ export const viagensData: Trip[] = [
     name: "Torres del Paine",
     country: "Chile",
     flag: "🇨🇱",
-    status: "planned",
+    status: "dream",
     tags: ["trekking", "natureza", "W-circuit"],
     highlight: "W-Circuit de 5 dias com camping.",
     notes: "Reservar torres early — vagas esgotam 6 meses antes.",
@@ -389,7 +390,7 @@ export const viagensData: Trip[] = [
     name: "Dolomitas",
     country: "Itália",
     flag: "🇮🇹",
-    status: "planned",
+    status: "dream",
     tags: ["trekking", "via ferrata", "alpinismo"],
     highlight: "Alta Via 1, Tre Cime di Lavaredo.",
   },
@@ -398,7 +399,7 @@ export const viagensData: Trip[] = [
     name: "Portugal",
     country: "Portugal",
     flag: "🇵🇹",
-    status: "planned",
+    status: "dream",
     tags: ["historico"],
     highlight: "Serra da estrela",
   },
@@ -407,7 +408,7 @@ export const viagensData: Trip[] = [
     name: "China",
     country: "China",
     flag: "🇨🇳",
-    status: "planned",
+    status: "dream",
     tags: ["historico"],
     highlight: "Grande Muralha, Cidade Proibida, Terracota.",
 
@@ -417,9 +418,29 @@ export const viagensData: Trip[] = [
     name: "Peru Aventura",
     country: "Peru",
     flag: "🇵🇪",
-    status: "planned",
+    status: "dream",
     tags: ["historico"],
     highlight: "Laguna 69, Laguna Parón, Inca Jungle, Moray e Maras, Montanha 7 cores, Canion Colca",
+
+  },
+  {
+    slug: "salar-de-uyuni",
+    name: "Salar de Uyuni",
+    country: "Bolívia",
+    flag: "🇧🇴",
+    status: "dream",
+    tags: ["natureza", "aventura"],
+    highlight: "Salar de Uyuni, Laguna Colorada, Isla Incahuasi, Árbol de Piedra",
+
+  },
+  {
+    slug: "atacama",
+    name: "Deserto do Atacama",
+    country: "Chile",
+    flag: "🇨🇱",
+    status: "dream",
+    tags: ["natureza", "aventura"],
+    highlight: "Valle de la Luna, Geysers del Tatio, Lagunas Altiplânicas, Valle de las Damas",
 
   },
   // Dreams
