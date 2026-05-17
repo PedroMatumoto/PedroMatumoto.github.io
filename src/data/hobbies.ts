@@ -43,13 +43,13 @@ export const boulderData = {
       notes: "Faltou força e confiança para o movimento. Preciso praticar o timing do dyno em blocos mais fáceis e trabalhar a força explosiva.",
     },
     {
-      name: "Sloper com negativo branco",
+      name: "Jug com negativo branco",
       grade: "V1",
       gym: "República dos Macacos - SP",
       status: "projecting",
       attempts: 10,
       photos: ["/images/bouldering/v1-branca-negativo.jpg"],
-      notes: "Falta colocar os pés e grip pra segurar o sloper com força pra ir pras últimas agarras.",
+      notes: "Falta colocar os pés e grip pra segurar o jug com força pra ir pras últimas agarras.",
     },
     {
       name: "Crimp preta",
