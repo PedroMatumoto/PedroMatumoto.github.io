@@ -167,6 +167,26 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
                 )}
               </div>
             </div>
+
+            {project.inspirations && project.inspirations.length > 0 && (
+              <div className="bg-[#f4eed8] p-6 border border-[#c4b89a]/50 shadow-sm rounded-lg">
+                <h3 className="text-lg font-bold text-[#1c1208] mb-4 font-serif"><AnimatedText text={portfolioData.ui.inspirations} /></h3>
+                <div className="space-y-3">
+                  {project.inspirations.map((item, index) => (
+                    <a
+                      key={index}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 text-[#7a6a52] hover:text-[#1c1208] transition-colors"
+                    >
+                      <Github size={20} />
+                      <span><AnimatedText text={item.label} /></span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,4 +1,32 @@
-import { Project, Experience, Certification } from "./portfolio";
+export interface Project {
+  title: string;
+  slug: string;
+  description: string;
+  longDescription?: string;
+  technologies: string[];
+  link?: string;
+  github?: string;
+  image?: string;
+  features?: string[];
+  gallery?: string[];
+  videos?: string[];
+  inspirations?: { label: string; url: string }[];
+}
+
+export interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  technologies: string[];
+}
+
+export interface Certification {
+  name: string;
+  issuer: string;
+  date: string;
+  link?: string;
+}
 
 export const portfolioData = {
   name: "Pedro Matumoto",
@@ -65,6 +93,43 @@ export const portfolioData = {
     }
   ] as Experience[],
   projects: [
+    {
+      "title": "Shin",
+      "slug": "shin-quadruped-robot",
+      "description": "Conceptual software architecture for a quadruped service robot focused on autonomous dynamic locomotion and environment interaction.",
+      "longDescription": "A project concept dedicated to developing a modular software system for quadruped autonomous robots. The system aims to explore dynamic balance, terrain mapping, and intelligent indoor navigation. Built on top of ROS2, the architecture will integrate sensor fusion from IMUs, LiDAR, and depth cameras to enable real-world adaptability, agile locomotion, and interactive tasks in service or research environments.",
+      "features": [
+        "Dynamic quadruped locomotion and balance control",
+        "Real-time terrain mapping and surface adaptation",
+        "Autonomous path planning and obstacle avoidance",
+        "Modular ROS2 framework for hardware abstraction"
+      ],
+      "technologies": ["ROS2", "Python", "C++", "Gazebo", "Nav2", "Computer Vision"],
+      "link": "",
+      "github": "",
+      "gallery": [],
+      "videos": [],
+      "inspirations": [
+        { "label": "DingoQuadruped", "url": "https://github.com/Yerbert/DingoQuadruped" }
+      ]
+    },
+    {
+      "title": "Hayate",
+      "slug": "hayate-autonomous-drone",
+      "description": "Conceptual flight telemetry and video processing system for remotely operated UAVs.",
+      "longDescription": "A project concept focused on developing a high-performance software interface for remotely piloted Unmanned Aerial Vehicles (UAVs). The system bridges flight controllers with ROS2 to process real-time telemetry, flight data, and video streams. Designed for high-fidelity physics simulations in Gazebo, the architecture explores low-latency video transmission, pilot assist features, and computer vision overlays for enhanced situational awareness during manual operation.",
+      "features": [
+        "Real-time flight telemetry and state monitoring",
+        "Low-latency video streaming and processing",
+        "Computer vision overlays for pilot assistance",
+        "High-fidelity physics simulation and pilot testing in Gazebo"
+      ],
+      "technologies": ["ROS2", "Python", "C++", "Gazebo", "PX4/ArduPilot", "Computer Vision"],
+      "link": "",
+      "github": "",
+      "gallery": [],
+      "videos": [], 
+    },
     {
       title: "Mirai - Autonomous Robot",
       slug: "mirai-robo-autonomo",
@@ -200,6 +265,7 @@ export const portfolioData = {
     viewSourceCode: "View Source Code",
     liveDemo: "Live Demo",
     noLinks: "No public links available.",
+    inspirations: "Inspirations",
     backToHome: "Back to Home",
     about: "About",
   }

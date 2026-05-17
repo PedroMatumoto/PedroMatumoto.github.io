@@ -93,6 +93,40 @@ export const portfolioData = {
   ] as Experience[],
   projects: [
     {
+      title: "Shin",
+      slug: "shin-quadruped-robot",
+      description: "Arquitetura de software conceitual para um robô de serviço quadrúpede focado em locomoção dinâmica autônoma e interação com o ambiente.",
+      longDescription: "Conceito de projeto dedicado ao desenvolvimento de um sistema de software modular para robôs autônomos quadrúpedes. O sistema visa explorar equilíbrio dinâmico, mapeamento de terreno e navegação inteligente em ambientes internos. Construído sobre ROS2, a arquitetura integrará fusão de sensores de IMUs, LiDAR e câmeras de profundidade para permitir adaptabilidade ao mundo real, locomoção ágil e tarefas interativas em ambientes de serviço ou pesquisa.",
+      features: [
+        "Locomoção quadrúpede dinâmica e controle de equilíbrio",
+        "Mapeamento de terreno em tempo real e adaptação de superfície",
+        "Planejamento autônomo de trajetória e desvio de obstáculos",
+        "Framework ROS2 modular para abstração de hardware"
+      ],
+      technologies: ["ROS2", "Python", "C++", "Gazebo", "Nav2", "Computer Vision"],
+      link: "",
+      github: "",
+      gallery: [],
+      videos: []
+    },
+    {
+      title: "Hayate",
+      slug: "hayate-autonomous-drone",
+      description: "Sistema conceitual de telemetria de voo e processamento de vídeo para UAVs operados remotamente.",
+      longDescription: "Conceito de projeto focado no desenvolvimento de uma interface de software de alto desempenho para Veículos Aéreos Não Tripulados (UAVs) pilotados remotamente. O sistema conecta controladores de voo ao ROS2 para processar telemetria em tempo real, dados de voo e streams de vídeo. Projetado para simulações físicas de alta fidelidade no Gazebo, a arquitetura explora transmissão de vídeo de baixa latência, recursos de assistência ao piloto e overlays de visão computacional para maior consciência situacional durante operação manual.",
+      features: [
+        "Telemetria de voo e monitoramento de estado em tempo real",
+        "Streaming e processamento de vídeo de baixa latência",
+        "Overlays de visão computacional para assistência ao piloto",
+        "Simulação física de alta fidelidade e testes de pilotagem no Gazebo"
+      ],
+      technologies: ["ROS2", "Python", "C++", "Gazebo", "PX4/ArduPilot", "Computer Vision"],
+      link: "",
+      github: "",
+      gallery: [],
+      videos: []
+    },
+    {
       title: "Mirai - Robô Autônomo",
       slug: "mirai-robo-autonomo",
       description: "Sistema de software para robô de serviço com navegação autônoma, interação humano-robô, reconhecimento de ambientes e interpretação de fala com Whisper (OpenAI).",

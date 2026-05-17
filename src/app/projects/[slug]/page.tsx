@@ -1,4 +1,4 @@
-import { portfolioData } from "@/data/portfolio";
+import { portfolioData } from "@/data/portfolio-en";
 import ProjectDetails from "./ProjectDetails";
 
 interface ProjectPageProps {

@@ -191,6 +191,10 @@ export const trilhasData: Trail[] = [
   { slug: "los-glaciares",         name: "Los Glaciares — Glaciar Perito Moreno",distanceKm:26.69, elevationM: 1300, difficulty: "DIFÍCIL", done: false, region: "Santa Cruz, Argentina",    coords: [-73.0394, -50.4970], gpx: "/gpx/los-glaciares.gpx" },
   { slug: "caminho-mar-historico", name: "Trilha Caminho do Mar Ida Histórico Volta Lorena",     distanceKm: 9.02,  elevationM: 327,  difficulty: "FÁCIL",   done: true,  region: "Cubatão, SP",             coords: [-46.4280, -23.8940], gpx: "/gpx/caminho-mar-historico.gpx", notes: "Início de SP, descida histórica para a Baixada Santista.", photos: ["/images/trails/caminho-mar/1.jpg","/images/trails/caminho-mar/2.jpg","/images/trails/caminho-mar/3.jpg"]},
   { slug: "ana-chata",             name: "Trilha da Ana Chata",                 distanceKm: 5.29,  elevationM: 465,  difficulty: "MODERADO",done: true,  region: "Serra do Mar, SP",        coords: [-46.1060, -23.6350], gpx: "/gpx/ana-chata.gpx", photos: ["/images/trails/ana-chata/1.jpg","/images/trails/ana-chata/2.jpg","/images/trails/ana-chata/3.jpg"] },
+  { slug: "monte-roraima",             name: "Trekking Monte Roraima",                 distanceKm: 80.91,  elevationM: 9952,  difficulty: "DIFÍCIL",done: false,  region: "Monte Roraima, RR",        coords: [-46.1060, -23.6350], gpx: "/gpx/trekking-monte-roraima-8-dias.gpx", photos: [] },
+  { slug: "pedra-tartaruga-quiriri",             name: "Pedra Tartaruga — Quiriri",                 distanceKm: 25.13,  elevationM: 633,  difficulty: "MODERADO",done: false,  region: "Quiriri, SC",        coords: [-46.1060, -23.6350], gpx: "/gpx/pedra-da-tartaruga.gpx", photos: [] },
+  { slug: "mirante-janela",             name: "Mirante Janela - Chapada dos Veadeiros",                 distanceKm: 8.08,  elevationM: 329,  difficulty: "MODERADO",done: false,  region: "Chapada dos Veadeiros, GO",        coords: [-46.1060, -23.6350], gpx: "/gpx/trilha-mirante-da-janela.gpx", photos: [] },
+  { slug: "pico-rinoceronte",             name: "Pico do Rinoceronte",                 distanceKm: 6.68,  elevationM: 324,  difficulty: "FÁCIL",done: false,  region: "Pico do Rinoceronte, SC",        coords: [-46.1060, -23.6350], gpx: "/gpx/pico-do-rinoceronte.gpx", photos: [] },
 ];
 
 // ─── Receitas ────────────────────────────────────────────────────────────────
@@ -349,14 +353,14 @@ export const viagensData: Trip[] = [
     places: ["Tóquio", "Kyoto", "Osaka", "Nara", "Kamakura"],
   },
   {
-    slug: "patagonia-2023",
+    slug: "patagonia",
     name: "Patagônia",
     country: "Argentina / Chile",
     flag: "🇦🇷",
     status: "planned",
     tags: ["trekking", "natureza", "aventura"],
     highlight: "El Chaltén, El Calafate e Perito Moreno.",
-    notes: "Primeira vez no gelo",
+    notes: "Primeira vez no gelo, Laguna de los tres, Laguna Torre, Laguna Capri, Glaciar Perito Moreno.",
     places: ["El Chaltén", "El Calafate", "Perito Moreno"]
   },
   // Planned / on the radar
@@ -1914,5 +1918,14 @@ export const restaurantesData: Restaurant[] = [
             }
         ],
         highlight: ""
-    }
+    },
+    {
+        slug: "farfalle-tratoria",
+        name: "Farfalle Tratoria",
+        location: "Santo Amaro, São Paulo, SP",
+        cuisine: ["Italiana"],
+        status: "want",
+        rating: 0,
+        highlight: ""
+    },
 ];
