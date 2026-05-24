@@ -117,6 +117,19 @@ export const jdmData = {
   ] as JdmCar[],
   events: [
     {
+      name: "Shopping Eldorado",
+      date: "",
+      location: "São Paulo, SP",
+      attended: true,
+      seenCars: [
+        {
+          name: "Mazda MX-3",
+          image: "/images/cars/car-spotting/mazda-mx3-mcqueen.jpg",
+          notes: "Mazda MX-3 com pintura personalizada do Relâmpago McQueen.",
+        },
+      ],
+    },
+    {
       name: "JDM Culture Shopping D",
       date: "2026-02-21",
       location: "São Paulo, SP",
@@ -1019,7 +1032,7 @@ export const restaurantesData: Restaurant[] = [
         slug: "hinode",
         name: "Hinodê",
         location: "Liberdade, São Paulo, SP",
-        cuisine: ["Japonesa"],
+        cuisine: ["Japonesa", "Lamen"],
         status: "visited",
         rating: 5,
         highlight: ""
@@ -1028,7 +1041,7 @@ export const restaurantesData: Restaurant[] = [
         slug: "hira",
         name: "Hira",
         location: "Itaim, São Paulo, SP",
-        cuisine: ["Japonesa"],
+        cuisine: ["Japonesa", "Lamen"],
         status: "want",
         rating: 0,
         highlight: ""
@@ -1064,7 +1077,7 @@ export const restaurantesData: Restaurant[] = [
         slug: "ikkousha",
         name: "IKKOUSHA",
         location: "Liberdade, São Paulo, SP",
-        cuisine: ["Alelo", "Japonesa"],
+        cuisine: ["Alelo", "Japonesa", "Lamen"],
         status: "visited",
         rating: 4,
         highlight: ""
@@ -1118,7 +1131,7 @@ export const restaurantesData: Restaurant[] = [
         slug: "jaba-do-ribamar",
         name: "Jabá do Ribamar",
         location: "Santo André, SP",
-        cuisine: ["Alelo", "Mineira"],
+        cuisine: ["Alelo", "Mineira", "Brasileira"],
         status: "visited",
         rating: 4,
         highlight: ""
@@ -1270,7 +1283,7 @@ export const restaurantesData: Restaurant[] = [
         slug: "lena",
         name: "Lena",
         location: "Fradique Coutinho, São Paulo, SP",
-        cuisine: ["Mineira"],
+        cuisine: ["Mineira", "Brasileira"],
         status: "visited",
         rating: 5,
         priceRange: 3,
@@ -1301,7 +1314,7 @@ export const restaurantesData: Restaurant[] = [
         slug: "mane-burguer",
         name: "Mané Burguer",
         location: "Mooca, São Paulo, SP",
-        cuisine: ["Hambúrguer"],
+        cuisine: ["Hambúrguer", "Brasileira"],
         status: "visited",
         rating: 4,
         highlight: "Beirute especial"
@@ -1373,9 +1386,21 @@ export const restaurantesData: Restaurant[] = [
         slug: "misoya",
         name: "Misoya",
         location: "Paulista, São Paulo, SP",
-        cuisine: ["Japonesa"],
+        cuisine: ["Japonesa", "Lamen"],
         status: "visited",
         rating: 5,
+        dishes: [
+            {
+            name: "Hokkaido Miso Aburi Chashu Ramen",
+            photo: "/images/food/misoya1.jpg",
+            notes: "Caldo de miso forte e encorpado. O macarrão é fresco e tem uma textura ótima, absorvendo bem o sabor do caldo. A batata frita é bem macia. O chashu é bem macio. Vem bastante comida, é um prato completo mesmo sem entrada."
+            },
+            {
+            name: "Kyushu Miso Aburi Chashu Ramen",
+            photo: "/images/food/misoya2.jpg",
+            notes: ""
+            },
+        ],
         highlight: ""
     },
     {
