@@ -91,13 +91,15 @@ export default function BoulderPage() {
                       {p.grade}
                     </span>
                     <span
-                      className={`text-xs px-2 py-0.5 rounded-full ${
-                        p.status === "sent"
-                          ? "bg-green-100 text-green-700"
-                          : p.status === "projecting"
-                          ? "bg-amber-100 text-amber-700"
-                          : "bg-stone-100 text-stone-500"
-                      }`}
+                      className={`text-xs px-2 py-0.5 rounded-full $${
+  p.status === "sent"
+    ? "bg-green-100 text-green-700"
+    : p.status === "projecting"
+    ? "bg-amber-100 text-amber-700"
+    : p.status === "archived"
+    ? "bg-slate-100 text-slate-600"
+    : "bg-stone-100 text-stone-500"
+}`}
                     >
                       {p.status === "sent" ? "✓ Sent" : p.status === "projecting" ? "Projecting" : "Abandonado"}
                     </span>
