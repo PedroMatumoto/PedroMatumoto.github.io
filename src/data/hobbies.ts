@@ -13,7 +13,7 @@ export interface BoulderProject {
   name: string;
   grade: BoulderGrade;
   gym: string;
-  status: "projecting" | "sent" | "abandoned";
+  status: "projecting" | "sent" | "abandoned"| "archived";
   attempts: number;
   sentDate?: string;
   /** Photo URLs or local paths under /public, e.g. "/images/boulder/route/1.jpg" */
@@ -29,7 +29,7 @@ export const boulderData = {
       grade: "V2",
       gym: "República dos Macacos - SP",
       status: "projecting",
-      attempts: 6,
+      attempts: 11,
       photos: ["/images/bouldering/v2-amarela-pinch.jpg"],
       notes: "A virada pra mudar de parede precisa de mais força nos dedos.",
     },
@@ -37,7 +37,7 @@ export const boulderData = {
       name: "Dyno verde com negativo",
       grade: "V2",
       gym: "República dos Macacos - SP",
-      status: "projecting",
+      status: "archived",
       attempts: 7,
       photos: ["/images/bouldering/v2-vira-lado.jpg"],
       notes: "Faltou força e confiança para o movimento. Preciso praticar o timing do dyno em blocos mais fáceis e trabalhar a força explosiva.",
@@ -46,7 +46,7 @@ export const boulderData = {
       name: "Jug com negativo branco",
       grade: "V1",
       gym: "República dos Macacos - SP",
-      status: "projecting",
+      status: "sent",
       attempts: 10,
       photos: ["/images/bouldering/v1-branca-negativo.jpg"],
       notes: "Falta colocar os pés e grip pra segurar o jug com força pra ir pras últimas agarras.",
@@ -55,13 +55,14 @@ export const boulderData = {
       name: "Crimp preta",
       grade: "V1",
       gym: "República dos Macacos - SP",
-      status: "projecting",
+      status: "archived",
       attempts: 8,
       photos: ["/images/bouldering/v1-preta-forca.jpg"],
       notes: "Faltou força na penúltima agarra. Grip pra subir ainda é um desafio, mas o movimento em si é tranquilo. Preciso focar em fortalecer os dedos e melhorar a técnica de pés para compensar a falta de força.",
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-05-20", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1", "V1"], notes: "V2 pinch e V2 abaolado faltando a última agarra, V2 laranja faltando controle das pernas, sessão focada em V2" },
     { date: "2026-05-16", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1"], notes: "Sessão mais longa até agora" },
     { date: "2026-05-06", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1"], notes: "Primeiro V2 e V1 com heel hook" },
     { date: "2026-04-15", gym: "República dos Macacos", topSends: ["V1", "V1", "V1", "V0", "V0"]},
