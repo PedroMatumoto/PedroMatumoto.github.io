@@ -25,6 +25,15 @@ export const boulderData = {
   gyms: ["República dos Macacos - SP"],
   projects: [
     {
+      name: "Abaolado roxo",
+      grade: "V2",
+      gym: "República dos Macacos - SP",
+      status: "sent",
+      attempts: 13,
+      photos: ["/images/bouldering/v2-roxa-abaolado.jpg"],
+      notes: "",
+    },
+    {
       name: "Pinch amarelo com negativo no meio",
       grade: "V2",
       gym: "República dos Macacos - SP",
@@ -41,6 +50,15 @@ export const boulderData = {
       attempts: 7,
       photos: ["/images/bouldering/v2-vira-lado.jpg"],
       notes: "Faltou força e confiança para o movimento. Preciso praticar o timing do dyno em blocos mais fáceis e trabalhar a força explosiva.",
+    },
+    {
+      name: "Pinch laranja",
+      grade: "V2",
+      gym: "República dos Macacos - SP",
+      status: "sent",
+      attempts: 5,
+      photos: ["/images/bouldering/v1-branca-negativo.jpg"],
+      notes: "",
     },
     {
       name: "Jug com negativo branco",
@@ -62,6 +80,7 @@ export const boulderData = {
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-05-26", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V1", "V0", "V0", "V0", "V0"], notes: "V2 abaolado e V2 laranja feitos" },
     { date: "2026-05-20", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1", "V1"], notes: "V2 pinch e V2 abaolado faltando a última agarra, V2 laranja faltando controle das pernas, sessão focada em V2" },
     { date: "2026-05-16", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1"], notes: "Sessão mais longa até agora" },
     { date: "2026-05-06", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1"], notes: "Primeiro V2 e V1 com heel hook" },
@@ -1906,7 +1925,14 @@ export const restaurantesData: Restaurant[] = [
         cuisine: ["Japonesa"],
         status: "visited",
         rating: 5,
-        highlight: ""
+        dishes: [
+            {
+            name: "Kare Udon",
+            photo: "/images/food/udon-jinbei1.jpg",
+            notes: "Kare udon com caldo picante, nem tanto espesso, mas cheio de sabor. O macarrão é fresco e tem uma textura ótima, absorvendo bem o sabor do caldo. O prato tem frango em cubos, que é macio e suculento, complementando bem o conjunto. A porção é na medida certa, nem muito grande, nem muito pequena, perfeita para uma refeição satisfatória sem deixar aquela sensação de peso depois de comer."
+            }
+        ],
+        highlight: "",
     },
     {
         slug: "ueda-horumon-yaki",

@@ -72,73 +72,170 @@ export default function BoulderPage() {
           ))}
         </div>
 
-        {/* Projects */}
-        <section className="mb-12">
-          <h2 className="text-lg font-semibold text-stone-900 mb-4 flex items-center gap-2">
-            <span className="w-6 h-px bg-orange-400 inline-block" />
-            Projetos
-          </h2>
-          <div className="flex flex-col gap-3">
-            {projects.map((p) => (
-              <div
-                key={p.name}
-                className="bg-white rounded-xl border border-stone-200 p-5 flex flex-row gap-4"
-              >
-                {/* Left: info */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1 flex-wrap">
-                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${gradeColors[p.grade] ?? "bg-stone-100 text-stone-600"}`}>
-                      {p.grade}
-                    </span>
-                    <span
-                      className={`text-xs px-2 py-0.5 rounded-full $${
-  p.status === "sent"
-    ? "bg-green-100 text-green-700"
-    : p.status === "projecting"
-    ? "bg-amber-100 text-amber-700"
-    : p.status === "archived"
-    ? "bg-slate-100 text-slate-600"
-    : "bg-stone-100 text-stone-500"
-}`}
-                    >
-                      {p.status === "sent" ? "✓ Sent" : p.status === "projecting" ? "Projecting" : "Abandonado"}
-                    </span>
+        {/* Projecting */}
+        {projects.some((p) => p.status === "projecting") && (
+          <section className="mb-12">
+            <h2 className="text-lg font-semibold text-stone-900 mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-orange-400 inline-block" />
+              Projetos
+            </h2>
+            <div className="flex flex-col gap-3">
+              {projects.filter((p) => p.status === "projecting").map((p) => (
+                <div
+                  key={p.name}
+                  className="bg-white rounded-xl border border-stone-200 p-5 flex flex-row gap-4"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${gradeColors[p.grade] ?? "bg-stone-100 text-stone-600"}`}>
+                        {p.grade}
+                      </span>
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">
+                        Projecting
+                      </span>
+                    </div>
+                    <p className="font-medium text-stone-900">{p.name}</p>
+                    <p className="text-xs text-stone-400 mt-0.5">{p.gym}</p>
+                    {p.notes && <p className="text-sm text-stone-500 mt-2 italic">{p.notes}</p>}
+                    <div className="mt-4">
+                      <p className="text-2xl font-bold text-stone-900">{p.attempts}</p>
+                      <p className="text-xs text-stone-400 uppercase tracking-wider">tentativas</p>
+                    </div>
                   </div>
-                  <p className="font-medium text-stone-900">{p.name}</p>
-                  <p className="text-xs text-stone-400 mt-0.5">{p.gym}</p>
-                  {p.notes && <p className="text-sm text-stone-500 mt-2 italic">{p.notes}</p>}
-                  <div className="mt-4">
-                    <p className="text-2xl font-bold text-stone-900">{p.attempts}</p>
-                    <p className="text-xs text-stone-400 uppercase tracking-wider">tentativas</p>
-                    {p.sentDate && (
-                      <p className="text-xs text-green-600 mt-1">
-                        {new Date(p.sentDate).toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" })}
-                      </p>
-                    )}
-                  </div>
+                  {p.photos && p.photos.length > 0 && (
+                    <div className="flex gap-2 shrink-0">
+                      {p.photos.map((src, i) => (
+                        <a key={i} href={src} target="_blank" rel="noopener noreferrer">
+                          <div className="relative w-40 h-60 rounded-lg overflow-hidden bg-stone-100 border border-stone-200">
+                            <Image
+                              src={src}
+                              alt={`${p.name} - foto ${i + 1}`}
+                              fill
+                              className="object-cover"
+                              sizes="160px"
+                            />
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                {/* Right: photos (portrait) */}
-                {p.photos && p.photos.length > 0 && (
-                  <div className="flex gap-2 shrink-0">
-                    {p.photos.map((src, i) => (
-                      <a key={i} href={src} target="_blank" rel="noopener noreferrer">
-                        <div className="relative w-40 h-60 rounded-lg overflow-hidden bg-stone-100 border border-stone-200">
-                          <Image
-                            src={src}
-                            alt={`${p.name} - foto ${i + 1}`}
-                            fill
-                            className="object-cover"
-                            sizes="160px"
-                          />
-                        </div>
-                      </a>
-                    ))}
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Sent */}
+        {projects.some((p) => p.status === "sent") && (
+          <section className="mb-12">
+            <h2 className="text-lg font-semibold text-stone-900 mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-green-500 inline-block" />
+              Mandados
+            </h2>
+            <div className="flex flex-col gap-3">
+              {projects.filter((p) => p.status === "sent").map((p) => (
+                <div
+                  key={p.name}
+                  className="bg-white rounded-xl border border-stone-200 p-5 flex flex-row gap-4"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${gradeColors[p.grade] ?? "bg-stone-100 text-stone-600"}`}>
+                        {p.grade}
+                      </span>
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                        ✓ Sent
+                      </span>
+                    </div>
+                    <p className="font-medium text-stone-900">{p.name}</p>
+                    <p className="text-xs text-stone-400 mt-0.5">{p.gym}</p>
+                    {p.notes && <p className="text-sm text-stone-500 mt-2 italic">{p.notes}</p>}
+                    <div className="mt-4">
+                      <p className="text-2xl font-bold text-stone-900">{p.attempts}</p>
+                      <p className="text-xs text-stone-400 uppercase tracking-wider">tentativas</p>
+                      {p.sentDate && (
+                        <p className="text-xs text-green-600 mt-1">
+                          {new Date(p.sentDate).toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" })}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
+                  {p.photos && p.photos.length > 0 && (
+                    <div className="flex gap-2 shrink-0">
+                      {p.photos.map((src, i) => (
+                        <a key={i} href={src} target="_blank" rel="noopener noreferrer">
+                          <div className="relative w-40 h-60 rounded-lg overflow-hidden bg-stone-100 border border-stone-200">
+                            <Image
+                              src={src}
+                              alt={`${p.name} - foto ${i + 1}`}
+                              fill
+                              className="object-cover"
+                              sizes="160px"
+                            />
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Archived projects */}
+        {projects.some((p) => p.status === "archived") && (
+          <section className="mb-12">
+            <h2 className="text-lg font-semibold text-stone-900 mb-1 flex items-center gap-2">
+              <span className="w-6 h-px bg-slate-400 inline-block" />
+              Desmontados
+            </h2>
+            <p className="text-xs text-stone-400 mb-4">Projetos que foram desmontados sem conseguir mandar.</p>
+            <div className="flex flex-col gap-3 opacity-60">
+              {projects.filter((p) => p.status === "archived").map((p) => (
+                <div
+                  key={p.name}
+                  className="bg-white rounded-xl border border-stone-200 p-5 flex flex-row gap-4"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${gradeColors[p.grade] ?? "bg-stone-100 text-stone-600"}`}>
+                        {p.grade}
+                      </span>
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                        Desmontado
+                      </span>
+                    </div>
+                    <p className="font-medium text-stone-900">{p.name}</p>
+                    <p className="text-xs text-stone-400 mt-0.5">{p.gym}</p>
+                    {p.notes && <p className="text-sm text-stone-500 mt-2 italic">{p.notes}</p>}
+                    <div className="mt-4">
+                      <p className="text-2xl font-bold text-stone-900">{p.attempts}</p>
+                      <p className="text-xs text-stone-400 uppercase tracking-wider">tentativas</p>
+                    </div>
+                  </div>
+                  {p.photos && p.photos.length > 0 && (
+                    <div className="flex gap-2 shrink-0">
+                      {p.photos.map((src, i) => (
+                        <a key={i} href={src} target="_blank" rel="noopener noreferrer">
+                          <div className="relative w-40 h-60 rounded-lg overflow-hidden bg-stone-100 border border-stone-200">
+                            <Image
+                              src={src}
+                              alt={`${p.name} - foto ${i + 1}`}
+                              fill
+                              className="object-cover"
+                              sizes="160px"
+                            />
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Recent sessions */}
         <section>
