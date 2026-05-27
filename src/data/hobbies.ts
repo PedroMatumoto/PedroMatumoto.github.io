@@ -2001,4 +2001,37 @@ export const restaurantesData: Restaurant[] = [
         rating: 0,
         highlight: ""
     },
+    {
+        slug: "shawarmaria-asmar",
+        name: "Shawarmaria Asmar's",
+        location: "Mooca, São Paulo, SP",
+        cuisine: ["Árabe"],
+        status: "visited",
+        rating: 5,
+        dishes: [
+            {
+            name: "Shawarma de carne",
+            notes: "Shawarma de carne é simplesmente incrível. A carne é suculenta, cortada bem fina, bem temperada e tem um sabor defumado delicioso. O pão sírio é macio e fresco. Os acompanhamentos, como o molho de tahine e os vegetais frescos, adicionam um toque de frescor e equilíbrio ao prato."
+            },
+        ],
+        highlight: ""
+    },
+    {
+        slug: "santokki",
+        name: "Santokki",
+        location: "Alto de Pinheiros, São Paulo, SP",
+        cuisine: ["Japonesa"],
+        status: "want",
+        rating: 0,
+        highlight: ""
+    },
+    {
+        slug: "kuromoon",
+        name: "Kuromoon",
+        location: "Paraíso, São Paulo, SP",
+        cuisine: ["Japonesa"],
+        status: "want",
+        rating: 0,
+        highlight: ""
+    },
 ];
