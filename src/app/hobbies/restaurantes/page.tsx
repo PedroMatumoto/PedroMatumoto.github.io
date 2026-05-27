@@ -59,7 +59,7 @@ function Lightbox({ state, onClose, onNav }: {
 
       {/* Image */}
       <div
-        className="relative max-w-3xl w-full max-h-[80vh] mx-16 flex flex-col items-center"
+        className="relative max-w-3xl w-full max-h-[80vh] mx-4 sm:mx-16 flex flex-col items-center"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative w-full" style={{ height: "min(70vh, 600px)" }}>
@@ -383,9 +383,9 @@ export default function RestaurantesPage() {
                 key={r.slug}
                 className="bg-white rounded-2xl border border-stone-200 overflow-hidden"
               >
-                <div className="flex">
+                <div className="flex flex-col sm:flex-row">
                   {/* Left: info */}
-                  <div className="flex-1 min-w-0 p-6">
+                  <div className="flex-1 min-w-0 p-5 sm:p-6">
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
                       <div>
                         <h2 className="font-bold text-stone-900 text-xl">{r.name}</h2>
@@ -442,11 +442,11 @@ export default function RestaurantesPage() {
 
                   {/* Right: dishes photo strip */}
                   {r.dishes && r.dishes.length > 0 && (
-                    <div className="flex gap-1.5 p-3 pl-0 items-stretch">
+                    <div className="sm:flex sm:gap-1.5 sm:p-3 sm:pl-0 sm:items-stretch hidden">
                       {r.dishes.slice(0, 3).map((dish, i) => (
                         <button
                           key={i}
-                          className="group relative w-24 sm:w-28 shrink-0 text-left"
+                          className="group relative w-28 shrink-0 text-left"
                           onClick={() => openLightbox(r.dishes!, i, r.name)}
                           aria-label={`Ver foto: ${dish.name}`}
                         >
@@ -479,6 +479,41 @@ export default function RestaurantesPage() {
                           <span className="text-xs text-stone-400 font-medium">+{r.dishes.length - 3}</span>
                         </button>
                       )}
+                    </div>
+                  )}
+
+                  {/* Mobile: horizontal scroll photo strip */}
+                  {r.dishes && r.dishes.length > 0 && (
+                    <div className="sm:hidden overflow-x-auto px-5 pb-4">
+                      <div className="flex gap-2" style={{ width: "max-content" }}>
+                        {r.dishes.map((dish, i) => (
+                          <button
+                            key={i}
+                            className="group relative shrink-0 w-28 h-28 text-left"
+                            onClick={() => openLightbox(r.dishes!, i, r.name)}
+                            aria-label={`Ver foto: ${dish.name}`}
+                          >
+                            <div className="relative w-full h-full rounded-xl overflow-hidden bg-stone-100">
+                              {dish.photo ? (
+                                <Image
+                                  src={dish.photo}
+                                  alt={dish.name}
+                                  fill
+                                  className="object-cover"
+                                  unoptimized
+                                />
+                              ) : (
+                                <div className="flex items-center justify-center h-full">
+                                  <span className="text-3xl font-serif text-stone-300">皿</span>
+                                </div>
+                              )}
+                              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-1.5 py-1">
+                                <p className="text-[0.6rem] text-white leading-tight line-clamp-2">{dish.name}</p>
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>

@@ -1928,7 +1928,7 @@ export const restaurantesData: Restaurant[] = [
         dishes: [
             {
             name: "Kare Udon",
-            photo: "/images/food/udon-jinbei1.jpg",
+            photo: "/images/food/udonjimbei.jpg",
             notes: "Kare udon com caldo picante, nem tanto espesso, mas cheio de sabor. O macarrão é fresco e tem uma textura ótima, absorvendo bem o sabor do caldo. O prato tem frango em cubos, que é macio e suculento, complementando bem o conjunto. A porção é na medida certa, nem muito grande, nem muito pequena, perfeita para uma refeição satisfatória sem deixar aquela sensação de peso depois de comer."
             }
         ],
