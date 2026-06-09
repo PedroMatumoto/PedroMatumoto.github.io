@@ -193,6 +193,74 @@ export const jdmData = {
   ] as JdmEvent[],
 };
 
+// ─── Favoritos Pessoais ─────────────────────────────────────────────────────
+
+export type FavoriteMediaType = "manga" | "filme" | "anime" | "jogo" | "album";
+
+export interface PersonalFavorite {
+    type: FavoriteMediaType;
+    title: string;
+    subtitle?: string;
+    cover: string;
+    year?: string;
+    creator?: string;
+    genres?: string[];
+    reason?: string;
+}
+
+export const personalFavoritesData: PersonalFavorite[] = [
+    {
+        type: "manga",
+        title: "Kokou no Hito",
+        subtitle: "Sakamoto Shinichi",
+        cover: "/images/favorites/kokou-no-hito.jpg",
+        year: "1989",
+        creator: "Sakamoto Shinichi",
+        genres: ["Drama", "Esporte", "Aventura"],
+        reason: "Construção de mundo absurda, arte única e evolução pesada dos personagens.",
+    },
+    {
+        type: "filme",
+        title: "Project Hail Mary",
+        subtitle: "Andy Weir",
+        cover: "/images/favorites/project-hail-mary.jpg",
+        year: "2026",
+        creator: "Andy Weir / MGM",
+        genres: ["Sci-Fi", "Drama", "Aventura"],
+        reason: "Trilha sonora sensacional, fotografia incrível e tema de sobrevivência espacial muito bem explorado, com um toque de humor e emoção com o Ryan Gosling.",
+    },
+    {
+        type: "anime",
+        title: "86",
+        subtitle: "Eighty-Six",
+        cover: "/images/favorites/86.jpeg",
+        year: "2021",
+        creator: "Shougo Yasukawa / A-1 Pictures",
+        genres: ["Ação", "Aventura", "Fantasia"],
+        reason: "Narrativa envolvente, personagens complexos e uma abordagem única para o gênero me conquistaram completamente.",
+    },
+    {
+        type: "jogo",
+        title: "GRIS",
+        subtitle: "Nomada Studio",
+        cover: "/images/favorites/gris.jpg",
+        year: "2018",
+        creator: "Nomada Studio",
+        genres: ["Plataforma", "Puzzle", "Indie"],
+        reason: "Direção de arte e trilha impecáveis, com narrativa sensível sem precisar de texto.",
+    },
+    {
+        type: "album",
+        title: "F-1 Trillion: Long Bed",
+        subtitle: "Post Malone",
+        cover: "https://i.scdn.co/image/ab67616d0000b273e17e51543be87943285b65ad",
+        year: "2024",
+        creator: "Post Malone",
+        genres: ["Country", "Pop", "Folk"],
+        reason: "Mistura de country moderno com melodias fortes; ótimo álbum para ouvir inteiro.",
+    },
+];
+
 // ─── Trilhas ─────────────────────────────────────────────────────────────────
 
 export type TrailDifficulty = "FÁCIL" | "MODERADO" | "DIFÍCIL";

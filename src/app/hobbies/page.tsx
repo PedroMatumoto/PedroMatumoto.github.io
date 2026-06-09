@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { trilhasData, receitasData, viagensData, restaurantesData } from "@/data/hobbies";
+import { trilhasData, receitasData, viagensData, restaurantesData, personalFavoritesData } from "@/data/hobbies";
 import HobbiesHub from "./HobbiesHub";
 
 export const metadata: Metadata = {
@@ -97,6 +97,52 @@ const hobbies = [
 ] as const;
 
 export default function HobbiesPage() {
+  const mediaLabels = {
+    manga: "Mangá favorito",
+    filme: "Filme favorito",
+    anime: "Anime favorito",
+    jogo: "Jogo favorito",
+    album: "Álbum favorito",
+  } as const;
+
+  const mediaTheme = {
+    manga: {
+      frame: "border-rose-300/80",
+      chip: "bg-rose-900 text-rose-50",
+      wash: "from-rose-500/35 via-rose-400/10",
+      text: "text-rose-950",
+      hint: "text-rose-800/75",
+    },
+    filme: {
+      frame: "border-amber-300/80",
+      chip: "bg-amber-900 text-amber-50",
+      wash: "from-amber-500/35 via-amber-400/10",
+      text: "text-amber-950",
+      hint: "text-amber-800/75",
+    },
+    anime: {
+      frame: "border-sky-300/80",
+      chip: "bg-sky-900 text-sky-50",
+      wash: "from-sky-500/35 via-cyan-400/10",
+      text: "text-sky-950",
+      hint: "text-sky-800/75",
+    },
+    jogo: {
+      frame: "border-emerald-300/80",
+      chip: "bg-emerald-900 text-emerald-50",
+      wash: "from-emerald-500/35 via-lime-400/10",
+      text: "text-emerald-950",
+      hint: "text-emerald-800/75",
+    },
+    album: {
+      frame: "border-violet-300/80",
+      chip: "bg-violet-900 text-violet-50",
+      wash: "from-violet-500/35 via-fuchsia-400/10",
+      text: "text-violet-950",
+      hint: "text-violet-800/75",
+    },
+  } as const;
+
   return (
     <main className="min-h-screen bg-stone-100 flex flex-col">
       {/* ── Hero ─────────────────────────────────────────────── */}
@@ -130,6 +176,79 @@ export default function HobbiesPage() {
               <span className="w-1 h-1 rounded-full bg-stone-300 animate-bounce [animation-delay:240ms]" />
             </span>
             <span className="text-stone-300 text-sm">→</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Favoritos Pessoais ─────────────────────────────── */}
+      <section className="relative py-14 border-y border-stone-200 overflow-hidden bg-gradient-to-b from-stone-50 to-stone-100">
+        <span
+          className="pointer-events-none select-none absolute -left-6 -top-10 text-[9rem] md:text-[14rem] font-serif text-stone-200/70 leading-none"
+          aria-hidden="true"
+        >
+          好
+        </span>
+
+        <div className="px-8 md:px-16 mb-8 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-stone-400 text-[0.6rem] tracking-[0.3em] uppercase mb-2">Pessoal</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-stone-800 tracking-tight">
+              Favoritos de Tela e Papel
+            </h2>
+          </div>
+          <span className="text-stone-500 text-xs tracking-widest uppercase hidden md:block">Poster Rail</span>
+        </div>
+
+        <div className="relative w-full overflow-x-auto no-scrollbar px-4 md:px-8">
+          <div className="flex gap-5 md:gap-6 min-w-max pb-2">
+            {personalFavoritesData.map((item) => (
+              <article
+                key={item.type}
+                className={`group relative w-[76vw] max-w-[330px] sm:w-[44vw] md:w-[32vw] lg:w-[20vw] min-w-[260px] rounded-2xl overflow-hidden border ${mediaTheme[item.type].frame} shadow-[0_14px_32px_rgba(28,18,8,0.12)]`}
+              >
+                <div className="relative aspect-[2/3]">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: `url(${item.cover})` }}
+                    aria-label={`Capa de ${item.title}`}
+                    role="img"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${mediaTheme[item.type].wash} to-transparent`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+
+                  <div className="absolute left-3 top-3 right-3 flex items-start justify-between gap-3 z-10">
+                    <span className={`text-[0.56rem] tracking-[0.22em] uppercase px-2.5 py-1 rounded-full ${mediaTheme[item.type].chip}`}>
+                      {mediaLabels[item.type]}
+                    </span>
+                    <span className="text-[0.55rem] tracking-[0.26em] uppercase text-stone-200/80">
+                      {item.year ?? "Now"}
+                    </span>
+                  </div>
+
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-4 md:p-5">
+                    <h3 className="font-serif text-2xl leading-tight text-stone-50 mb-1">
+                      {item.title}
+                    </h3>
+                    {item.subtitle ? (
+                      <p className="text-sm text-stone-200/90 mb-2">{item.subtitle}</p>
+                    ) : null}
+                    <p className="text-xs text-stone-200/80 line-clamp-2 mb-3">
+                      {item.reason ?? "Obra com impacto visual e emocional."}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {(item.genres ?? []).slice(0, 3).map((genre) => (
+                        <span
+                          key={genre}
+                          className="text-[0.55rem] uppercase tracking-[0.12em] px-2 py-1 rounded-full bg-black/35 text-stone-100 border border-white/20"
+                        >
+                          {genre}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
