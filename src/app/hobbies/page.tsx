@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { trilhasData, receitasData, viagensData, restaurantesData, personalFavoritesData } from "@/data/hobbies";
 import HobbiesHub from "./HobbiesHub";
 
@@ -143,6 +144,22 @@ export default function HobbiesPage() {
     },
   } as const;
 
+  const mediaKanji = {
+    manga: "漫",
+    filme: "映",
+    anime: "ア",
+    jogo: "遊",
+    album: "音",
+  } as const;
+
+  const backlogRoutes = {
+    manga: "/hobbies/backlog/mangas",
+    filme: "/hobbies/backlog/filmes",
+    anime: "/hobbies/backlog/animes",
+    jogo: "/hobbies/backlog/jogos",
+    album: null,
+  } as const;
+
   return (
     <main className="min-h-screen bg-stone-100 flex flex-col">
       {/* ── Hero ─────────────────────────────────────────────── */}
@@ -196,59 +213,80 @@ export default function HobbiesPage() {
               Favoritos de Tela e Papel
             </h2>
           </div>
-          <span className="text-stone-500 text-xs tracking-widest uppercase hidden md:block">Poster Rail</span>
+          <Link href="/hobbies/backlog" className="text-stone-500 text-xs tracking-widest uppercase hidden md:block hover:text-stone-800 transition-colors">
+            Ver backlog →
+          </Link>
         </div>
 
         <div className="relative w-full overflow-x-auto no-scrollbar px-4 md:px-8">
           <div className="flex gap-5 md:gap-6 min-w-max pb-2">
-            {personalFavoritesData.map((item) => (
-              <article
-                key={item.type}
-                className={`group relative w-[76vw] max-w-[330px] sm:w-[44vw] md:w-[32vw] lg:w-[20vw] min-w-[260px] rounded-2xl overflow-hidden border ${mediaTheme[item.type].frame} shadow-[0_14px_32px_rgba(28,18,8,0.12)]`}
-              >
-                <div className="relative aspect-[2/3]">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${item.cover})` }}
-                    aria-label={`Capa de ${item.title}`}
-                    role="img"
-                  />
-                  <div className={`absolute inset-0 bg-gradient-to-t ${mediaTheme[item.type].wash} to-transparent`} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+            {personalFavoritesData.map((item) => {
+              const backlogRoute = backlogRoutes[item.type];
+              const card = (
+                <article
+                  className={`group relative w-[76vw] max-w-[330px] sm:w-[44vw] md:w-[32vw] lg:w-[20vw] min-w-[260px] rounded-2xl overflow-hidden border ${mediaTheme[item.type].frame} shadow-[0_14px_32px_rgba(28,18,8,0.12)]`}
+                >
+                  <div className="relative aspect-[2/3]">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                      style={{ backgroundImage: `url(${item.cover})` }}
+                      aria-label={`Capa de ${item.title}`}
+                      role="img"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${mediaTheme[item.type].wash} to-transparent`} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
 
-                  <div className="absolute left-3 top-3 right-3 flex items-start justify-between gap-3 z-10">
-                    <span className={`text-[0.56rem] tracking-[0.22em] uppercase px-2.5 py-1 rounded-full ${mediaTheme[item.type].chip}`}>
-                      {mediaLabels[item.type]}
-                    </span>
-                    <span className="text-[0.55rem] tracking-[0.26em] uppercase text-stone-200/80">
-                      {item.year ?? "Now"}
-                    </span>
-                  </div>
+                    <div className="absolute inset-0 grid place-items-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/35 z-10">
+                      <span className="font-serif text-[7rem] leading-none text-white/80 drop-shadow-sm">
+                        {mediaKanji[item.type]}
+                      </span>
+                    </div>
 
-                  <div className="absolute inset-x-0 bottom-0 z-10 p-4 md:p-5">
-                    <h3 className="font-serif text-2xl leading-tight text-stone-50 mb-1">
-                      {item.title}
-                    </h3>
-                    {item.subtitle ? (
-                      <p className="text-sm text-stone-200/90 mb-2">{item.subtitle}</p>
-                    ) : null}
-                    <p className="text-xs text-stone-200/80 line-clamp-2 mb-3">
-                      {item.reason ?? "Obra com impacto visual e emocional."}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {(item.genres ?? []).slice(0, 3).map((genre) => (
-                        <span
-                          key={genre}
-                          className="text-[0.55rem] uppercase tracking-[0.12em] px-2 py-1 rounded-full bg-black/35 text-stone-100 border border-white/20"
-                        >
-                          {genre}
-                        </span>
-                      ))}
+                    <div className="absolute left-3 top-3 right-3 flex items-start justify-between gap-3 z-20">
+                      <span className={`text-[0.56rem] tracking-[0.22em] uppercase px-2.5 py-1 rounded-full ${mediaTheme[item.type].chip}`}>
+                        {mediaLabels[item.type]}
+                      </span>
+                      <span className="text-[0.55rem] tracking-[0.26em] uppercase text-stone-200/80">
+                        {item.year ?? "Now"}
+                      </span>
+                    </div>
+
+                    <div className="absolute inset-x-0 bottom-0 z-20 p-4 md:p-5">
+                      <h3 className="font-serif text-2xl leading-tight text-stone-50 mb-1">
+                        {item.title}
+                      </h3>
+                      {item.subtitle ? (
+                        <p className="text-sm text-stone-200/90 mb-2">{item.subtitle}</p>
+                      ) : null}
+                      <p className="text-xs text-stone-200/80 line-clamp-2 mb-3">
+                        {item.reason ?? "Obra com impacto visual e emocional."}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mb-2">
+                        {(item.genres ?? []).slice(0, 3).map((genre) => (
+                          <span
+                            key={genre}
+                            className="text-[0.55rem] uppercase tracking-[0.12em] px-2 py-1 rounded-full bg-black/35 text-stone-100 border border-white/20"
+                          >
+                            {genre}
+                          </span>
+                        ))}
+                      </div>
+                      {backlogRoute ? (
+                        <p className="text-[0.6rem] uppercase tracking-[0.22em] text-stone-100/80">Abrir backlog →</p>
+                      ) : null}
                     </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+
+              return backlogRoute ? (
+                <Link key={item.type} href={backlogRoute} className="block">
+                  {card}
+                </Link>
+              ) : (
+                <div key={item.type}>{card}</div>
+              );
+            })}
           </div>
         </div>
       </section>
