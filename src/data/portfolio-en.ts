@@ -78,10 +78,17 @@ export const portfolioData = {
       technologies: ["Python", "GitHub","Pandas","OpenAI","Teaching", "ChromaDB", "RAG"],
     },
     {
+      company: "XP Inc.",
+      role: "Junior Software Architect",
+      period: "05/2026 - Present",
+      description: "Working on software architecture definition, supporting technical decision-making, system evolution, and scalable solution design aligned with business goals.",
+      technologies: ["Software Architecture", "TypeScript", ".NET", "Azure", "CI/CD", "Cloud"],
+    },
+    {
       company: "Alvarez & Marsal",
       role: "Software Engineer",
-      period: "05/2025 - Present",
-      description: "Responsible for restructuring the desktop application, managing deployments on Azure Web Apps, and building an administrative system with hour allocation calculations. I also work on AI document processing (Azure OpenAI), process automation (RPA), FastAPI APIs, and CI/CD pipelines.",
+      period: "05/2025 - 05/2026",
+      description: "Responsible for restructuring the desktop application, managing deployments on Azure Web Apps, and building an administrative system with hour allocation calculations. I also worked on AI document processing (Azure OpenAI), process automation (RPA), FastAPI APIs, and CI/CD pipelines.",
       technologies: ["Azure OpenAI", "RPA", "FastAPI", "CI/CD", "Azure", "Azure Web Apps", "Desktop Applications"],
     },
     {

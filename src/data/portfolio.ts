@@ -77,10 +77,17 @@ export const portfolioData = {
       technologies: ["Python", "GitHub Copilot", "AI Tools", "GitHub"],
     },
     {
+      company: "XP",
+      role: "Arquiteto de Software Jr",
+      period: "05/2026 - Presente",
+      description: "Atuo na definição de arquitetura de software, apoiando decisões técnicas, evolução de sistemas e construção de soluções escaláveis alinhadas aos objetivos de negócio.",
+      technologies: ["Software Architecture", "TypeScript", "Python", "Azure", "CI/CD", "Cloud"],
+    },
+    {
       company: "Alvarez & Marsal",
       role: "Engenheiro de Software",
-      period: "05/2025 - Presente",
-      description: "Responsável pela reestruturação da aplicação desktop, deploys nos Azure Web Apps e desenvolvimento de sistema administrativo com cálculo de alocação de horas. Também atuo em processamento de documentos com IA (Azure OpenAI), automação de processos (RPA), APIs com FastAPI e pipelines de CI/CD.",
+      period: "05/2025 - 05/2026",
+      description: "Responsável pela reestruturação da aplicação desktop, deploys nos Azure Web Apps e desenvolvimento de sistema administrativo com cálculo de alocação de horas. Também atuei em processamento de documentos com IA (Azure OpenAI), automação de processos (RPA), APIs com FastAPI e pipelines de CI/CD.",
       technologies: ["Azure OpenAI", "RPA", "FastAPI", "CI/CD", "Azure", "Azure Web Apps", "Desktop Applications"],
     },
     {
