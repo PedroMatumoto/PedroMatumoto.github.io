@@ -80,7 +80,7 @@ export const portfolioData = {
     {
       company: "XP Inc.",
       role: "Junior Software Architect",
-      period: "05/2026 - Present",
+      period: "06/2026 - Present",
       description: "Working on software architecture definition, supporting technical decision-making, system evolution, and scalable solution design aligned with business goals.",
       technologies: ["Software Architecture", "TypeScript", ".NET", "Azure", "CI/CD", "Cloud"],
     },
