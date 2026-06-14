@@ -37,7 +37,7 @@ export const boulderData = {
       name: "Pinch amarelo com negativo no meio",
       grade: "V2",
       gym: "República dos Macacos - SP",
-      status: "projecting",
+      status: "archived",
       attempts: 13,
       photos: ["/images/bouldering/v2-amarela-pinch.jpg"],
       notes: "A virada pra mudar de parede precisa de mais força nos dedos.",
