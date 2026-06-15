@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Clock } from "lucide-react";
-import { receitasData } from "@/data/hobbies";
+import { Clock, ExternalLink } from "lucide-react";
+import { receitasData, receitasReferenceLinks } from "@/data/hobbies";
 
 export const metadata: Metadata = {
   title: "Receitas | Pedro Matumoto",
@@ -75,6 +75,30 @@ export default function ReceitasPage() {
             </Link>
           ))}
         </div>
+
+        {/* Reference Links */}
+        {receitasReferenceLinks.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-sm font-semibold text-stone-400 uppercase tracking-widest mb-4">Referências</h2>
+            <div className="flex flex-col gap-2">
+              {receitasReferenceLinks.map((ref) => (
+                <a
+                  key={ref.url}
+                  href={ref.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-stone-600 hover:text-amber-600 transition-colors text-sm"
+                >
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  <span className="font-medium">{ref.label}</span>
+                  {ref.description && (
+                    <span className="text-stone-400">— {ref.description}</span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );
