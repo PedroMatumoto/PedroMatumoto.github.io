@@ -9106,7 +9106,7 @@ export const receitasData: Recipe[] = [
         name: "Tortilla Doce de Maçã com Canela na Airfryer",
         timeMin: 30,
         tags: ["sobremesa", "doce", "airfryer"],
-        image: "COLOQUE_AQUI_O_LINK_DA_SUA_IMAGEM",
+        image: "",
         ingredients: [
             "2 a 3 maçãs picadas",
             "1/4 de xícara de açúcar",
