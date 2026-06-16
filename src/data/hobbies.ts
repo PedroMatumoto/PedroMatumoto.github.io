@@ -25,6 +25,15 @@ export const boulderData = {
   gyms: ["República dos Macacos - SP"],
   projects: [
     {
+      name: "Pinch Amarela",
+      grade: "V3",
+      gym: "República dos Macacos - SP",
+      status: "archived",
+      attempts: 3,
+      photos: ["/images/bouldering/v3-pinch-amarela.jpg"],
+      notes: "Falta movimento para apoiar os pés.",
+    },
+    {
       name: "Abaolado roxo",
       grade: "V2",
       gym: "República dos Macacos - SP",
@@ -80,6 +89,7 @@ export const boulderData = {
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-06-15", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1", "V1", "V0"], notes: "Sessão focada em tentar novas rotas e fazer a primeira V3" },
     { date: "2026-05-31", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V2", "V2", "V2", "V1", "V1", "V1", "V1", "V1", "V1", "V0", "V0"], notes: "Sessão focada em refazer movimentos e melhorar técnica" },
     { date: "2026-05-26", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V1", "V0", "V0", "V0", "V0"], notes: "V2 abaolado e V2 laranja feitos" },
     { date: "2026-05-20", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1", "V1"], notes: "V2 pinch e V2 abaolado faltando a última agarra, V2 laranja faltando controle das pernas, sessão focada em V2" },
