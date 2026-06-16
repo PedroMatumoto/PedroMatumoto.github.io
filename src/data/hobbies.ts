@@ -28,7 +28,7 @@ export const boulderData = {
       name: "Pinch Amarela",
       grade: "V3",
       gym: "República dos Macacos - SP",
-      status: "archived",
+      status: "projecting",
       attempts: 3,
       photos: ["/images/bouldering/v3-pinch-amarela.jpg"],
       notes: "Falta movimento para apoiar os pés.",
