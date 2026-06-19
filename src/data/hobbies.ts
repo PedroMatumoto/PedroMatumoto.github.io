@@ -1,6 +1,13 @@
 // ─── Boulder Climbing ───────────────────────────────────────────────────────
 
-export type BoulderGrade = "V0" | "V1" | "V2" | "V3" | "V4" | "V5" | "V6" | "V7" | "V8+";
+export type BoulderGrade = "V0" | "V1" | "V2" | "V3" | "V4" | "V5" | "V6" | "V7" | "V8+"
+  | "Branco" | "Rosa" | "Azul" | "Verde" | "Vermelho" | "Preto";
+
+/** Gyms that use a color-based grading system instead of V-grades. */
+export const colorGradeGyms = ["FABRICA Escalada Chacara - SP"];
+
+/** Color grades ordered from easiest to hardest. */
+export const colorGradeOrder: BoulderGrade[] = ["Branco", "Rosa", "Azul", "Verde", "Vermelho", "Preto"];
 
 export interface BoulderSession {
   date: string; // ISO date
@@ -22,8 +29,53 @@ export interface BoulderProject {
 }
 
 export const boulderData = {
-  gyms: ["República dos Macacos - SP"],
+  gyms: ["República dos Macacos - SP", "FABRICA Escalada Chacara - SP"],
   projects: [
+    {
+      name: "Pendurado vermelho",
+      grade: "Azul",
+      gym: "FABRICA Escalada Chacara - SP",
+      status: "projecting",
+      attempts: 3,
+      photos: ["/images/bouldering/vermelho-pendurado.jpg"],
+      notes: "",
+    },
+    {
+      name: "Sloper Preta",
+      grade: "Azul",
+      gym: "FABRICA Escalada Chacara - SP",
+      status: "projecting",
+      attempts: 3,
+      photos: ["/images/bouldering/bolas-preta-vermelha.jpg"],
+      notes: "",
+    },
+    {
+      name: "Pendurado Branco",
+      grade: "Azul",
+      gym: "FABRICA Escalada Chacara - SP",
+      status: "projecting",
+      attempts: 3,
+      photos: ["/images/bouldering/branco-movimento.jpg"],
+      notes: "Faltou força pro último movimento",
+    },
+    {
+      name: "Pendurado Branco",
+      grade: "Azul",
+      gym: "FABRICA Escalada Chacara - SP",
+      status: "projecting",
+      attempts: 3,
+      photos: ["/images/bouldering/branco-movimento.jpg"],
+      notes: "Faltou força pro último movimento",
+    },
+    {
+      name: "Pendurado Branco",
+      grade: "Azul",
+      gym: "FABRICA Escalada Chacara - SP",
+      status: "projecting",
+      attempts: 3,
+      photos: ["/images/bouldering/branco-movimento.jpg"],
+      notes: "Faltou força pro último movimento",
+    },
     {
       name: "Pinch Amarela",
       grade: "V3",
@@ -89,6 +141,7 @@ export const boulderData = {
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-06-19", gym: "FABRICA Escalada Chacara - SP", topSends: ["Azul","Azul","Azul","Azul","Rosa","Rosa","Rosa","Rosa","Branco","Branco"], notes: "Primeira sessão na FABRICA Escalada Chacara - SP" },
     { date: "2026-06-15", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1", "V1", "V0"], notes: "Sessão focada em tentar novas rotas e fazer a primeira V3" },
     { date: "2026-05-31", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V2", "V2", "V2", "V1", "V1", "V1", "V1", "V1", "V1", "V0", "V0"], notes: "Sessão focada em refazer movimentos e melhorar técnica" },
     { date: "2026-05-26", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V1", "V0", "V0", "V0", "V0"], notes: "V2 abaolado e V2 laranja feitos" },

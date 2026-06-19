@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { boulderData, type BoulderGrade } from "@/data/hobbies";
+import { boulderData, colorGradeOrder, type BoulderGrade } from "@/data/hobbies";
 
 export const metadata: Metadata = {
   title: "Boulder | Pedro Matumoto",
@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 const gradeColors: Record<string, string> = {
+  // V-grade system
   "V0": "bg-green-100 text-green-700",
   "V1": "bg-green-200 text-green-800",
   "V2": "bg-yellow-100 text-yellow-700",
@@ -18,25 +19,37 @@ const gradeColors: Record<string, string> = {
   "V6": "bg-red-200 text-red-800",
   "V7": "bg-purple-100 text-purple-700",
   "V8+": "bg-purple-200 text-purple-800",
+  // Color-grade system (FABRICA)
+  "Branco": "bg-white text-stone-600 border border-stone-300",
+  "Rosa": "bg-pink-100 text-pink-700",
+  "Azul": "bg-blue-100 text-blue-700",
+  "Verde": "bg-green-100 text-green-700",
+  "Vermelho": "bg-red-100 text-red-700",
+  "Preto": "bg-stone-900 text-white",
 };
 
-const gradeOrder: BoulderGrade[] = ["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8+"];
+const vGradeOrder: BoulderGrade[] = ["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8+"];
 
-function computeMaxGrade(data: typeof boulderData): BoulderGrade {
+function computeMaxBySystem(data: typeof boulderData): { vGrade: BoulderGrade | null; colorGrade: BoulderGrade | null } {
   const allGrades: BoulderGrade[] = [
     ...data.recentSessions.flatMap((s) => s.topSends),
     ...data.projects.filter((p) => p.status === "sent").map((p) => p.grade),
   ];
-  if (allGrades.length === 0) return "V0";
-  return allGrades.reduce((best, g) =>
-    gradeOrder.indexOf(g) > gradeOrder.indexOf(best) ? g : best
-  );
+  const vGrades = allGrades.filter((g) => vGradeOrder.includes(g));
+  const colorGrades = allGrades.filter((g) => colorGradeOrder.includes(g));
+  const maxV = vGrades.length > 0
+    ? vGrades.reduce((best, g) => vGradeOrder.indexOf(g) > vGradeOrder.indexOf(best) ? g : best)
+    : null;
+  const maxColor = colorGrades.length > 0
+    ? colorGrades.reduce((best, g) => colorGradeOrder.indexOf(g) > colorGradeOrder.indexOf(best) ? g : best)
+    : null;
+  return { vGrade: maxV, colorGrade: maxColor };
 }
 
 export default function BoulderPage() {
   const { projects, recentSessions, gyms } = boulderData;
   const totalSessions = recentSessions.length;
-  const maxGrade = computeMaxGrade(boulderData);
+  const { vGrade: maxVGrade, colorGrade: maxColorGrade } = computeMaxBySystem(boulderData);
 
   return (
     <main className="min-h-screen bg-stone-50 pt-20 pb-24 px-6">
@@ -59,17 +72,23 @@ export default function BoulderPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mb-12">
-          {[
-            { label: "Grade máx.", value: maxGrade, color: "text-orange-600" },
-            { label: "Sessões", value: totalSessions.toString(), color: "text-stone-900" },
-            { label: "Ginásios", value: gyms.length.toString(), color: "text-stone-900" },
-          ].map((s) => (
-            <div key={s.label} className="bg-white rounded-2xl border border-stone-200 p-5">
-              <p className={`text-3xl font-bold ${s.color}`}>{s.value}</p>
-              <p className="text-xs text-stone-400 mt-1 tracking-wider uppercase">{s.label}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-4 gap-4 mb-12">
+          <div className="bg-white rounded-2xl border border-stone-200 p-5">
+            <p className="text-3xl font-bold text-orange-600">{maxVGrade ?? "—"}</p>
+            <p className="text-xs text-stone-400 mt-1 tracking-wider uppercase">V-grade máx.</p>
+          </div>
+          <div className="bg-white rounded-2xl border border-stone-200 p-5">
+            <p className="text-3xl font-bold text-pink-600">{maxColorGrade ?? "—"}</p>
+            <p className="text-xs text-stone-400 mt-1 tracking-wider uppercase">Cor máx.</p>
+          </div>
+          <div className="bg-white rounded-2xl border border-stone-200 p-5">
+            <p className="text-3xl font-bold text-stone-900">{totalSessions}</p>
+            <p className="text-xs text-stone-400 mt-1 tracking-wider uppercase">Sessões</p>
+          </div>
+          <div className="bg-white rounded-2xl border border-stone-200 p-5">
+            <p className="text-3xl font-bold text-stone-900">{gyms.length}</p>
+            <p className="text-xs text-stone-400 mt-1 tracking-wider uppercase">Ginásios</p>
+          </div>
         </div>
 
         {/* Projecting */}
