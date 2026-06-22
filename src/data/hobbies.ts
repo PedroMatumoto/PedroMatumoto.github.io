@@ -32,6 +32,24 @@ export const boulderData = {
   gyms: ["República dos Macacos - SP", "FABRICA Escalada Chacara - SP"],
   projects: [
     {
+      name: "Dyno Lilas",
+      grade: "V3",
+      gym: "República dos Macacos - SP",
+      status: "projecting",
+      attempts: 2,
+      photos: ["/images/bouldering/dyno-lilas.jpg"],
+      notes: "",
+    },
+    {
+      name: "Dyno Laranja",
+      grade: "V2",
+      gym: "República dos Macacos - SP",
+      status: "projecting",
+      attempts: 2,
+      photos: ["/images/bouldering/dyno-laranja.jpg"],
+      notes: "",
+    },
+    {
       name: "Pendurado vermelho",
       grade: "Azul",
       gym: "FABRICA Escalada Chacara - SP",
@@ -123,6 +141,7 @@ export const boulderData = {
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-06-21", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V1", "V1", "V1","V1"], notes: "Primeira sessão com dyno e pinches, novos V2" },
     { date: "2026-06-19", gym: "FABRICA Escalada Chacara - SP", topSends: ["Azul","Azul","Azul","Azul","Rosa","Rosa","Rosa","Rosa","Branco","Branco"], notes: "Primeira sessão na FABRICA Escalada Chacara - SP" },
     { date: "2026-06-15", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1", "V1", "V0"], notes: "Sessão focada em tentar novas rotas e fazer a primeira V3" },
     { date: "2026-05-31", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V2", "V2", "V2", "V1", "V1", "V1", "V1", "V1", "V1", "V0", "V0"], notes: "Sessão focada em refazer movimentos e melhorar técnica" },
