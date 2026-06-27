@@ -141,6 +141,8 @@ export const boulderData = {
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-06-27", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V2", "V2", "V2", "V2", "V1", "V1", "V1", "V0"],
+ notes: "Sessão focada em fazer novas rotas, V2, em negativo agudo" },
     { date: "2026-06-21", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V1", "V1", "V1","V1"], notes: "Primeira sessão com dyno e pinches, novos V2" },
     { date: "2026-06-19", gym: "FABRICA Escalada Chacara - SP", topSends: ["Azul","Azul","Azul","Azul","Rosa","Rosa","Rosa","Rosa","Branco","Branco"], notes: "Primeira sessão na FABRICA Escalada Chacara - SP" },
     { date: "2026-06-15", gym: "República dos Macacos - SP", topSends: ["V2", "V1", "V1", "V1", "V1", "V0"], notes: "Sessão focada em tentar novas rotas e fazer a primeira V3" },
