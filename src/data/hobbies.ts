@@ -8845,6 +8845,7 @@ export interface Trail {
 }
 
 export const trilhasData: Trail[] = [
+    { slug: "alta-via-1",  name: "Alta Via 1", distanceKm: 121.14, elevationM: 7000, difficulty: "DIFÍCIL", done: false, region: "Dolomitas, Itália",      coords: [-43.1810, -22.5090], gpx: "/gpx/dolomita-altavia-1.gpx" },
   { slug: "travessia-petro-tere",  name: "Travessia Petropólis × Teresópolis", distanceKm: 32.23, elevationM: 4696, difficulty: "DIFÍCIL", done: false, region: "Serra dos Órgãos, RJ",      coords: [-43.1810, -22.5090], gpx: "/gpx/travessia-petro-tere.gpx" },
   { slug: "laguna-los-tres",       name: "Laguna de Los Tres",                  distanceKm: 23.35, elevationM: 1159, difficulty: "DIFÍCIL", done: false, region: "El Chaltén, Argentina",     coords: [-73.0594, -49.2742], gpx: "/gpx/laguna-los-tres.gpx" },
   { slug: "temimina-petar",        name: "Temimina — PETAR",                    distanceKm: 9.14,  elevationM: 568,  difficulty: "DIFÍCIL", done: false, region: "Iporanga, SP",              coords: [-48.6631, -24.5868], gpx: "/gpx/temimina-petar.gpx" },
