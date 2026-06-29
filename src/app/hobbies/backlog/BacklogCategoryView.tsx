@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import type { BacklogCategory } from "@/data/hobbies";
+import { useState, useMemo } from "react";
+import type { BacklogCategory, BacklogItemStatus } from "@/data/hobbies";
 
 type BacklogCategoryViewProps = {
   title: string;
@@ -14,15 +17,52 @@ function resolveBacklogCover(rawTitle: string, cover: string | undefined, isMang
   return `/images/mangas/${encodeURIComponent(normalizedTitle)}.jpg`;
 }
 
+const STATUS_OPTIONS: { value: BacklogItemStatus | "all"; label: string }[] = [
+  { value: "all", label: "Todos" },
+  { value: "consumed", label: "Concluídos" },
+  { value: "watching", label: "Watching" },
+  { value: "planned", label: "Planned" },
+  { value: "backlog", label: "Backlog" },
+  { value: "dropped", label: "Dropped" },
+];
+
 export default function BacklogCategoryView({ title, category, accent }: BacklogCategoryViewProps) {
-  const consumed = category.items.filter((item) => item.status === "consumed");
-  const watching = category.items.filter((item) => item.status === "watching" || item.status === "reading");
-  const planned = category.items.filter((item) => item.status === "planned");
-  const dropped = category.items.filter((item) => item.status === "dropped");
-  const backlog = category.items.filter((item) => item.status === "backlog");
-  const rated = consumed.filter((item) => typeof item.rating === "number");
-  const averageRating = rated.length > 0 ? (rated.reduce((sum, item) => sum + (item.rating ?? 0), 0) / rated.length).toFixed(1) : "-";
+  const [search, setSearch] = useState("");
+  const [activeStatus, setActiveStatus] = useState<BacklogItemStatus | "all">("all");
+  const [activeGenre, setActiveGenre] = useState<string | null>(null);
+
   const isMangaCategory = category.label.toLowerCase().includes("mang");
+
+  const allGenres = useMemo(() => {
+    const set = new Set<string>();
+    for (const item of category.items) {
+      for (const g of item.genres ?? []) set.add(g);
+    }
+    return Array.from(set).sort();
+  }, [category.items]);
+
+  const filteredItems = useMemo(() => {
+    return category.items.filter((item) => {
+      const matchesSearch = search.trim() === "" || item.title.toLowerCase().includes(search.toLowerCase());
+      const matchesStatus =
+        activeStatus === "all" ||
+        item.status === activeStatus ||
+        (activeStatus === "watching" && item.status === "reading");
+      const matchesGenre = activeGenre === null || (item.genres ?? []).includes(activeGenre);
+      return matchesSearch && matchesStatus && matchesGenre;
+    });
+  }, [category.items, search, activeStatus, activeGenre]);
+
+  const consumed = filteredItems.filter((item) => item.status === "consumed");
+  const watching = filteredItems.filter((item) => item.status === "watching" || item.status === "reading");
+  const planned = filteredItems.filter((item) => item.status === "planned");
+  const dropped = filteredItems.filter((item) => item.status === "dropped");
+  const backlog = filteredItems.filter((item) => item.status === "backlog");
+
+  const rated = category.items.filter((item) => item.status === "consumed" && typeof item.rating === "number");
+  const averageRating = rated.length > 0 ? (rated.reduce((sum, item) => sum + (item.rating ?? 0), 0) / rated.length).toFixed(1) : "-";
+
+  const isFiltered = search.trim() !== "" || activeStatus !== "all" || activeGenre !== null;
 
   return (
     <main className="min-h-screen bg-stone-50 pt-20 pb-24 px-6">
@@ -46,19 +86,71 @@ export default function BacklogCategoryView({ title, category, accent }: Backlog
             <p className="text-xs text-stone-400 mt-1 uppercase tracking-wider">Total</p>
           </div>
           <div className="bg-white rounded-2xl border border-stone-200 p-3.5">
-            <p className="text-xl font-bold text-green-700">{consumed.length}</p>
+            <p className="text-xl font-bold text-green-700">{category.items.filter((i) => i.status === "consumed").length}</p>
             <p className="text-xs text-stone-400 mt-1 uppercase tracking-wider">Já vi/li/joguei</p>
           </div>
           <div className="bg-white rounded-2xl border border-stone-200 p-3.5">
-            <p className="text-xl font-bold text-sky-700">{watching.length}</p>
+            <p className="text-xl font-bold text-sky-700">{category.items.filter((i) => i.status === "watching" || i.status === "reading").length}</p>
             <p className="text-xs text-stone-400 mt-1 uppercase tracking-wider">Watching</p>
           </div>
           <div className="bg-white rounded-2xl border border-stone-200 p-3.5">
-            <p className="text-xl font-bold text-stone-900">
-              {averageRating}
-            </p>
+            <p className="text-xl font-bold text-stone-900">{averageRating}</p>
             <p className="text-xs text-stone-400 mt-1 uppercase tracking-wider">Nota média</p>
           </div>
+        </div>
+
+        {/* Filters */}
+        <div className="bg-white rounded-2xl border border-stone-200 p-4 mb-8 space-y-4">
+          <input
+            type="search"
+            placeholder="Buscar por título…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full text-sm bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-300"
+          />
+
+          <div className="flex flex-wrap gap-2">
+            {STATUS_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => setActiveStatus(opt.value)}
+                className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
+                  activeStatus === opt.value
+                    ? "bg-stone-800 text-white border-stone-800"
+                    : "bg-stone-50 text-stone-600 border-stone-200 hover:border-stone-400"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          {allGenres.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {allGenres.map((genre) => (
+                <button
+                  key={genre}
+                  onClick={() => setActiveGenre(activeGenre === genre ? null : genre)}
+                  className={`text-[0.65rem] uppercase tracking-[0.14em] px-3 py-1 rounded-full border transition-colors ${
+                    activeGenre === genre
+                      ? "bg-stone-700 text-white border-stone-700"
+                      : "bg-stone-50 text-stone-500 border-stone-200 hover:border-stone-400"
+                  }`}
+                >
+                  {genre}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {isFiltered && (
+            <button
+              onClick={() => { setSearch(""); setActiveStatus("all"); setActiveGenre(null); }}
+              className="text-xs text-stone-400 hover:text-stone-700 transition-colors"
+            >
+              Limpar filtros · {filteredItems.length} resultado{filteredItems.length !== 1 ? "s" : ""}
+            </button>
+          )}
         </div>
 
         <BacklogSection title="Concluídos" items={consumed} tone="green" isMangaCategory={isMangaCategory} />
@@ -66,6 +158,10 @@ export default function BacklogCategoryView({ title, category, accent }: Backlog
         <BacklogSection title="Planned" items={planned} tone="amber" isMangaCategory={isMangaCategory} />
         <BacklogSection title="Dropped" items={dropped} tone="stone" isMangaCategory={isMangaCategory} />
         <BacklogSection title="Backlog" items={backlog} tone="violet" muted isMangaCategory={isMangaCategory} />
+
+        {isFiltered && filteredItems.length === 0 && (
+          <p className="text-center text-stone-400 py-16">Nenhum item encontrado com esses filtros.</p>
+        )}
       </div>
     </main>
   );
