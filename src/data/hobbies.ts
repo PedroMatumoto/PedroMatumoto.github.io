@@ -4,7 +4,7 @@ export type BoulderGrade = "V0" | "V1" | "V2" | "V3" | "V4" | "V5" | "V6" | "V7"
   | "Branco" | "Rosa" | "Azul" | "Verde" | "Vermelho" | "Preto";
 
 /** Gyms that use a color-based grading system instead of V-grades. */
-export const colorGradeGyms = ["FABRICA Escalada Chacara - SP"];
+export const colorGradeGyms = ["FABRICA Escalada Chacara - SP", "FABRICA Escalada Vila - SP"];
 
 /** Color grades ordered from easiest to hardest. */
 export const colorGradeOrder: BoulderGrade[] = ["Branco", "Rosa", "Azul", "Verde", "Vermelho", "Preto"];
@@ -29,7 +29,7 @@ export interface BoulderProject {
 }
 
 export const boulderData = {
-  gyms: ["República dos Macacos - SP", "FABRICA Escalada Chacara - SP"],
+  gyms: ["República dos Macacos - SP", "FABRICA Escalada Chacara - SP", "FABRICA Escalada Vila - SP"],
   projects: [
     {
       name: "Dyno Lilas",
