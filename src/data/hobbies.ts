@@ -32,6 +32,24 @@ export const boulderData = {
   gyms: ["República dos Macacos - SP", "FABRICA Escalada Chacara - SP", "FABRICA Escalada Vila - SP"],
   projects: [
     {
+      name: "Pinch Claro",
+      grade: "Azul",
+      gym: "FABRICA Escalada Vila - SP",
+      status: "projecting",
+      attempts: 2,
+      photos: ["/images/bouldering/azul-pinch-claro.jpg"],
+      notes: "Problemas para começar a rota",
+    },
+    {
+      name: "Pinch Dinamico",
+      grade: "Azul",
+      gym: "FABRICA Escalada Vila - SP",
+      status: "projecting",
+      attempts: 4,
+      photos: ["/images/bouldering/azul-dinamico-roxo.jpg"],
+      notes: "",
+    },
+    {
       name: "Dyno Lilas",
       grade: "V3",
       gym: "República dos Macacos - SP",
@@ -141,6 +159,8 @@ export const boulderData = {
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-07-04", gym: "FABRICA Escalada Vila - SP", topSends: ["Azul", "Azul", "Azul", "Azul", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa"],
+ notes: "Rotas mais voltadas para equilíbrio, pinch azul tier 3" },
     { date: "2026-07-01", gym: "FABRICA Escalada Chacara - SP", topSends: ["Azul", "Azul", "Azul", "Azul", "Azul", "Azul", "Azul", "Rosa", "Rosa"],
  notes: "Primeiras rotas mais voltadas para equilíbrio, pinch com troca de pé flashada" },
     { date: "2026-06-27", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V2", "V2", "V2", "V2", "V1", "V1", "V1", "V0"],
