@@ -14,7 +14,7 @@ const statusConfig = {
   dream: { label: "Sonho", style: "bg-violet-100 text-violet-700 border-violet-200" },
 };
 
-export default function ViagensPage() {
+export default async function ViagensPage() {
   const visited = viagensData.filter((t) => t.status === "visited");
   const planned = viagensData.filter((t) => t.status === "planned");
   const dreams = viagensData.filter((t) => t.status === "dream");
@@ -82,12 +82,17 @@ function TripSection({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {trips.map((trip) => {
           const sc = statusConfig[trip.status];
-          const hasGallery = trip.status === "visited" && (trip.photos ?? []).length > 0;
+          const hasDetails =
+            (trip.photos ?? []).length > 0 ||
+            (trip.itinerary ?? []).length > 0 ||
+            (trip.pointsOfInterest ?? []).length > 0 ||
+            (trip.expenses ?? []).length > 0 ||
+            (trip.shoppingWishlist ?? []).length > 0;
           const Card = (
             <div
               key={trip.slug}
               className={`bg-white rounded-2xl border border-stone-200 p-6 relative overflow-hidden group transition-colors ${
-                hasGallery ? "hover:border-stone-400 cursor-pointer" : ""
+                hasDetails ? "hover:border-stone-400 cursor-pointer" : ""
               }`}
             >
               {/* Flag watermark */}
@@ -131,16 +136,16 @@ function TripSection({
                   </div>
                 )}
 
-                {hasGallery && (
+                {hasDetails && (
                   <p className="text-xs text-stone-400 mt-4 flex items-center gap-1">
-                    <span>{(trip.photos ?? []).length} fotos</span>
+                    <span>Abrir roteiro</span>
                     <span>→</span>
                   </p>
                 )}
               </div>
             </div>
           );
-          return hasGallery ? (
+          return hasDetails ? (
             <Link key={trip.slug} href={`/hobbies/viagens/${trip.slug}`} className="block">
               {Card}
             </Link>

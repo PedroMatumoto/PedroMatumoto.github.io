@@ -6,6 +6,7 @@ import { useMemo, useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { restaurantesData } from "@/data/hobbies";
 import type { RestaurantStatus, Dish } from "@/data/hobbies";
+import RestaurantMap from "@/components/RestaurantMap";
 
 interface LightboxState {
   dishes: Dish[];
@@ -123,6 +124,7 @@ export default function RestaurantesPage() {
   const [cuisineFilter, setCuisineFilter] = useState<string>("all");
   const [priceFilter, setPriceFilter] = useState<number | "all">("all");
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
 
   const openLightbox = useCallback((dishes: Dish[], index: number, restaurantName: string) => {
     setLightbox({ dishes, index, restaurantName });
@@ -146,6 +148,11 @@ export default function RestaurantesPage() {
 
   const visited = restaurantesData.filter((r) => r.status === "visited");
   const want = restaurantesData.filter((r) => r.status === "want");
+  const totalDishPhotos = restaurantesData.reduce((sum, r) => sum + (r.dishes?.length ?? 0), 0);
+  const ratedVisited = visited.filter((r) => (r.rating ?? 0) > 0);
+  const avgRating = ratedVisited.length > 0
+    ? (ratedVisited.reduce((sum, r) => sum + (r.rating ?? 0), 0) / ratedVisited.length).toFixed(1)
+    : "-";
 
   const hasActiveFilters =
     statusFilter !== "all" || locationFilter !== "all" || cuisineFilter !== "all" || priceFilter !== "all";
@@ -196,10 +203,12 @@ export default function RestaurantesPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[
             { label: "Visitados", value: visited.length, color: "text-green-600" },
             { label: "Quero ir", value: want.length, color: "text-rose-600" },
+            { label: "Média (visitados)", value: avgRating, color: "text-amber-600" },
+            { label: "Fotos de pratos", value: totalDishPhotos, color: "text-stone-800" },
           ].map((s) => (
             <div key={s.label} className="bg-white rounded-2xl border border-stone-200 p-5">
               <p className={`text-2xl font-bold ${s.color}`}>{s.value}</p>
@@ -373,123 +382,80 @@ export default function RestaurantesPage() {
           )}
         </div>
 
+        {/* Map */}
+        <section className="mb-8">
+          <h2 className="text-sm font-semibold text-stone-700 uppercase tracking-wider mb-3">Mapa</h2>
+          <RestaurantMap
+            restaurants={list}
+            activeSlug={activeSlug}
+            onRestaurantClick={(slug) => setActiveSlug(slug)}
+          />
+        </section>
+
         {/* List */}
         {list.length === 0 ? (
           <p className="text-stone-400 text-sm text-center py-16">Nenhum restaurante encontrado.</p>
         ) : (
-          <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
             {list.map((r) => (
               <div
                 key={r.slug}
-                className="bg-white rounded-2xl border border-stone-200 overflow-hidden"
+                className="bg-white rounded-2xl border border-stone-200 overflow-hidden transition-all hover:shadow-lg hover:shadow-stone-200/60 hover:-translate-y-0.5"
+                onMouseEnter={() => setActiveSlug(r.slug)}
               >
-                <div className="flex flex-col sm:flex-row">
-                  {/* Left: info */}
-                  <div className="flex-1 min-w-0 p-5 sm:p-6">
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
-                      <div>
-                        <h2 className="font-bold text-stone-900 text-xl">{r.name}</h2>
-                      </div>
-                      <div className="flex flex-col items-end gap-1.5">
-                        <span
-                          className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${statusStyle[r.status]}`}
-                        >
-                          {statusLabel[r.status]}
-                        </span>
-                        {r.rating !== undefined && r.rating > 0 && (
-                          <span className="text-xs text-amber-500 font-medium tracking-wider">
-                            {Array.from({ length: r.rating }, () => STAR).join("")}
-                            <span className="text-stone-200">
-                              {Array.from({ length: 5 - r.rating }, () => STAR).join("")}
-                            </span>
-                          </span>
-                        )}
-                      </div>
+                <div className="p-5">
+                  <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                    <div>
+                      <h2 className="font-bold text-stone-900 text-xl leading-tight">{r.name}</h2>
+                      {r.highlight && <p className="text-sm text-stone-600 mt-1.5">{r.highlight}</p>}
                     </div>
-                    {r.highlight && (
-                      <p className="text-sm text-stone-600 mt-2">{r.highlight}</p>
-                    )}
-                    <div className="flex flex-wrap gap-1.5 mt-3">
-                      <span className="text-xs bg-stone-100 text-stone-600 px-2.5 py-0.5 rounded-full border border-stone-200">
-                        📍 {r.location}
+                    <div className="flex flex-col items-end gap-1.5">
+                      <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${statusStyle[r.status]}`}>
+                        {statusLabel[r.status]}
                       </span>
-                      {r.cuisine.map((c) => (
-                        <span key={c} className="text-xs bg-rose-50 text-rose-700 px-2.5 py-0.5 rounded-full border border-rose-100">
-                          🍽 {c}
-                        </span>
-                      ))}
-                      {r.priceRange !== undefined && (
-                        <span className="text-xs bg-amber-50 text-amber-700 px-2.5 py-0.5 rounded-full border border-amber-100 font-medium">
-                          {PRICE_LABEL[r.priceRange]}
+                      {r.rating !== undefined && r.rating > 0 && (
+                        <span className="text-xs text-amber-500 font-medium tracking-wider">
+                          {Array.from({ length: r.rating }, () => STAR).join("")}
+                          <span className="text-stone-200">
+                            {Array.from({ length: 5 - r.rating }, () => STAR).join("")}
+                          </span>
                         </span>
                       )}
                     </div>
-                    {r.visitedDate && (
-                      <p className="text-xs text-stone-400 mt-2">
-                        Visitado em{" "}
-                        {new Date(r.visitedDate).toLocaleDateString("pt-BR", {
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </p>
-                    )}
-                    {r.dishes && r.dishes.length > 0 && (
-                      <p className="text-xs text-stone-400 mt-3 uppercase tracking-widest">
-                        {r.dishes.length} foto{r.dishes.length !== 1 ? "s" : ""}
-                      </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    <span className="text-xs bg-stone-100 text-stone-600 px-2.5 py-0.5 rounded-full border border-stone-200">
+                      📍 {r.location}
+                    </span>
+                    {r.cuisine.map((c) => (
+                      <span key={c} className="text-xs bg-rose-50 text-rose-700 px-2.5 py-0.5 rounded-full border border-rose-100">
+                        🍽 {c}
+                      </span>
+                    ))}
+                    {r.priceRange !== undefined && (
+                      <span className="text-xs bg-amber-50 text-amber-700 px-2.5 py-0.5 rounded-full border border-amber-100 font-medium">
+                        {PRICE_LABEL[r.priceRange]}
+                      </span>
                     )}
                   </div>
 
-                  {/* Right: dishes photo strip */}
-                  {r.dishes && r.dishes.length > 0 && (
-                    <div className="sm:flex sm:gap-1.5 sm:p-3 sm:pl-0 sm:items-stretch hidden">
-                      {r.dishes.slice(0, 3).map((dish, i) => (
-                        <button
-                          key={i}
-                          className="group relative w-28 shrink-0 text-left"
-                          onClick={() => openLightbox(r.dishes!, i, r.name)}
-                          aria-label={`Ver foto: ${dish.name}`}
-                        >
-                          <div className="relative w-full h-full min-h-[96px] rounded-xl overflow-hidden bg-stone-100">
-                            {dish.photo ? (
-                              <Image
-                                src={dish.photo}
-                                alt={dish.name}
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                unoptimized
-                              />
-                            ) : (
-                              <div className="flex items-center justify-center h-full">
-                                <span className="text-3xl font-serif text-stone-300">皿</span>
-                              </div>
-                            )}
-                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-1.5 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                              <p className="text-[0.6rem] text-white leading-tight line-clamp-2">{dish.name}</p>
-                            </div>
-                          </div>
-                        </button>
-                      ))}
-                      {r.dishes.length > 3 && (
-                        <button
-                          className="w-12 shrink-0 flex items-center justify-center hover:text-stone-700 transition-colors"
-                          onClick={() => openLightbox(r.dishes!, 3, r.name)}
-                          aria-label={`Ver mais ${r.dishes.length - 3} fotos`}
-                        >
-                          <span className="text-xs text-stone-400 font-medium">+{r.dishes.length - 3}</span>
-                        </button>
-                      )}
-                    </div>
+                  {r.visitedDate && (
+                    <p className="text-xs text-stone-400 mt-2">
+                      Visitado em {new Date(r.visitedDate).toLocaleDateString("pt-BR", { month: "long", year: "numeric" })}
+                    </p>
                   )}
 
-                  {/* Mobile: horizontal scroll photo strip */}
                   {r.dishes && r.dishes.length > 0 && (
-                    <div className="sm:hidden overflow-x-auto px-5 pb-4">
-                      <div className="flex gap-2" style={{ width: "max-content" }}>
-                        {r.dishes.map((dish, i) => (
+                    <>
+                      <p className="text-xs text-stone-400 mt-3 uppercase tracking-widest">
+                        {r.dishes.length} foto{r.dishes.length !== 1 ? "s" : ""}
+                      </p>
+                      <div className="grid grid-cols-3 gap-2 mt-2">
+                        {r.dishes.slice(0, 3).map((dish, i) => (
                           <button
                             key={i}
-                            className="group relative shrink-0 w-28 h-28 text-left"
+                            className="group relative h-24 text-left"
                             onClick={() => openLightbox(r.dishes!, i, r.name)}
                             aria-label={`Ver foto: ${dish.name}`}
                           >
@@ -499,7 +465,7 @@ export default function RestaurantesPage() {
                                   src={dish.photo}
                                   alt={dish.name}
                                   fill
-                                  className="object-cover"
+                                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                                   unoptimized
                                 />
                               ) : (
@@ -514,7 +480,16 @@ export default function RestaurantesPage() {
                           </button>
                         ))}
                       </div>
-                    </div>
+                      {r.dishes.length > 3 && (
+                        <button
+                          className="mt-2 text-xs text-stone-500 hover:text-stone-700 transition-colors"
+                          onClick={() => openLightbox(r.dishes!, 3, r.name)}
+                          aria-label={`Ver mais ${r.dishes.length - 3} fotos`}
+                        >
+                          +{r.dishes.length - 3} foto{r.dishes.length - 3 !== 1 ? "s" : ""}
+                        </button>
+                      )}
+                    </>
                   )}
                 </div>
               </div>

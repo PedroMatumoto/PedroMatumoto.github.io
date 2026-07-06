@@ -9233,6 +9233,51 @@ export interface TripPhoto {
   span?: "wide" | "tall" | "normal";
 }
 
+export interface TripItineraryStop {
+    day: string;
+    place: string;
+    title: string;
+    planPt: string;
+    planLocal?: string;
+}
+
+export interface TripPointOfInterest {
+    name: string;
+    coords: [number, number];
+    category?: "food" | "culture" | "nature" | "shopping" | "transport" | "stay" | "other";
+    day: string;
+    notes?: string;
+}
+
+export type TripExpenseCategory =
+    | "stay"
+    | "food"
+    | "transport"
+    | "activities"
+    | "shopping"
+    | "other";
+
+export interface TripExpense {
+    label: string;
+    category: TripExpenseCategory;
+    amount: number;
+    currency: string;
+    notes?: string;
+}
+
+export type TripWishlistPriority = "high" | "medium" | "low";
+export type TripWishlistStatus = "wish" | "bought";
+
+export interface TripWishlistItem {
+    item: string;
+    store?: string;
+    note?: string;
+    estimatedPrice?: number;
+    currency?: string;
+    priority?: TripWishlistPriority;
+    status?: TripWishlistStatus;
+}
+
 export interface Trip {
   slug: string;
   name: string;
@@ -9247,21 +9292,136 @@ export interface Trip {
   places?: string[];
   /** Photos for the gallery page */
   photos?: TripPhoto[];
+    /** Day by day itinerary. */
+    itinerary?: TripItineraryStop[];
+    /** Points to pin in mapbox map. */
+    pointsOfInterest?: TripPointOfInterest[];
+    /** Budget and spending items by category. */
+    expenses?: TripExpense[];
+    /** Shopping wishlist for this destination. */
+    shoppingWishlist?: TripWishlistItem[];
 }
 
 export const viagensData: Trip[] = [
-  // Visited
   {
     slug: "japao-2026",
     name: "Japão",
     country: "Japão",
     flag: "🇯🇵",
-    status: "planned",
-    period: "2026",
+    status: "dream",
     tags: ["urbano", "cultura", "gastronomia"],
     highlight: "Tóquio, Kamakura, Kyoto, Nara,Osaka.",
     notes: "Primeira de muitas",
     places: ["Tóquio", "Kyoto", "Osaka", "Nara", "Kamakura"],
+        itinerary: [
+            {
+                day: "Dia 1",
+                place: "Tóquio",
+                title: "Shinjuku + Akihabara",
+                planPt: "Chegada, check-in, passear em Shinjuku e fechar com eletrônicos em Akihabara.",
+                planLocal: "新宿を散歩して、夜は秋葉原へ。",
+            },
+            {
+                day: "Dia 2",
+                place: "Kamakura",
+                title: "Bate-volta de praia e templos",
+                planPt: "Visitar o Grande Buda, Hasedera e voltar para Tóquio no fim da tarde.",
+                planLocal: "鎌倉で大仏と長谷寺を回る。",
+            },
+            {
+                day: "Dia 3",
+                place: "Kyoto",
+                title: "Fushimi Inari + Gion",
+                planPt: "Shinkansen cedo para Kyoto, Fushimi Inari e noite em Gion.",
+                planLocal: "朝に新幹線で京都へ、伏見稲荷と祇園。",
+            },
+            {
+                day: "Dia 4",
+                place: "Nara",
+                title: "Parque de Nara",
+                planPt: "Dia leve em Nara para templos e parque dos cervos.",
+                planLocal: "奈良公園と東大寺をゆっくり回る。",
+            },
+            {
+                day: "Dia 5",
+                place: "Osaka",
+                title: "Dotonbori e despedida",
+                planPt: "Fechar a viagem com comida de rua e compras em Dotonbori.",
+                planLocal: "道頓堀で食べ歩きと買い物。",
+            },
+        ],
+        pointsOfInterest: [
+            {
+                name: "Shinjuku",
+                coords: [139.7006, 35.6896],
+                category: "culture",
+                day: "Dia 1",
+            },
+            {
+                name: "Akihabara",
+                coords: [139.773, 35.6984],
+                category: "shopping",
+                day: "Dia 1",
+            },
+            {
+                name: "Kamakura Daibutsu",
+                coords: [139.5358, 35.3167],
+                category: "culture",
+                day: "Dia 2",
+            },
+            {
+                name: "Fushimi Inari",
+                coords: [135.7727, 34.9671],
+                category: "culture",
+                day: "Dia 3",
+            },
+            {
+                name: "Nara Park",
+                coords: [135.8431, 34.6851],
+                category: "nature",
+                day: "Dia 4",
+            },
+            {
+                name: "Dotonbori",
+                coords: [135.5013, 34.6687],
+                category: "food",
+                day: "Dia 5",
+            },
+        ],
+        expenses: [
+            { label: "Passagem aérea", category: "transport", amount: 6900, currency: "BRL" },
+            { label: "JR Pass / trens", category: "transport", amount: 1800, currency: "BRL" },
+            { label: "Hospedagem", category: "stay", amount: 5200, currency: "BRL" },
+            { label: "Comida", category: "food", amount: 2400, currency: "BRL" },
+            { label: "Ingressos", category: "activities", amount: 900, currency: "BRL" },
+            { label: "Reserva para compras", category: "shopping", amount: 3000, currency: "BRL" },
+        ],
+        shoppingWishlist: [
+            {
+                item: "Faca Gyuto artesanal",
+                store: "Kappabashi",
+                estimatedPrice: 1200,
+                currency: "BRL",
+                priority: "high",
+                status: "wish",
+            },
+            {
+                item: "Tênis Onitsuka Tiger",
+                store: "Onitsuka Flagship",
+                estimatedPrice: 900,
+                currency: "BRL",
+                priority: "medium",
+                status: "wish",
+            },
+            {
+                item: "Kit matcha + chasen",
+                store: "Loja de chá em Kyoto",
+                estimatedPrice: 280,
+                currency: "BRL",
+                priority: "low",
+                status: "wish",
+            },
+        ],
   },
   {
     slug: "patagonia",
@@ -9272,9 +9432,200 @@ export const viagensData: Trip[] = [
     tags: ["trekking", "natureza", "aventura"],
     highlight: "El Chaltén, El Calafate e Perito Moreno.",
     notes: "Primeira vez no gelo, Laguna de los tres, Laguna Torre, Laguna Capri, Glaciar Perito Moreno.",
-    places: ["El Chaltén", "El Calafate", "Perito Moreno"]
+    places: ["El Chaltén", "El Calafate", "Perito Moreno"],
+    itinerary: [
+        {
+        "day": "Dia 1",
+        "place": "Ushuaia",
+        "title": "Chegada no Fim do Mundo",
+        "planPt": "Desembarque, transfer para o hotel e caminhada leve pelo centro para ambientação.",
+        "planLocal": "Llegada, traslado al hotel y caminata por el centro de Ushuaia."
+        },
+        {
+        "day": "Dia 2",
+        "place": "Ushuaia",
+        "title": "Tierra del Fuego e Trem",
+        "planPt": "Passeio no Parque Nacional Tierra del Fuego incluindo a viagem no Trem do Fim do Mundo.",
+        "planLocal": "Visita al Parque Nacional Tierra del Fuego y viaje en el Tren del Fin del Mundo."
+        },
+        {
+        "day": "Dia 3",
+        "place": "Ushuaia",
+        "title": "Canal Beagle e Pinguins",
+        "planPt": "Navegação pelo Canal Beagle, farol Les Eclaireurs e caminhada com pinguins na Isla Martillo (Piratour).",
+        "planLocal": "Navegación por el Canal Beagle y caminata en la Pingüinera."
+        },
+        {
+        "day": "Dia 4",
+        "place": "El Calafate",
+        "title": "Voo para a Terra dos Glaciares",
+        "planPt": "Transfer ao aeroporto de Ushuaia, voo para El Calafate (FTE), check-in e jantar no centro.",
+        "planLocal": "Vuelo de Ushuaia a El Calafate y tarde libre."
+        },
+        {
+        "day": "Dia 5",
+        "place": "El Calafate",
+        "title": "Glaciar Perito Moreno",
+        "planPt": "Dia inteiro no Parque Los Glaciares. Minitrekking sobre o gelo e Safari Náutico.",
+        "planLocal": "Día completo en el Glaciar Perito Moreno con Minitrekking y Safari Náutico."
+        },
+        {
+        "day": "Dia 6",
+        "place": "El Calafate",
+        "title": "Passarelas e Natureza",
+        "planPt": "Segundo dia no Parque Los Glaciares (aproveitando a segunda entrada) para explorar as passarelas com calma.",
+        "planLocal": "Recorrido por las pasarelas del Parque Nacional Los Glaciares."
+        },
+        {
+        "day": "Dia 7",
+        "place": "El Chaltén",
+        "title": "Viagem à Capital do Trekking",
+        "planPt": "Ônibus de El Calafate para El Chaltén. Tarde livre para trilhas curtas como o Mirador de los Cóndores.",
+        "planLocal": "Viaje en autobús a El Chaltén y senderos cortos."
+        },
+        {
+        "day": "Dia 8",
+        "place": "El Chaltén",
+        "title": "Trekking Fitz Roy ou Cerro Torre",
+        "planPt": "Dia de trilha intensa (Laguna de los Tres ou Laguna Torre) explorando a base das montanhas.",
+        "planLocal": "Trekking de día completo hacia Laguna de los Tres o Cerro Torre."
+        },
+        {
+        "day": "Dia 9",
+        "place": "El Calafate",
+        "title": "Retorno e Despedida",
+        "planPt": "Ônibus de volta a El Calafate. Última noite para comprar lembranças e jantar um bom cordeiro patagônico.",
+        "planLocal": "Regreso a El Calafate, compras y cena de despedida."
+        },
+        {
+        "day": "Dia 10",
+        "place": "El Calafate",
+        "title": "Retorno ao Brasil",
+        "planPt": "Transfer ao aeroporto de El Calafate e voos de retorno (FTE - BUE - SP).",
+        "planLocal": "Traslado al aeropuerto y vuelo de regreso."
+        }
+    ],
+    pointsOfInterest: [
+        {
+        "name": "Aeroporto de Ushuaia (USH)",
+        "coords": [-68.2958, -54.8433],
+        "category": "transport",
+        "day": "Dia 1"
+        },
+        {
+        "name": "Parque Nacional Tierra del Fuego",
+        "coords": [-68.4485, -54.8384],
+        "category": "nature",
+        "day": "Dia 2"
+        },
+        {
+        "name": "Isla Martillo (Pingüinera)",
+        "coords": [-67.4300, -54.8800],
+        "category": "nature",
+        "day": "Dia 3"
+        },
+        {
+        "name": "Aeroporto de El Calafate (FTE)",
+        "coords": [-72.0527, -50.2804],
+        "category": "transport",
+        "day": "Dia 4"
+        },
+        {
+        "name": "Glaciar Perito Moreno",
+        "coords": [-73.0366, -50.4965],
+        "category": "nature",
+        "day": "Dia 5"
+        },
+        {
+        "name": "El Chaltén",
+        "coords": [-72.8860, -49.3315],
+        "category": "nature",
+        "day": "Dia 7"
+        }
+    ],
+    expenses: [
+        {
+        "label": "Passagem Aérea Int. (SP - BUE - FTE)",
+        "category": "transport",
+        "amount": 3500.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Voo Interno (USH - FTE)",
+        "category": "transport",
+        "amount": 2500.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Transfer Ushuaia (Aeroporto <-> Centro)",
+        "category": "transport",
+        "amount": 140.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Transfer El Calafate (Aeroporto <-> Centro)",
+        "category": "transport",
+        "amount": 245.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Ônibus (Calafate <-> Chaltén)",
+        "category": "transport",
+        "amount": 445.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Hospedagem (9 noites)",
+        "category": "stay",
+        "amount": 4500.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Alimentação",
+        "category": "food",
+        "amount": 3000.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Tours e Ingressos (PNs, Trem, Beagle, Trekking, Náutico)",
+        "category": "activities",
+        "amount": 4246.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Seguro Viagem (Cobertura Esportes)",
+        "category": "other",
+        "amount": 400.00,
+        "currency": "BRL"
+        }
+    ],
+    shoppingWishlist: [
+        {
+        "item": "Alfajores Patagônicos (ex: Ovejitas de la Patagonia)",
+        "store": "Centro de El Calafate",
+        "estimatedPrice": 120.00,
+        "currency": "BRL",
+        "priority": "high",
+        "status": "wish"
+        },
+        {
+        "item": "Vinho Malbec Argentino",
+        "store": "Supermercado/Enoteca em Ushuaia",
+        "estimatedPrice": 90.00,
+        "currency": "BRL",
+        "priority": "medium",
+        "status": "wish"
+        },
+        {
+        "item": "Equipamento de frio/trekking (Segunda pele ou meias)",
+        "store": "Lojas de montanhismo em El Chaltén",
+        "estimatedPrice": 250.00,
+        "currency": "BRL",
+        "priority": "low",
+        "status": "wish"
+        }
+    ]
   },
-  // dream / on the radar
   {
     slug: "islandia",
     name: "Islândia",
@@ -9294,6 +9645,150 @@ export const viagensData: Trip[] = [
     tags: ["trekking", "natureza", "W-circuit"],
     highlight: "W-Circuit de 5 dias com camping.",
     notes: "Reservar torres early — vagas esgotam 6 meses antes.",
+    "itinerary": [
+        {
+        "day": "Dia 1",
+        "place": "Torres del Paine",
+        "title": "Trekking Base Torres",
+        "planPt": "Ônibus de Puerto Natales para o parque. Trilha até o Mirador Base Torres e retorno para pernoite no Refúgio Central ou Chileno.",
+        "planLocal": "Bus al parque y trekking al Mirador Base Las Torres. Noche en Sector Central/Chileno."
+        },
+        {
+        "day": "Dia 2",
+        "place": "Torres del Paine",
+        "title": "Caminhada até Los Cuernos",
+        "planPt": "Trilha margeando o Lago Nordenskjöld, aos pés do Maciço Paine, até o Setor Francés ou Cuernos.",
+        "planLocal": "Caminata bordeando el Lago Nordenskjöld hasta el Refugio Cuernos o Francés."
+        },
+        {
+        "day": "Dia 3",
+        "place": "Torres del Paine",
+        "title": "Valle del Francés",
+        "planPt": "Subida ao Mirador Francés e Británico (o coração do 'W') e descida contínua até o Refúgio Paine Grande.",
+        "planLocal": "Ascenso al Valle del Francés y caminata hacia el Refugio Paine Grande."
+        },
+        {
+        "day": "Dia 4",
+        "place": "Torres del Paine",
+        "title": "Glaciar Grey",
+        "planPt": "Caminhada de Paine Grande até o Setor Grey. Tarde para contemplar as paredes de gelo do glaciar.",
+        "planLocal": "Trekking al Sector Grey y tarde para ver el Glaciar Grey."
+        },
+        {
+        "day": "Dia 5",
+        "place": "Puerto Natales",
+        "title": "Navegação e Retorno",
+        "planPt": "Manhã livre no Grey. Navegação de catamarã pelo Lago Grey até o Hotel Lago Grey e ônibus de volta a Puerto Natales.",
+        "planLocal": "Navegación por el Lago Grey y retorno en bus a Puerto Natales."
+        },
+        {
+        "day": "Dia 6",
+        "place": "Puerto Natales",
+        "title": "Recuperação",
+        "planPt": "Dia de descanso em Puerto Natales, ideal para uma pizza de comemoração na Mesita Grande.",
+        "planLocal": "Día de descanso, celebración y buena comida en Puerto Natales."
+        }
+    ],
+    "pointsOfInterest": [
+        {
+        "name": "Refúgio Central / Chileno",
+        "coords": [-72.9772, -50.9701],
+        "category": "stay",
+        "day": "Dia 1"
+        },
+        {
+        "name": "Refúgio Los Cuernos",
+        "coords": [-73.0116, -51.0425],
+        "category": "stay",
+        "day": "Dia 2"
+        },
+        {
+        "name": "Mirador Valle del Francés",
+        "coords": [-73.0786, -51.0118],
+        "category": "nature",
+        "day": "Dia 3"
+        },
+        {
+        "name": "Refúgio Paine Grande",
+        "coords": [-73.1118, -51.0664],
+        "category": "stay",
+        "day": "Dia 3"
+        },
+        {
+        "name": "Refúgio Grey",
+        "coords": [-73.1363, -51.0289],
+        "category": "stay",
+        "day": "Dia 4"
+        }
+    ],
+    "expenses": [
+        {
+        "label": "Passagem Aérea (SP <-> PUQ)",
+        "category": "transport",
+        "amount": 2400.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Ônibus (PUQ <-> Natales <-> Parque)",
+        "category": "transport",
+        "amount": 280.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Entrada Parque Nacional (Pase +3 dias)",
+        "category": "activities",
+        "amount": 300.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Hospedagem Puerto Natales (2 noites nas pontas)",
+        "category": "stay",
+        "amount": 500.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Circuito W: Hospedagem Refúgios (Cama Armada 4 Noites)",
+        "category": "stay",
+        "amount": 2800.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Circuito W: Pensão Completa (4 dias de café, almoço de trilha e jantar)",
+        "category": "food",
+        "amount": 1900.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Navegação Glaciar Grey (One-way para saída do parque)",
+        "category": "activities",
+        "amount": 550.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Seguro Viagem (Cobertura Trekking/Resgate)",
+        "category": "other",
+        "amount": 250.00,
+        "currency": "BRL"
+        }
+    ],
+    "shoppingWishlist": [
+        {
+        "item": "Mochila Cargueira 40L-50L (Aluguel ou Compra)",
+        "store": "Lojas Outdoor Natales",
+        "estimatedPrice": 200.00,
+        "currency": "BRL",
+        "priority": "high",
+        "status": "wish"
+        },
+        {
+        "item": "Meias de Lã Merino para Trekking",
+        "store": "Decathlon / Lojas Locais",
+        "estimatedPrice": 120.00,
+        "currency": "BRL",
+        "priority": "high",
+        "status": "wish"
+        }
+    ]
   },
   {
     slug: "dolomitas",
@@ -9303,6 +9798,152 @@ export const viagensData: Trip[] = [
     status: "dream",
     tags: ["trekking", "via ferrata", "alpinismo"],
     highlight: "Alta Via 1, Tre Cime di Lavaredo.",
+    "itinerary": [
+        {
+        "day": "Dia 1",
+        "place": "Lago di Braies",
+        "title": "O Espelho das Dolomitas",
+        "planPt": "Deslocamento ao Estacionamento P4 com reserva prévia. Caminhada de circunavegação do lago e opcional de barco a remo[cite: 1].",
+        "planLocal": "Parcheggio P4 (prenotazione obbligatoria) e giro del Lago di Braies[cite: 1]."
+        },
+        {
+        "day": "Dia 2",
+        "place": "Cadini di Misurina",
+        "title": "As Torres de Mordor",
+        "planPt": "Passagem pelo pedágio da estrada Auronzo, caminhada até o mirante de Cadini di Misurina e loop das Tre Cime di Lavaredo."
+        },
+        {
+        "day": "Dia 3",
+        "place": "Passo Falzarego",
+        "title": "Reflexos e História Militar",
+        "planPt": "Trilha matinal fácil para o Lago Limedes e subida ao cume pelo Teleférico Lagazuoi."
+        },
+        {
+        "day": "Dia 4",
+        "place": "Col de la Puina",
+        "title": "O Trono de Deus",
+        "planPt": "Trilha a partir do Passo Staulanza até o Rifugio Città di Fiume e Col de la Puina. Transferência para a Base Ocidental à tarde."
+        },
+        {
+        "day": "Dia 5",
+        "place": "Alpe di Siusi",
+        "title": "O Maior Altiplano da Europa",
+        "planPt": "Subida antecipada (antes das 09h) para o Estacionamento P2 em Compatsch. Aluguel de E-Bikes para explorar o planalto."
+        },
+        {
+        "day": "Dia 6",
+        "place": "Seceda e Santa Maddalena",
+        "title": "A Catedral Gótica e o Cartão Postal",
+        "planPt": "Teleférico para Seceda pela manhã. À tarde, visita a San Giovanni in Ranui e caminhada Panoramaweg no Val di Funes para o pôr do sol."
+        },
+        {
+        "day": "Dia 7",
+        "place": "Lago di Carezza",
+        "title": "O Lago do Arco-Íris",
+        "planPt": "Check-out da base, caminhada ao redor do Lago di Carezza e retorno ao Aeroporto de Veneza para devolução do carro."
+        }
+    ],
+    "pointsOfInterest": [
+        {
+        "name": "Aeroporto Marco Polo (VCE)",
+        "coords": [12.3387, 45.5052],
+        "category": "transport",
+        "day": "Dia 1"
+        },
+        {
+        "name": "Lago di Braies",
+        "coords": [12.0850, 46.6946],
+        "category": "nature",
+        "day": "Dia 1"
+        },
+        {
+        "name": "Mirante Cadini di Misurina",
+        "coords": [12.2965, 46.5817],
+        "category": "nature",
+        "day": "Dia 2"
+        },
+        {
+        "name": "Lago Limedes",
+        "coords": [12.0084, 46.5186],
+        "category": "nature",
+        "day": "Dia 3"
+        },
+        {
+        "name": "Col de la Puina",
+        "coords": [12.1154, 46.4312],
+        "category": "nature",
+        "day": "Dia 4"
+        },
+        {
+        "name": "Alpe di Siusi (Compatsch)",
+        "coords": [11.6180, 46.5401],
+        "category": "nature",
+        "day": "Dia 5"
+        },
+        {
+        "name": "Seceda",
+        "coords": [11.7275, 46.5986],
+        "category": "nature",
+        "day": "Dia 6"
+        },
+        {
+        "name": "Santa Maddalena (Val di Funes)",
+        "coords": [11.7167, 46.6406],
+        "category": "culture",
+        "day": "Dia 6"
+        },
+        {
+        "name": "Lago di Carezza",
+        "coords": [11.5750, 46.4093],
+        "category": "nature",
+        "day": "Dia 7"
+        }
+    ],
+    "expenses": [
+        {
+        "label": "Transporte Aéreo (GRU-VCE)",
+        "category": "transport",
+        "amount": 5440.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Locação de Veículo (Categoria Compacta)",
+        "category": "transport",
+        "amount": 1920.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Combustível e Pedágios",
+        "category": "transport",
+        "amount": 800.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Hospedagem (Dupla Base Operacional)",
+        "category": "stay",
+        "amount": 3456.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Alimentação (Restaurantes e Refúgios)",
+        "category": "food",
+        "amount": 2240.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Atividades e Permissões (Estacionamentos e Teleféricos)[cite: 1]",
+        "category": "activities",
+        "amount": 1440.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Fundo de Contingência",
+        "category": "shopping",
+        "amount": 960.00,
+        "currency": "BRL"
+        }
+    ],
+    "shoppingWishlist": []
   },
   {
     slug: "portugal",
@@ -9341,7 +9982,163 @@ export const viagensData: Trip[] = [
     status: "dream",
     tags: ["natureza", "aventura"],
     highlight: "Salar de Uyuni, Laguna Colorada, Isla Incahuasi, Árbol de Piedra",
-
+    "itinerary": [
+        {
+        "day": "Dia 1",
+        "place": "Santa Cruz de la Sierra",
+        "title": "Chegada e Aclimatação Inicial",
+        "planPt": "Desembarque no Aeroporto Viru Viru (VVI). Transfer de táxi ou van para o centro da cidade e pernoite em hotel para aclimatação inicial à altitude (400m).",
+        "planLocal": "Llegada al Aeropuerto Viru Viru y traslado al hotel en el centro de Santa Cruz."
+        },
+        {
+        "day": "Dia 2",
+        "place": "Sucre",
+        "title": "Subida Gradual",
+        "planPt": "Voo doméstico da BoA de Santa Cruz para Sucre. Check-in em hostal próximo à Plaza 25 de Mayo para aclimatação intermediária.",
+        "planLocal": "Vuelo a Sucre y tarde libre cerca de la Plaza 25 de Mayo."
+        },
+        {
+        "day": "Dia 3",
+        "place": "Rota Sucre - Uyuni",
+        "title": "Travessia da Cordilheira",
+        "planPt": "Viagem cênica de ônibus semi-cama (aprox. 8 horas) cruzando a cordilheira de Sucre até Uyuni.",
+        "planLocal": "Viaje en autobús semi-cama cruzando la cordillera hacia Uyuni."
+        },
+        {
+        "day": "Dia 4",
+        "place": "Salar de Uyuni",
+        "title": "Expedição Dia 1: O Deserto Branco",
+        "planPt": "Início do tour compartilhado de 3 dias. Visita ao Cemitério de Trens, povoado de Colchani, Monumento Dakar e Isla Incahuasi. Pernoite em hotel de sal.",
+        "planLocal": "Inicio del tour: Cementerio de Trenes, Colchani, Isla Incahuasi y noche en hotel de sal."
+        },
+        {
+        "day": "Dia 5",
+        "place": "Reserva Eduardo Avaroa",
+        "title": "Expedição Dia 2: A Rota das Lagoas",
+        "planPt": "Passagem pelo Salar de Chiguana, Lagoas Altiplânicas (Cañapa, Hedionda), Deserto de Siloli e a famosa Laguna Colorada. Pernoite em refúgio rústico em Huayllajara.",
+        "planLocal": "Ruta de las lagunas, Desierto de Siloli, Laguna Colorada y pernocte en refugio."
+        },
+        {
+        "day": "Dia 6",
+        "place": "Uyuni / La Paz",
+        "title": "Expedição Dia 3 e Deslocamento Noturno",
+        "planPt": "Madrugada nos gêiseres Sol de Mañana, Termas de Polques e Laguna Verde. Retorno a Uyuni à tarde e embarque em Bus Cama noturno para La Paz.",
+        "planLocal": "Geiseres Sol de Mañana, Termas de Polques, retorno a Uyuni y bus nocturno a La Paz."
+        },
+        {
+        "day": "Dia 7",
+        "place": "La Paz",
+        "title": "Chegada à Capital Administrativa",
+        "planPt": "Chegada pela manhã em La Paz. Check-in na região do Centro ou Sopocachi. Dia livre com alimentação extra fora do tour.",
+        "planLocal": "Llegada a La Paz, check-in en Sopocachi y día libre."
+        }
+    ],
+    "pointsOfInterest": [
+        {
+        "name": "Aeroporto Viru Viru (VVI)",
+        "coords": [-63.1353, -17.6448],
+        "category": "transport",
+        "day": "Dia 1"
+        },
+        {
+        "name": "Sucre (Plaza 25 de Mayo)",
+        "coords": [-65.2592, -19.0431],
+        "category": "stay",
+        "day": "Dia 2"
+        },
+        {
+        "name": "Cemitério de Trens",
+        "coords": [-66.8322, -20.4811],
+        "category": "culture",
+        "day": "Dia 4"
+        },
+        {
+        "name": "Isla Incahuasi",
+        "coords": [-67.6250, -20.2430],
+        "category": "nature",
+        "day": "Dia 4"
+        },
+        {
+        "name": "Laguna Colorada",
+        "coords": [-67.7770, -22.2010],
+        "category": "nature",
+        "day": "Dia 5"
+        },
+        {
+        "name": "Geiseres Sol de Mañana",
+        "coords": [-67.7475, -22.4358],
+        "category": "nature",
+        "day": "Dia 6"
+        },
+        {
+        "name": "La Paz (Sopocachi)",
+        "coords": [-68.1235, -16.5100],
+        "category": "stay",
+        "day": "Dia 7"
+        }
+    ],
+    "expenses": [
+        {
+        "label": "Passagem Aérea",
+        "category": "transport",
+        "amount": 1850.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Transfer VVI e Voos/Ônibus Internos",
+        "category": "transport",
+        "amount": 438.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Hospedagem (Santa Cruz, Sucre e La Paz)",
+        "category": "stay",
+        "amount": 420.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Tour Salar (3 Dias) + Taxas e Banhos",
+        "category": "activities",
+        "amount": 1106.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Alimentação Extra (Fora do tour)",
+        "category": "food",
+        "amount": 185.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Saco de Dormir (Aluguel)",
+        "category": "shopping",
+        "amount": 23.00,
+        "currency": "BRL"
+        },
+        {
+        "label": "Chip Celular (Entel)",
+        "category": "shopping",
+        "amount": 23.00,
+        "currency": "BRL"
+        }
+    ],
+    "shoppingWishlist": [
+        {
+        "item": "Dólares em Espécie (Série Nova/Fita Azul)",
+        "store": "Casa de Câmbio no Brasil",
+        "estimatedPrice": 3000.00,
+        "currency": "BRL",
+        "priority": "high",
+        "status": "wish"
+        },
+        {
+        "item": "Sorojchi Pills (Prevenção de Mal de Altitude)",
+        "store": "Farmácia na Bolívia",
+        "estimatedPrice": 30.00,
+        "currency": "BRL",
+        "priority": "high",
+        "status": "wish"
+        }
+    ]
   },
   {
     slug: "atacama",
@@ -9351,7 +10148,171 @@ export const viagensData: Trip[] = [
     status: "dream",
     tags: ["natureza", "aventura"],
     highlight: "Valle de la Luna, Geysers del Tatio, Lagunas Altiplânicas, Valle de las Damas",
-
+    itinerary: [
+        {
+        "day": "Dia 1",
+        "place": "San Pedro de Atacama",
+        "title": "Chegada e Tour Astronômico",
+        "planPt": "Voo de ida até Calama, transfer para San Pedro de Atacama, check-in no hotel e Tour Astronômico à noite.",
+        "planLocal": "Llegada a Calama, traslado a San Pedro y Tour Astronómico por la noche."
+        },
+        {
+        "day": "Dia 2",
+        "place": "San Pedro de Atacama",
+        "title": "Valle de la Luna",
+        "planPt": "Passeio pelo Valle de la Luna para ver as formações rochosas e o pôr do sol.",
+        "planLocal": "Excursión al Valle de la Luna al atardecer."
+        },
+        {
+        "day": "Dia 3",
+        "place": "San Pedro de Atacama",
+        "title": "Lagunas Baltinache",
+        "planPt": "Visita às Lagunas Escondidas de Baltinache para flutuação nas águas super salgadas.",
+        "planLocal": "Visita a las Lagunas Escondidas de Baltinache."
+        },
+        {
+        "day": "Dia 4",
+        "place": "San Pedro de Atacama",
+        "title": "Laguna Cejar e Tebenquiche",
+        "planPt": "Tarde de passeios na Laguna Cejar e apreciação do pôr do sol em Tebenquiche.",
+        "planLocal": "Tarde en Laguna Cejar y atardecer en la laguna Tebenquiche."
+        },
+        {
+        "day": "Dia 5",
+        "place": "Altiplano",
+        "title": "Piedras Rojas e Lagunas Altiplânicas",
+        "planPt": "Tour de dia completo explorando Piedras Rojas e as Lagunas Altiplânicas, com almoço incluso.",
+        "planLocal": "Tour de día completo a Piedras Rojas y Lagunas Altiplánicas."
+        },
+        {
+        "day": "Dia 6",
+        "place": "Geysers del Tatio",
+        "title": "Geysers del Tatio",
+        "planPt": "Passeio de madrugada para ver os Geysers del Tatio em atividade máxima com o frio extremo.",
+        "planLocal": "Excursión de madrugada a los Geysers del Tatio."
+        },
+        {
+        "day": "Dia 7",
+        "place": "Calama",
+        "title": "Rota dos Salares e Retorno",
+        "planPt": "Tour Rota dos Salares / Tara de dia completo com almoço e retorno ao aeroporto de Calama.",
+        "planLocal": "Ruta de los Salares / Tara y regreso al aeropuerto de Calama."
+        }
+    ],
+    "pointsOfInterest": [
+    {
+      "name": "Aeroporto de Calama (CJC)",
+      "coords": [-68.9036, -22.4981],
+      "category": "transport",
+      "day": "Dia 1"
+    },
+    {
+      "name": "San Pedro de Atacama",
+      "coords": [-68.1997, -22.9087],
+      "category": "stay",
+      "day": "Dia 1"
+    },
+    {
+      "name": "Valle de la Luna",
+      "coords": [-68.3242, -22.9103],
+      "category": "nature",
+      "day": "Dia 2"
+    },
+    {
+      "name": "Lagunas Escondidas de Baltinache",
+      "coords": [-68.2711, -23.1098],
+      "category": "nature",
+      "day": "Dia 3"
+    },
+    {
+      "name": "Laguna Cejar",
+      "coords": [-68.2163, -23.0617],
+      "category": "nature",
+      "day": "Dia 4"
+    },
+    {
+      "name": "Piedras Rojas",
+      "coords": [-67.7554, -23.8231],
+      "category": "nature",
+      "day": "Dia 5"
+    },
+    {
+      "name": "Geysers del Tatio",
+      "coords": [-68.0108, -22.3308],
+      "category": "nature",
+      "day": "Dia 6"
+    }
+    ],
+    "expenses": [
+        { 
+        "label": "Passagem aérea (GRU/GIG - Calama)", 
+        "category": "transport", 
+        "amount": 2100.00, 
+        "currency": "BRL" 
+        },
+        { 
+        "label": "Transfer Aeroporto <-> San Pedro", 
+        "category": "transport", 
+        "amount": 210.00, 
+        "currency": "BRL" 
+        },
+        { 
+        "label": "Hospedagem (6 Noites Categoria 3*)", 
+        "category": "stay", 
+        "amount": 2100.00, 
+        "currency": "BRL" 
+        },
+        { 
+        "label": "Alimentação (Diária R$180)", 
+        "category": "food", 
+        "amount": 1260.00, 
+        "currency": "BRL" 
+        },
+        { 
+        "label": "Passeios e Ingressos (Total 7 tours)", 
+        "category": "activities", 
+        "amount": 2286.00, 
+        "currency": "BRL" 
+        },
+        { 
+        "label": "Seguro Viagem (Cobertura Altitude)", 
+        "category": "other", 
+        "amount": 250.00, 
+        "currency": "BRL" 
+        },
+        { 
+        "label": "Fundo de Reserva (Extras)", 
+        "category": "shopping", 
+        "amount": 300.00, 
+        "currency": "BRL" 
+        }
+    ],
+    "shoppingWishlist": [
+        {
+        "item": "Chip de Celular",
+        "store": "Aeroporto / Centro San Pedro",
+        "estimatedPrice": 80.00,
+        "currency": "BRL",
+        "priority": "high",
+        "status": "wish"
+        },
+        {
+        "item": "Lembrancinhas Locais (Artesanato Andino)",
+        "store": "Feira de San Pedro de Atacama",
+        "estimatedPrice": 150.00,
+        "currency": "BRL",
+        "priority": "medium",
+        "status": "wish"
+        },
+        {
+        "item": "Reserva para banheiros e gorjetas (10%)",
+        "store": "Diversos",
+        "estimatedPrice": 70.00,
+        "currency": "BRL",
+        "priority": "high",
+        "status": "wish"
+        }
+    ]
   },
   // Dreams
   {
@@ -9939,8 +10900,20 @@ export const restaurantesData: Restaurant[] = [
         name: "Hira",
         location: "Itaim, São Paulo, SP",
         cuisine: ["Japonesa", "Lamen"],
-        status: "want",
-        rating: 0,
+        status: "visited",
+        rating: 4,
+        dishes: [
+            {
+            name: "Guioza de vegetais",
+            photo: "/images/food/hira1.jpg",
+            notes: "Guioza de vegetais, levemente crocante por fora e macio por dentro, com um recheio saboroso e bem temperado. Acompanha molho de soja para mergulhar, realçando o sabor do prato.",
+            },
+            {
+            name: "Yakiniku Jyu",
+            photo: "/images/food/hira2.jpg",
+            notes: "Yakiniku Jyu, uma combinação de carne grelhada e arroz, servido em uma caixa bento. A carne é suculenta e bem temperada, com um sabor defumado delicioso. Acompanha arroz branco com cebola e ovo mole, proporcionando um equilíbrio perfeito de sabores.",
+            },
+        ],
         highlight: ""
     },
     {
