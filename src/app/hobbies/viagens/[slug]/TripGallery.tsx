@@ -29,8 +29,16 @@ const expenseCategoryLabel: Record<
   other: "Outros",
 };
 
+type TripWishlistPriorityKey = NonNullable<
+  NonNullable<Trip["shoppingWishlist"]>[number]["priority"]
+>;
+
+type TripWishlistStatusKey = NonNullable<
+  NonNullable<Trip["shoppingWishlist"]>[number]["status"]
+>;
+
 const wishlistPriorityLabel: Record<
-  NonNullable<Trip["shoppingWishlist"]>[number]["priority"],
+  TripWishlistPriorityKey,
   string
 > = {
   high: "Alta",
@@ -39,7 +47,7 @@ const wishlistPriorityLabel: Record<
 };
 
 const wishlistStatusLabel: Record<
-  NonNullable<Trip["shoppingWishlist"]>[number]["status"],
+  TripWishlistStatusKey,
   string
 > = {
   wish: "Desejo",
