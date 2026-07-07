@@ -32,6 +32,15 @@ export const boulderData = {
   gyms: ["República dos Macacos - SP", "FABRICA Escalada Chacara - SP", "FABRICA Escalada Vila - SP"],
   projects: [
     {
+      name: "Slab vermelho",
+      grade: "Azul",
+      gym: "FABRICA Escalada Vila - SP",
+      status: "projecting",
+      attempts: 7,
+      photos: ["/images/bouldering/azul-pinch-claro.jpg"],
+      notes: "Faltando técnica pra puxar na direção certa, falta força pra segurar a penúltima agarra",
+    },
+    {
       name: "Pinch Claro",
       grade: "Azul",
       gym: "FABRICA Escalada Vila - SP",
@@ -159,6 +168,8 @@ export const boulderData = {
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-07-09", gym: "FABRICA Escalada Vila - SP", topSends: ["Azul", "Azul", "Azul", "Rosa", "Rosa", "Rosa", "Rosa"],
+ notes: "Foco em sessão com slab, negativo e movimentos dinâmicos" },
     { date: "2026-07-04", gym: "FABRICA Escalada Vila - SP", topSends: ["Azul", "Azul", "Azul", "Azul", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa"],
  notes: "Rotas mais voltadas para equilíbrio, pinch azul tier 3" },
     { date: "2026-07-01", gym: "FABRICA Escalada Chacara - SP", topSends: ["Azul", "Azul", "Azul", "Azul", "Azul", "Azul", "Azul", "Rosa", "Rosa"],
