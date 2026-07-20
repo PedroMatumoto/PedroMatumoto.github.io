@@ -168,6 +168,12 @@ export const boulderData = {
     },
   ] as BoulderProject[],
   recentSessions: [
+    { date: "2026-07-18", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V2", "V2", "V1", "V1", "V1", "V0"],
+ notes: "Sessão focada em ganhar mais confiança tentando movimentos novos, tentando rotas V3" },
+    { date: "2026-07-16", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V1", "V1", "V1", "V1", "V1", "V1", "V1", "V1", "V1", "V1", "V0"],
+ notes: "Sessão focada em resistência" },
+    { date: "2026-07-11", gym: "República dos Macacos - SP", topSends: ["V2", "V2", "V2", "V1", "V1", "V1", "V1", "V1", "V1", "V0"],
+ notes: "Sessão focada em flag e equilíbrio, V2 puxada feita, tentando slabs com mais consistência" },
     { date: "2026-07-09", gym: "FABRICA Escalada Vila - SP", topSends: ["Azul", "Azul", "Azul", "Rosa", "Rosa", "Rosa", "Rosa"],
  notes: "Foco em sessão com slab, negativo e movimentos dinâmicos" },
     { date: "2026-07-04", gym: "FABRICA Escalada Vila - SP", topSends: ["Azul", "Azul", "Azul", "Azul", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa", "Rosa"],
