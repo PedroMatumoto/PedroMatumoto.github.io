@@ -11369,6 +11369,19 @@ export const restaurantesData: Restaurant[] = [
         cuisine: ["Alelo", "Japonesa"],
         status: "visited",
         rating: 5,
+        dishes: [
+            {
+            name: "Oyako Udon",
+            photo: "/images/food/mugui1.jpg",
+            notes: "Udon com frango e ovo, servido em um caldo saboroso e carregado de hondashi. O macarrão é fresco e tem uma textura ótima, absorvendo bem o sabor do caldo. O frango é macio e bem temperado, e o ovo é cozido junto."
+            },
+            {
+            name: "Shoga yaki",
+            photo: "/images/food/mugui2.jpg",
+            notes: ""
+            },
+
+        ],
         highlight: ""
     },
     {
